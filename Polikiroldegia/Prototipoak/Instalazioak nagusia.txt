@@ -1,0 +1,59 @@
+<mockup version="1.0" skin="sketch" measuredW="1047" measuredH="764" mockupW="858" mockupH="713">
+  <controls>
+    <control controlID="155" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="189" y="51" w="858" h="713" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Polikiroldegia%0Ahttp%3A//</text>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="156" controlTypeID="com.balsamiq.mockups::Image" x="206" y="131" w="609" h="105" measuredW="77" measuredH="79" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Logoa%20eta%20izena</text>
+      </controlProperties>
+    </control>
+    <control controlID="157" controlTypeID="com.balsamiq.mockups::Canvas" x="837" y="163" w="171" h="25" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="159" controlTypeID="com.balsamiq.mockups::TextInput" x="837" y="209" w="171" h="-1" measuredW="50" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>******</text>
+      </controlProperties>
+    </control>
+    <control controlID="160" controlTypeID="com.balsamiq.mockups::Label" x="834" y="142" w="-1" h="-1" measuredW="79" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Erabiltzailea%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="161" controlTypeID="com.balsamiq.mockups::Label" x="837" y="188" w="-1" h="-1" measuredW="62" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Pasahitza</text>
+      </controlProperties>
+    </control>
+    <control controlID="162" controlTypeID="com.balsamiq.mockups::Accordion" x="215" y="396" w="150" h="142" measuredW="150" measuredH="273" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>1</selectedIndex>
+        <text>Sarrera%0AInstalazioak%0A-%20Alokatu%0AKurtsoak%0A-%20Izen%20ematea%0ATarifak</text>
+      </controlProperties>
+    </control>
+    <control controlID="163" controlTypeID="com.balsamiq.mockups::Calendar" x="215" y="259" w="150" h="122" measuredW="96" measuredH="96" zOrder="7" locked="false" isInGroup="-1"/>
+    <control controlID="165" controlTypeID="com.balsamiq.mockups::Canvas" x="840" y="266" w="164" h="410" measuredW="100" measuredH="70" zOrder="8" locked="false" isInGroup="-1"/>
+    <control controlID="167" controlTypeID="com.balsamiq.mockups::FieldSet" x="389" y="259" w="426" h="417" measuredW="200" measuredH="170" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Instalazioei%20buruzko%20informazioa</text>
+      </controlProperties>
+    </control>
+    <control controlID="168" controlTypeID="com.balsamiq.mockups::FieldSet" x="215" y="546" w="150" h="130" measuredW="200" measuredH="170" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Kontaktua</text>
+      </controlProperties>
+    </control>
+    <control controlID="169" controlTypeID="com.balsamiq.mockups::Label" x="546" y="692" w="-1" h="-1" measuredW="182" measuredH="21" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Unai%20Gonzalez%20%26%20Iratxe%20Conde%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="170" controlTypeID="com.balsamiq.mockups::Label" x="891" y="453" w="-1" h="-1" measuredW="63" measuredH="21" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Iragarkiak</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

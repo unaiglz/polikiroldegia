@@ -1,0 +1,2 @@
+- Los id dejan de ser varchar, para ser int -- auto-increment
+- 
