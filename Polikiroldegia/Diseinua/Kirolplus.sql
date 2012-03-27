@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 21-03-2012 a las 18:19:42
+-- Tiempo de generación: 27-03-2012 a las 11:35:00
 -- Versión del servidor: 5.1.61
 -- Versión de PHP: 5.3.2-1ubuntu4.14
 
@@ -26,13 +26,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `Alokairua` (
-  `bezeroID` int(11) NOT NULL AUTO_INCREMENT,
+  `bezeroID` varchar(9) NOT NULL,
   `dataOrdua` datetime NOT NULL,
   `instalazioID` int(11) NOT NULL,
   `oharra` varchar(250) DEFAULT 'Ez dago oharrik.',
   PRIMARY KEY (`bezeroID`),
   UNIQUE KEY `instalazioID` (`instalazioID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcar la base de datos para la tabla `Alokairua`
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `Alokairua` (
 --
 
 CREATE TABLE IF NOT EXISTS `Bezeroa` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` varchar(9) NOT NULL,
   `izena` varchar(20) NOT NULL,
   `abizena` varchar(50) DEFAULT NULL,
   `emaila` varchar(50) NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `Bezeroa` (
   `iraungitzeData` date NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `tarifa` (`tarifa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcar la base de datos para la tabla `Bezeroa`
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `Bezeroa` (
 --
 
 CREATE TABLE IF NOT EXISTS `eginDezake` (
-  `monitoreID` int(11) NOT NULL,
+  `monitoreID` varchar(9) NOT NULL,
   `espezialitateID` int(11) NOT NULL,
   PRIMARY KEY (`monitoreID`,`espezialitateID`),
   KEY `espezialitateID` (`espezialitateID`)
@@ -124,9 +124,9 @@ CREATE TABLE IF NOT EXISTS `Instalazioa` (
 
 CREATE TABLE IF NOT EXISTS `Klasea` (
   `kurtsoID` int(11) NOT NULL,
-  `monitoreID` int(11) NOT NULL,
+  `monitoreID` varchar(9) NOT NULL,
   `espezialitatea` int(11) NOT NULL,
-  `bezeroID` int(11) NOT NULL,
+  `bezeroID` varchar(9) NOT NULL,
   PRIMARY KEY (`kurtsoID`,`monitoreID`,`espezialitatea`,`bezeroID`),
   KEY `monitoreID` (`monitoreID`),
   KEY `espezialitatea` (`espezialitatea`),
@@ -181,11 +181,11 @@ CREATE TABLE IF NOT EXISTS `Kurtso_Ordutegia` (
 --
 
 CREATE TABLE IF NOT EXISTS `Monitorea` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` varchar(9) NOT NULL,
   `izena` varchar(30) NOT NULL,
-  `abizena` int(30) NOT NULL,
+  `abizena` varchar(30) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcar la base de datos para la tabla `Monitorea`
@@ -239,6 +239,7 @@ CREATE TABLE IF NOT EXISTS `Tarifa` (
 -- Filtros para la tabla `Alokairua`
 --
 ALTER TABLE `Alokairua`
+  ADD CONSTRAINT `Alokairua_ibfk_2` FOREIGN KEY (`bezeroID`) REFERENCES `Bezeroa` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Alokairua_ibfk_1` FOREIGN KEY (`instalazioID`) REFERENCES `Instalazioa` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
