@@ -1,0 +1,3 @@
+EI_1: Hasierako Pantaila
+EI_2: Izena emateko pantaila
+
