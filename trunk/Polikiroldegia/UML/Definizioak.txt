@@ -1,3 +1,25 @@
 EI_1: Hasierako Pantaila
 EI_2: Izena emateko pantaila
+EI_3: Instalazioak erakusten dituen interfazea
+EI_4: Tarifak erakusten dituen interfazea
+EI_5: Erabiltzailearen hasierako pantaila
+EI_6: Erabiltzailea izena eman duen kurtsoetan erakusten interfazea
+EI_7: 
+EI_8:
+EI_9:
+EI_10:
+EI_11:
+EI_12:
+EI_13:
+EI_14:
+EI_15:
+EI_16:
+EI_17:
+EI_18:
+EI_19:
+EI_20:
+EI_21:
+EI_22:
+EI_23:
+EI_24:
 
