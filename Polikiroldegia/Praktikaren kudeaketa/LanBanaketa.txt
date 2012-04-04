@@ -4,14 +4,15 @@ EGINDA:
 - Tarifak kontsultatu: Unai
 - Instalazioak kontsultatu: Unai
 - Saioa hasi: Iratxe
-- Bere kurtsoak kontsultatu: Unai - TXARTO
+- Bere kurtsoak kontsultatu: Unai
 - Egindako alokairuak kontsultatu: Unai
-- Tarifa berritu: Unai - AMAITU GABE
+- Tarifa berritu: Unai 
 - Kurtsoa hartu: Iratxe
+- Kurtsoak kontsultatu: Unai
 
 EGIN GABE:
 
-- Kurtsoak kontsultatu: Unai
+
 - Saioa itxi: -----
 - Instalazioak alokatu: Iratxe
 - Instalazioak tratatu: Unai
