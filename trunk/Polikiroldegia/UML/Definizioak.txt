@@ -10,7 +10,7 @@ EI_9: Bezeroaren datu pertsonalak erakusten dituen pantaila.
 EI_10: Bezeroaren tarifa aukeraketarako interfazea. Bertan berak duen tarifaren deskribapena 
 EI_11:
 EI_12:
-EI_13:
+EI_13:Tarifa aldatzearen konfirmazioa jasotzeko web orrialdea.
 EI_14:
 EI_15:
 EI_16:
