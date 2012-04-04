@@ -1,18 +1,22 @@
-- Harpidetu
-- Tarifak kontsultatu
-- Kurtsoak kontsultatu
-- Instalazioak kontsultatu
-- Saioa hasi
-- Saioa itxi
-- Bere kurtsoak kontsultatu
-- Egindako alokairuak kontsultatu
-- Instalazioak alokatu
-- Tarifa berritu
-- Kurtsoa hartu
-- Instalazioak tratatu
-- Tarifa tratatu
-- Kurtsoa tratatu
-- Espezialitateak kudeatu
-- Monitoreak kudeatu
-- Bezeroak kudeatu
+EGINDA:
 
+- Harpidetu: Unai
+- Tarifak kontsultatu: Unai
+- Instalazioak kontsultatu: Unai
+- Saioa hasi: Iratxe
+- Bere kurtsoak kontsultatu: Unai - TXARTO
+- Egindako alokairuak kontsultatu: Unai
+- Tarifa berritu: Unai - AMAITU GABE
+- Kurtsoa hartu: Iratxe
+
+EGIN GABE:
+
+- Kurtsoak kontsultatu: Unai
+- Saioa itxi: -----
+- Instalazioak alokatu: Iratxe
+- Instalazioak tratatu: Unai
+- Tarifa tratatu: Unai
+- Kurtsoa tratatu: Unai
+- Espezialitateak kudeatu: Iratxe
+- Monitoreak kudeatu: Iratxe
+- Bezeroak kudeatu: Iratxe 
