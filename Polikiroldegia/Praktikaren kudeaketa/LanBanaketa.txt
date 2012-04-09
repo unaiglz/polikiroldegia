@@ -9,6 +9,7 @@ EGINDA:
 - Tarifa berritu: Unai 
 - Kurtsoa hartu: Iratxe
 - Kurtsoak kontsultatu: Unai
+- Bezeroak kudeatu: Iratxe 
 
 EGIN GABE:
 
@@ -20,4 +21,3 @@ EGIN GABE:
 - Kurtsoa tratatu: Unai
 - Espezialitateak kudeatu: Iratxe
 - Monitoreak kudeatu: Iratxe
-- Bezeroak kudeatu: Iratxe 
