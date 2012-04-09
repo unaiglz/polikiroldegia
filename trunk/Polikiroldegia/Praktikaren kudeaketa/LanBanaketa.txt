@@ -10,6 +10,7 @@ EGINDA:
 - Kurtsoa hartu: Iratxe
 - Kurtsoak kontsultatu: Unai
 - Bezeroak kudeatu: Iratxe 
+- Monitoreak kudeatu: Iratxe - ZALANTZAK
 
 EGIN GABE:
 
@@ -20,4 +21,4 @@ EGIN GABE:
 - Tarifa tratatu: Unai
 - Kurtsoa tratatu: Unai
 - Espezialitateak kudeatu: Iratxe
-- Monitoreak kudeatu: Iratxe
+
