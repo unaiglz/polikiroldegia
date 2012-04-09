@@ -11,14 +11,14 @@ EGINDA:
 - Kurtsoak kontsultatu: Unai
 - Bezeroak kudeatu: Iratxe 
 - Monitoreak kudeatu: Iratxe - ZALANTZAK
+- Espezialitateak kudeatu: Iratxe
 
 EGIN GABE:
-
 
 - Saioa itxi: -----
 - Instalazioak alokatu: Iratxe
 - Instalazioak tratatu: Unai
 - Tarifa tratatu: Unai
 - Kurtsoa tratatu: Unai
-- Espezialitateak kudeatu: Iratxe
+
 
