@@ -9,16 +9,15 @@ EGINDA:
 - Tarifa berritu: Unai 
 - Kurtsoa hartu: Iratxe
 - Kurtsoak kontsultatu: Unai
+- Instalazioak tratatu: Unai
+- Tarifa tratatu: Unai
 - Bezeroak kudeatu: Iratxe 
 - Monitoreak kudeatu: Iratxe - ZALANTZAK
-- Espezialitateak kudeatu: Iratxe
+
 
 EGIN GABE:
 
 - Saioa itxi: -----
 - Instalazioak alokatu: Iratxe
-- Instalazioak tratatu: Unai
-- Tarifa tratatu: Unai
-- Kurtsoa tratatu: Unai
-
+- Monitoreak kudeatu: Iratxe
 

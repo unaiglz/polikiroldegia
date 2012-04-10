@@ -7,19 +7,21 @@ EI_6: Erabiltzailea izena eman duen kurtsoetan erakusten interfazea.
 EI_7: Bezero batek kurtso bat hartu nahi duenean, espezialiatateak erakusten dituen pantaila.
 EI_8: Bezeroak egindako alokairuak erakusten dituen pantaila.
 EI_9: Bezeroaren datu pertsonalak erakusten dituen pantaila.
-EI_10: Bezeroaren tarifa aukeraketarako interfazea. Bertan berak duen tarifaren deskribapena 
+EI_10:Bezeroaren tarifa aukeraketarako interfazea. Bertan berak duen tarifaren deskribapena 
 EI_11:
 EI_12:
 EI_13:Tarifa aldatzearen konfirmazioa jasotzeko web orrialdea.
 EI_14:
 EI_15:
-EI_16:
-EI_17:
-EI_18:
-EI_19:
-EI_20:
-EI_21:
-EI_22:
-EI_23:
-EI_24:
+EI_16:Instalazioa gehitzeko edo bere datuak aldatzeko interfazea.
+EI_17:Instalazioa gehitu edo aldatu denaren hobespena emateko interfazea.(bertan datu guztiak agertuko dira)
+EI_18:Errore mezua . (Zehozer txarto joan dela adierazten du
+EI_19:Instalazioa ezabatu nahi duzunaren konfirmazioa.
+EI_20:Ezabaketa ondo egin denaren konfirmazioa.
+EI_21:Tarifak gehitzeko edo bere datuak aldatzeko interfazea.
+EI_22:Tarifak gehitu edo aldatu denaren hobespena emateko interfazea.(bertan datu guztiak agertuko dira)
+EI_23:Tarifa ezabatu nahi duzunaren konfirmazioa.
+EI_24:Kurtsoak gehitzeko edo bere datuak aldatzeko interfazea. Bertan espezialitatea aukeratuko da, eta bere arabera, dauden monitoreak erakutsiko dira. Azkenik, eskuragarri dagoen ordutegia erakutsiko zaio.
+EI_25:Kutsoak gehitu edo aldatu denaren hobespena emateko interfazea.(bertan datu guztiak agertuko dira)
+EI_26:Kurtsoa ezabatu nahi duzunaren konfirmazioa.
 
