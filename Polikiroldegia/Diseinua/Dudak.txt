@@ -1,6 +1,8 @@
 - Al hacer update: instalazioakEguneratu(...):____ que ponemos, boolean o void? Es decir, comprobamos que se ha llevado a cabo bien, o simplemente lo hacemos y si no funciona, mala suerte?
-- En las 'Ezabatu' hacer solo lo que tengo? O por ejemplo en Tarifa: Cuando elimine una tarifa, que hago? Miro que ningun usuario la tenga activa? Y en el caso de que la tengan cambiarsela por otra parecida? O dejarle sin tarifa?
-- Cuando añadas un curso hay que mirar que no haya otro a la misma hora? Ya miro que el monitor este libre a esa hora!
-- Hay que cambiar el Klase diagrama y el Datu base diagrama, para que coincidan con la nueva reparticion.
-- En Kurtsoa Tratatu: Gehitu, como creo el SQL k3? Desconozco el ID del Kurtsoa.
+	- Try Catch baten bidez, es decir, mala suerte.
+E- En las 'Ezabatu' hacer solo lo que tengo? O por ejemplo en Tarifa: Cuando elimine una tarifa, que hago? Miro que ningun usuario la tenga activa? Y en el caso de que la tengan cambiarsela por otra parecida? O dejarle sin tarifa?
+       - Mientras un usuario tenga la tarifa activa no se puede eliminar del sistema. Cuando no queramos usar la tarifa mas, poner eskuragarri = NO. Y solo se podrá eliminar si ningún usuario la tiene.
+E- Cuando añadas un curso hay que mirar que no haya otro a la misma hora? Ya miro que el monitor este libre a esa hora!
+!!- Hay que cambiar el Klase diagrama y el Datu base diagrama, para que coincidan con la nueva reparticion.
+E- En Kurtsoa Tratatu: Gehitu, como creo el SQL k3? Desconozco el ID del Kurtsoa.
 - 

@@ -1,3 +1,4 @@
+
 EI_1: Hasierako Pantaila.
 EI_2: Izena emateko pantaila.
 EI_3: Instalazioak erakusten dituen interfazea.
@@ -7,21 +8,32 @@ EI_6: Erabiltzailea izena eman duen kurtsoetan erakusten interfazea.
 EI_7: Bezero batek kurtso bat hartu nahi duenean, espezialiatateak erakusten dituen pantaila.
 EI_8: Bezeroak egindako alokairuak erakusten dituen pantaila.
 EI_9: Bezeroaren datu pertsonalak erakusten dituen pantaila.
-EI_10:Bezeroaren tarifa aukeraketarako interfazea. Bertan berak duen tarifaren deskribapena 
-EI_11:
-EI_12:
-EI_13:Tarifa aldatzearen konfirmazioa jasotzeko web orrialdea.
-EI_14:
-EI_15:
-EI_16:Instalazioa gehitzeko edo bere datuak aldatzeko interfazea.
-EI_17:Instalazioa gehitu edo aldatu denaren hobespena emateko interfazea.(bertan datu guztiak agertuko dira)
-EI_18:Errore mezua . (Zehozer txarto joan dela adierazten du
+EI_10: Bezeroaren tarifa aukeraketarako interfazea. Bertan berak duen tarifaren deskribapena 
+EI_11: Administratzailearen hasierako orrialdea.
+EI_12: Bezeroaren datuak dituen formularioa erakusten duen pantaila.
+EI_13: Tarifa aldatzearen konfirmazioa jasotzeko web orrialdea.
+EI_14: Bezeroa ziur ezabatu nahi duela galdetzen duen pantaila.
+EI_15: Bezeroaren informazio guztia (pertsonala, alokairuak, kurtsoak) erakutsiko dituen pantaila.
+EI_16: Instalazioa gehitzeko edo bere datuak aldatzeko interfazea.
+EI_17: Instalazioa gehitu edo aldatu denaren hobespena emateko interfazea. Bertan datu guztiak agertuko dira.
+EI_18: Errore mezua. Zerbait txarto joan dela adierazten du.
 EI_19:Instalazioa ezabatu nahi duzunaren konfirmazioa.
-EI_20:Ezabaketa ondo egin denaren konfirmazioa.
-EI_21:Tarifak gehitzeko edo bere datuak aldatzeko interfazea.
-EI_22:Tarifak gehitu edo aldatu denaren hobespena emateko interfazea.(bertan datu guztiak agertuko dira)
-EI_23:Tarifa ezabatu nahi duzunaren konfirmazioa.
+EI_20: Monitorearen datuak aldatzeko aukera ematen duen formularioa erakusten duen pantaila.
+EI_21: Monitorea ezabatu nahi duen galdetzen duen pantaila.
+EI_22: Monitorea gehitzeko formularioa eskaintzen duen pantaila.
+EI_23: Monitorearen informazio guztia (pertsonala, espezialitatea,kurtsoak) erakutsiko dituen pantaila.
 EI_24:Kurtsoak gehitzeko edo bere datuak aldatzeko interfazea. Bertan espezialitatea aukeratuko da, eta bere arabera, dauden monitoreak erakutsiko dira. Azkenik, eskuragarri dagoen ordutegia erakutsiko zaio.
 EI_25:Kutsoak gehitu edo aldatu denaren hobespena emateko interfazea.(bertan datu guztiak agertuko dira)
 EI_26:Kurtsoa ezabatu nahi duzunaren konfirmazioa.
-
+EI_27: Espezialitatearen informazio guztia (monitoreak, kurtsoak) erakutsiko dituen pantaila.
+EI_28: Bezeroak dituen alokatutako instalazioak erakutsiko dituen pantaila.
+EI_29: Instalazioen zerrenda erakusten duen interfazea.
+EI_30: Instalazio bat alokatzeko data eta ordua aukeratzeko interfazea.
+EI_31: Espezialitatearen datuak aldatzeko aukera ematen duen formularioa erakusten duen pantaila. IRATXE 24
+EI_32: Espezialitatea ezabatu nahi duen galdetzen duen pantaila.IRATXE 25
+EI_33: Espezialitatea gehitzeko formularioa eskaintzen duen pantaila.IRATXE 26
+EI_34: Bezeroa gehitzeko formularioa eskaintzen duen pantaila. IRATXE 19
+EI_35:Ezabaketa ondo egin denaren konfirmazioa. UNAI 20
+EI_36:Tarifak gehitzeko edo bere datuak aldatzeko interfazea.UNAI 21
+EI_37:Tarifak gehitu edo aldatu denaren hobespena emateko interfazea.(bertan datu guztiak agertuko dira)UNAI 22
+EI_38:Tarifa ezabatu nahi duzunaren konfirmazioa.UNAI 23
