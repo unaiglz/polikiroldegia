@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-abr-2012 12:01:44 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pojo.Alokairua" table="Alokairua" catalog="Kirolplus">
+        <id name="bezeroId" type="string">
+            <column name="bezeroID" length="9" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="bezeroa" class="pojo.Bezeroa" update="false" insert="false" fetch="select">
+            <column name="bezeroID" length="9" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="instalazioa" class="pojo.Instalazioa" fetch="select">
+            <column name="instalazioID" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="dataOrdua" type="timestamp">
+            <column name="dataOrdua" length="19" not-null="true" />
+        </property>
+        <property name="oharra" type="string">
+            <column name="oharra" length="250" />
+        </property>
+    </class>
+</hibernate-mapping>

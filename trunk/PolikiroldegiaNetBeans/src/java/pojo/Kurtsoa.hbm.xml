@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-abr-2012 12:01:44 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pojo.Kurtsoa" table="Kurtsoa" catalog="Kirolplus">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="monitorea" class="pojo.Monitorea" fetch="select">
+            <column name="monitoreID" length="9" not-null="true" />
+        </many-to-one>
+        <many-to-one name="espezialitatea" class="pojo.Espezialitatea" fetch="select">
+            <column name="espezialitateID" not-null="true" />
+        </many-to-one>
+        <property name="izena" type="string">
+            <column name="izena" length="15" not-null="true" />
+        </property>
+        <property name="deskribapena" type="string">
+            <column name="deskribapena" length="200" not-null="true" />
+        </property>
+        <property name="bezMax" type="int">
+            <column name="bezMax" not-null="true" />
+        </property>
+        <property name="data" type="date">
+            <column name="data" length="10" not-null="true" />
+        </property>
+        <set name="ordutegias" inverse="false" table="Kurtso_Ordutegia">
+            <key>
+                <column name="kurtsoID" not-null="true" />
+            </key>
+            <many-to-many entity-name="pojo.Ordutegia">
+                <column name="orduID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bezeroas" inverse="false" table="Klasea">
+            <key>
+                <column name="kurtsoID" not-null="true" />
+            </key>
+            <many-to-many entity-name="pojo.Bezeroa">
+                <column name="bezeroID" length="9" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
