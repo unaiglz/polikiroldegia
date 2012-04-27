@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-abr-2012 12:01:44 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pojo.Bezeroa" table="Bezeroa" catalog="Kirolplus">
+        <id name="id" type="string">
+            <column name="ID" length="9" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tarifa" class="pojo.Tarifa" fetch="select">
+            <column name="tarifa" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="izena" type="string">
+            <column name="izena" length="20" not-null="true" />
+        </property>
+        <property name="abizena" type="string">
+            <column name="abizena" length="50" />
+        </property>
+        <property name="emaila" type="string">
+            <column name="emaila" length="50" not-null="true" />
+        </property>
+        <property name="pasahitza" type="string">
+            <column name="pasahitza" length="250" not-null="true" />
+        </property>
+        <property name="jaioData" type="date">
+            <column name="jaioData" length="10" not-null="true" />
+        </property>
+        <property name="aktibo" type="boolean">
+            <column name="aktibo" not-null="true" />
+        </property>
+        <property name="alokairuKop" type="int">
+            <column name="alokairuKop" not-null="true" />
+        </property>
+        <property name="kurtsoKop" type="int">
+            <column name="kurtsoKop" not-null="true" />
+        </property>
+        <property name="iraungitzeData" type="date">
+            <column name="iraungitzeData" length="10" not-null="true" />
+        </property>
+        <set name="alokairuas" inverse="true">
+            <key>
+                <column name="bezeroID" length="9" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="pojo.Alokairua" />
+        </set>
+        <set name="kurtsoas" inverse="false" table="Klasea">
+            <key>
+                <column name="bezeroID" length="9" not-null="true" />
+            </key>
+            <many-to-many entity-name="pojo.Kurtsoa">
+                <column name="kurtsoID" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

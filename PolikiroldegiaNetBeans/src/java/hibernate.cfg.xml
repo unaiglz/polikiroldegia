@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Kirolplus</property>
+    <property name="hibernate.connection.username">teletxe</property>
+    <property name="hibernate.connection.password">softing2010</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+    <mapping resource="pojo/Alokairua.hbm.xml"/>
+    <mapping resource="pojo/Kurtsoa.hbm.xml"/>
+    <mapping resource="pojo/Espezialitatea.hbm.xml"/>
+    <mapping resource="pojo/Ordutegia.hbm.xml"/>
+    <mapping resource="pojo/Bezeroa.hbm.xml"/>
+    <mapping resource="pojo/Tarifa.hbm.xml"/>
+    <mapping resource="pojo/Monitorea.hbm.xml"/>
+    <mapping resource="pojo/Instalazioa.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
