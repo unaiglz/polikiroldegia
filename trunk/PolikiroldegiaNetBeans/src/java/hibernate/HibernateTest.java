@@ -4,12 +4,10 @@
  */
 package hibernate;
 
-import hibernate.*;
-import pojo.*;
 import java.util.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import org.hibernate.*;
+import pojo.Espezialitatea;
 
 /**
  *
@@ -18,34 +16,31 @@ import org.hibernate.*;
 @ManagedBean
 @RequestScoped
 public class HibernateTest {
-    Session session = null;
-    List a = null;
-    Espezialitatea b;
 
-    public HibernateTest(){
-        this.session = HibernateUtil.getSessionFactory().getCurrentSession();
-        this.b = new Espezialitatea("Mota2");
-        inprimatu();
-    }
-    
-     public void inprimatu() {
-        org.hibernate.Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            Query q = session.createQuery("from Bezeroa"); // Esto devuelve una lista de todos los bezero
-            session.save(b); // Esto guarda la tarifa en la base de datos
-            a = q.list();
-            tx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            tx.rollback();
-        } 
-        
+    ArrayList<Espezialitatea> a = new ArrayList<Espezialitatea>();
+    public Espezialitatea balioa;
+
+    /** Creates a new instance of HibernateTest */
+    public HibernateTest() {
+        test();
     }
 
-    public List getA() {
-        return a;
+    public Espezialitatea test() {
+        a = (ArrayList) HibernateKud.getInstance().execHQL("from Espezialitatea");
+        Iterator it = a.listIterator();
+        while (it.hasNext()) {
+            balioa = (Espezialitatea) it.next();
+        }
+        return balioa;
     }
 
-    
+   public String test2() {
+        Espezialitatea inst = new Espezialitatea("Espezialitate4");
+         if (HibernateKud.getInstance().gorde(inst)==true) {
+            return "Test honetan honakoa probatu da: Espezialitate berri bat sortzea, eta hau datu basean sartzea";
+        } else {
+            return "Errorea exekuzioan";
+        }
+
+    }
 }

@@ -67,7 +67,14 @@ public class Espezialitatea  implements java.io.Serializable {
         this.monitoreas = monitoreas;
     }
 
+    @Override
+    public String toString() {
+        return "Espezialitatea{" + "id=" + id + ", izena=" + izena + ", espezialitatea=" + espezialitatea + ", kurtsoas=" + kurtsoas + ", monitoreas=" + monitoreas + '}';
+    }
 
+    
+
+    
 
 
 }
