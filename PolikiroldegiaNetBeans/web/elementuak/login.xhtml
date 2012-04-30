@@ -5,9 +5,26 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Login</title>
+        <h:outputStylesheet name="./resources/css/default.css" />
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:panelGroup rendered="#{user.isLoggedIn()}">
+            <p>Welcome, #{user.unekoa.izena}</p>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{user.isNotLoggedIn()}">
+            <h:form>
+                <div id="login">
+                    Login:<br/>
+                    <h:inputText id="Login" size="30" required="true" requiredMessage="Proporcione su nombre" value="#{user.id}"/> 
+                    <br/>
+                    Contraseña:<br/>
+                    <h:inputSecret id="Contrasena" size="30" required="true" requiredMessage="Proporcione su contraseña" value="#{user.pasahitza}"/> 
+                    <br/>
+                    <h:commandButton value="Enviar" action="#{user.login()}"/>
+                </div>
+
+            </h:form>
+        </h:panelGroup>
     </h:body>
 </html>
 

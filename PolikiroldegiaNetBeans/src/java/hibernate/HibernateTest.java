@@ -6,7 +6,7 @@ package hibernate;
 
 import java.util.*;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.RequestScoped; 
 import pojo.Espezialitatea;
 
 /**
@@ -35,7 +35,7 @@ public class HibernateTest {
     }
 
     public String test2() {
-        Espezialitatea inst = new Espezialitatea("Espezialitate4");
+        Espezialitatea inst = new Espezialitatea("Guapa!");
         if (HibernateKud.getInstance().gorde(inst) == true) {
             return "Test honetan honakoa probatu da: Espezialitate berri bat sortzea, eta hau datu basean sartzea";
         } else {
