@@ -10,7 +10,7 @@ import java.util.*;
 import org.hibernate.*;
 
 /**
- *
+ * Tengo que mirar para que sirve el saverorupdate y los demas metodos que tiene session
  * @author Unai
  */
 public class HibernateKud {
@@ -18,9 +18,6 @@ public class HibernateKud {
     Session session = null;
     private static HibernateKud instance = new HibernateKud();
 
-    /*      this.b = new Espezialitatea("Mota2");
-    inprimatu();
-     */
     private HibernateKud() {
         this.conOpen();
     }
@@ -70,13 +67,23 @@ public class HibernateKud {
         return crit.list();
     }
 
-    
+    public List execSQL(String query) {
+        try {
+            SQLQuery emaitza = session.createSQLQuery(query);
+            return emaitza.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /**
      * Metodo honi objektu baten instantzia pasatzean, datu basean gordetzen du.
      * 
      * @param o Gorde nahi duzun objektuaren instantzia
      * @return true: Dena ondo joan bada || false: errorerik egon bada
-     */public boolean gorde(Object o) {
+     */
+    public boolean gorde(Object o) {
         org.hibernate.Transaction tx = null;
         try {
             tx = session.beginTransaction();

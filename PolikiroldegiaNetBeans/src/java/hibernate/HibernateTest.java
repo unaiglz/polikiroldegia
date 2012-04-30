@@ -34,13 +34,30 @@ public class HibernateTest {
         return balioa;
     }
 
-   public String test2() {
+    public String test2() {
         Espezialitatea inst = new Espezialitatea("Espezialitate4");
-         if (HibernateKud.getInstance().gorde(inst)==true) {
+        if (HibernateKud.getInstance().gorde(inst) == true) {
             return "Test honetan honakoa probatu da: Espezialitate berri bat sortzea, eta hau datu basean sartzea";
         } else {
             return "Errorea exekuzioan";
         }
+
+    }
+
+    public Object test3() {
+        a = (ArrayList) HibernateKud.getInstance().execSQL("SELECT * FROM Espezialitatea WHERE izena = 'Espezialitate3' ");
+        Iterator it = a.listIterator();
+        Object i = null;
+        while (it.hasNext()) {
+            i = it.next();
+            return i.toString();
+        }
+        return i;
+        /*if (HibernateKud.getInstance().gorde(inst) == true) {
+        return "Test honetan honakoa probatu da: Espezialitate berri bat sortzea, eta hau datu basean sartzea";
+        } else {
+        return "Errorea exekuzioan";
+        }*/
 
     }
 }
