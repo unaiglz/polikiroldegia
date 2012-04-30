@@ -11,23 +11,11 @@
     <h:body>
         <ui:composition template="./WEB-INF/Templates/hasierakoOrria.xhtml">
             <ui:define name="content">
-                <h:form>
-                    <div style="width: 900px; height: 150px">
-                        Login:<br/>
-                        <h:inputText id="Login" size="30" required="true" requiredMessage="Proporcione su nombre" value="#{erabiltzaileKudeatzaile.id}"/> 
-                        <br/>
-                        Contraseña:<br/>
-                        <h:inputSecret id="Contrasena" size="30" required="true" requiredMessage="Proporcione su contraseña" value="#{erabiltzaileKudeatzaile.pasahitza}"/> 
-                        <br/>
-                        <h:commandButton value="Enviar" action="#{erabiltzaileKudeatzaile.login()}"/>
-                    </div>
+                
 
-                </h:form>
-                <h:outputText value="#{hibernateTest.test()}"> </h:outputText> 
             </ui:define>
 
         </ui:composition>
-
     </h:body>
 </html>
 

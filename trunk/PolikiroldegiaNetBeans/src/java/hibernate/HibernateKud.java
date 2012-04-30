@@ -8,6 +8,7 @@ import hibernate.*;
 import pojo.*;
 import java.util.*;
 import org.hibernate.*;
+import org.hibernate.criterion.Restrictions;
 
 /**
  * Tengo que mirar para que sirve el saverorupdate y los demas metodos que tiene session
@@ -87,7 +88,7 @@ public class HibernateKud {
         org.hibernate.Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.save(o);
+            session.saveOrUpdate(o);
             tx.commit();
             return true;
         } catch (Exception e) {
