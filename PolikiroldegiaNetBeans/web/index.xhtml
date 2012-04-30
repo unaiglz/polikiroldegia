@@ -10,8 +10,14 @@
     </h:head>
     <h:body>
         <ui:composition template="./WEB-INF/Templates/hasierakoOrria.xhtml">
+
+            <ui:define name="top">
+                <ui:include src="/elementuak/login.xhtml" />
+            </ui:define>
+
             <ui:define name="content">
-                
+
+                <h:outputText value="#{erabiltzaileKudeatzaile.bezeroakLortu()}"> </h:outputText> 
 
             </ui:define>
 

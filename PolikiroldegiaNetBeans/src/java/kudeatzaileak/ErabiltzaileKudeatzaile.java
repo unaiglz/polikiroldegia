@@ -6,15 +6,14 @@ package kudeatzaileak;
 
 import hibernate.HibernateKud;
 import java.util.ArrayList;
-import java.util.Vector;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import org.hibernate.Criteria;
+import org.hibernate.Criteria; 
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import pojo.Bezeroa;
+import zerrendak.BezeroZerrenda;
 
 /**
  *
@@ -40,20 +39,20 @@ public class ErabiltzaileKudeatzaile {
         if (unekoa != null) {
             // Ondo eginda
             // Devuelve una redirección
-            return "la página del administrador";
+            return "administratzailea";
         } else {
             //context.addMessage(null, new FacesMessage("Unknown login, try again"));
             id = pasahitza = null;
-            return "la página del error";
+            return "errorea";
         }
     }
 
     public String logOut() {
         //Sesio aldagaia kentzeko: 
         context.getExternalContext().invalidateSession();
-        return "la página a la que mandarle";
-
+        return "index";
     }
+
 
     public Bezeroa bilatuBezeroa() {
         org.hibernate.Transaction tx = null;
@@ -105,4 +104,17 @@ public class ErabiltzaileKudeatzaile {
     public Bezeroa getUnekoa() {
         return unekoa;
     }
+    
+    public BezeroZerrenda bezeroakLortu(){
+        
+        return new BezeroZerrenda( (ArrayList<Bezeroa>) HibernateKud.getInstance().execHQL("from Bezeroa"));
+        
+    }
+    
+    
+          
+        
+        
+    
+    
 }
