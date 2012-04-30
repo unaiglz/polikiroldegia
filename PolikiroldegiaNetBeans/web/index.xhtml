@@ -1,12 +1,33 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Polikiroldegia</title>
     </h:head>
     <h:body>
-        <h:outputText value="#{hibernateTest.test3()}"> </h:outputText>
+        <ui:composition template="./WEB-INF/Templates/hasierakoOrria.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <div style="width: 900px; height: 150px">
+                        Login:<br/>
+                        <h:inputText id="Login" size="30" required="true" requiredMessage="Proporcione su nombre" value="#{erabiltzaileKudeatzaile.id}"/> 
+                        <br/>
+                        Contraseña:<br/>
+                        <h:inputSecret id="Contrasena" size="30" required="true" requiredMessage="Proporcione su contraseña" value="#{erabiltzaileKudeatzaile.pasahitza}"/> 
+                        <br/>
+                        <h:commandButton value="Enviar" action="#{erabiltzaileKudeatzaile.login()}"/>
+                    </div>
+
+                </h:form>
+                <h:outputText value="#{hibernateTest.test()}"> </h:outputText> 
+            </ui:define>
+
+        </ui:composition>
+
     </h:body>
 </html>
 

@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <title>Polikiroldegia</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">Top</ui:insert>
+        </div>
+        
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                    <h3>MENU NAGUSIA</h3>  
+                    
+                    <h:form>
+                    <p:growl id="messages"/>  <!-- Menuarekin joan behar da-->
+                    
+                    <p:menu type="tiered">  
+                        
+                        <p:submenu label="Sarrera" >  
+                            <p:menuitem value="Informazio orokorra" url="./faces/elementuak/login.xhtml"  />  
+                        </p:submenu>  
+                        
+                        <p:submenu label="Instalazioak">  
+                            <p:menuitem value="Ikusi" url="./faces/instalazioak.xhtml" />  
+                            <p:menuitem value="List" url="./faces/bezeroa/List.xhtml" />
+                            <p:menuitem value="Create" url="./faces/bezeroa/Create.xhtml" />                              
+                        </p:submenu>  
+               
+                        <p:submenu label="Kurtsoak" >  
+                            <p:submenu label="Gimnasioan">  
+                                <p:menuitem value="Spinning" url="http://www.prime.com.tr" />  
+                                <p:menuitem value="Aerobic" url="http://www.primefaces.org" />  
+                            </p:submenu>  
+                            <p:menuitem value="Igerilekuan" url="#{request.contextPath}/touch" />  
+                        </p:submenu>  
+                        
+                        <p:submenu label="Tarifak" url="tarifak.xhtml">  
+                            
+                        </p:submenu>  
+                    </p:menu>  
+                    </h:form>
+                    
+                    <h3>EGUTEGIA</h3>  
+                    
+                    <p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/>
+                
+                </ui:insert>
+            </div>
+            <div>
+                <div id="right">
+                    <ui:insert name="right">Right</ui:insert>
+                </div>
+                <div id="content" class="right_content">
+                    <ui:insert name="content">Content</ui:insert>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <ui:insert name="bottom">Bottom</ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
