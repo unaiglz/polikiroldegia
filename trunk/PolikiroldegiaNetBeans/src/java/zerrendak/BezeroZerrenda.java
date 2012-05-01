@@ -45,6 +45,7 @@ public class BezeroZerrenda{
     public Bezeroa getSelectedBezeroa() {  
         return selectedBezeroa;  
     }  
+    
     public void setSelectedBezeroa(Bezeroa selectedBezeroa) {  
         this.selectedBezeroa = selectedBezeroa;  
     }  
