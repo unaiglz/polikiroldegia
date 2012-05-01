@@ -13,7 +13,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import pojo.Bezeroa;
-import zerrendak.BezeroZerrenda;
+
 
 /**
  *
@@ -105,9 +105,9 @@ public class ErabiltzaileKudeatzaile {
         return unekoa;
     }
     
-    public BezeroZerrenda bezeroakLortu(){
+    public ArrayList<Bezeroa> bezeroakLortu(){
         
-        return new BezeroZerrenda( (ArrayList<Bezeroa>) HibernateKud.getInstance().execHQL("from Bezeroa"));
+        return (ArrayList<Bezeroa>) HibernateKud.getInstance().execHQL("from Bezeroa");
         
     }
     
