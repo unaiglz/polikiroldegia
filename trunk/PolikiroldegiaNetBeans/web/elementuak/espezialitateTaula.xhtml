@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Espezialitate taula</title>
+    </h:head>
+    <h:body>
+        <h:form>  
+            <p:growl id="growl" showDetail="true"/>  
+            <p:dataTable id="basic" var="esp" value="#{espezialitateZerrenda.zerrenda}" emptyMessage="Ez da espezialitaterik aurkitu" paginator="true" rows="10" >  
+
+                <f:facet name="header">  
+                    ESPEZIALITATEAK 
+                </f:facet> 
+
+                <p:column id="idZutabea" filterBy="#{esp.id}" headerText="ID" >  
+                    <h:outputText value="#{esp.id}" />  
+                </p:column> 
+
+                <p:column id="izenaZutabea" filterBy="#{esp.izena}" headerText="IZENA" > 
+                    <h:outputText value="#{esp.izena}" />  
+                </p:column>  
+
+                <p:column id="deskZutabea" filterBy="#{esp.espezialitatea}" headerText="DESKRIBAPENA" >  
+                    <h:outputText value="#{esp.espezialitatea}" />  
+                </p:column>  
+
+                <p:column style="width:40px">  
+                    <h:panelGrid columns="3" styleClass="actions" cellpadding="2">  
+                        <p:commandButton id="selectButton" update=":form:display" oncomplete="espDialog.show()" icon="ui-icon-search" title="View">  
+                            <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
+                        </p:commandButton>  
+                    </h:panelGrid>  
+                </p:column> 
+            </p:dataTable> 
+
+            
+            
+            
+            
+            <p:dialog header="Bezeroari buruzko informazioa" widgetVar="espDialog" resizable="false" id="espDlg"  
+                      showEffect="fade" hideEffect="explode" modal="true">  
+
+                <h:panelGrid id="dis" columns="2" cellpadding="4" style="margin:0 auto;">  
+
+                    <h:outputText value="ID:" />  
+                    <h:outputText value="#{espezialitateZerrenda.selectedEspezialitatea.id}" style="font-weight:bold"/>  
+
+                    <h:outputText value="Izena:" />  
+                    <h:outputText value="#{espezialitateZerrenda.selectedEspezialitatea.izena}" style="font-weight:bold"/>  
+
+                    <h:outputText value="Deskribapena:" />  
+                    <h:outputText value="#{espezialitateZerrenda.selectedEspezialitatea.espezialitatea}" style="font-weight:bold"/>  
+
+                    </h:panelGrid>  
+
+            </p:dialog>  
+        </h:form>  
+    </h:body>
+</html>
+

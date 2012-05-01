@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Bezero taula</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">  
+            <p:growl id="growl" showDetail="true"/>  
+            <p:dataTable id="basic" var="bezeroa" value="#{bezeroZerrenda.zerrenda}" emptyMessage="Ez da bezerorik aurkitu" paginator="true" rows="10" >  
+
+                <f:facet name="header">  
+                    BEZEROAK 
+                </f:facet> 
+
+                <p:column id="idZutabea" filterBy="#{bezeroa.id}" headerText="ID" >  
+                    <h:outputText value="#{bezeroa.id}" />  
+                </p:column> 
+
+                <p:column id="izenaZutabea" filterBy="#{bezeroa.izena}" headerText="IZENA" > 
+                    <h:outputText value="#{bezeroa.izena}" />  
+                </p:column>  
+
+                <p:column id="abizenaZutabea" filterBy="#{bezeroa.abizena}" headerText="ABIZENAK" >  
+                    <h:outputText value="#{bezeroa.abizena}" />  
+                </p:column>  
+
+                <p:column id="emailaZutabea" filterBy="#{bezeroa.emaila}" headerText="E-POSTA" >  
+                    <h:outputText value="#{bezeroa.emaila}" />  
+                </p:column>  
+
+                <p:column style="width:40px">  
+                    <h:panelGrid columns="3" styleClass="actions" cellpadding="2">  
+                        <p:commandButton id="selectButton" update=":form:display" oncomplete="bezeroDialog.show()" icon="ui-icon-search" title="View">  
+                            <f:setPropertyActionListener value="#{bezeroa}" target="#{bezeroZerrenda.selectedBezeroa}" />  
+                        </p:commandButton>  
+                    </h:panelGrid>  
+                </p:column> 
+            </p:dataTable> 
+
+            
+            
+            
+            
+            <p:dialog header="Bezeroari buruzko informazioa" widgetVar="bezeroDialog" resizable="false" id="carDlg"  
+                      showEffect="fade" hideEffect="explode" modal="true">  
+
+                <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto;">  
+
+                    <h:outputText value="Izena:" />  
+                    <h:outputText value="#{bezeroZerrenda.selectedBezeroa.izena}" style="font-weight:bold"/>  
+
+                    <h:outputText value="Abizena:" />  
+                    <h:outputText value="#{bezeroZerrenda.selectedBezeroa.abizena}" style="font-weight:bold"/>  
+
+
+                    <h:outputText value="Jaiotze data:" />  
+                    <h:outputText value="#{bezeroZerrenda.selectedBezeroa.jaioData}" style="font-weight:bold"/>  
+
+                    <h:outputText value="Emaila:" />  
+                    <h:outputText value="#{bezeroZerrenda.selectedBezeroa.emaila}" style="font-weight:bold"/>  
+                    
+                    <h:outputText value="Tarifa:" />  
+                    <h:outputText value="#{bezeroZerrenda.selectedBezeroa.tarifa}" style="font-weight:bold"/>  
+                    
+                    <h:outputText value="Alokairu kopurua:" />  
+                    <h:outputText value="#{bezeroZerrenda.selectedBezeroa.alokairuKop}" style="font-weight:bold"/> 
+                    
+                    <h:outputText value="Kurtso kopurua:" />  
+                    <h:outputText value="#{bezeroZerrenda.selectedBezeroa.kurtsoKop}" style="font-weight:bold"/> 
+                    
+                    <h:outputText value="Iraungitze data:" />  
+                    <h:outputText value="#{bezeroZerrenda.selectedBezeroa.iraungitzeData}" style="font-weight:bold"/> 
+
+                </h:panelGrid>  
+
+            </p:dialog>  
+        </h:form>  
+    </h:body>
+</html>
+

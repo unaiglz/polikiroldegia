@@ -13,13 +13,13 @@
             <ui:define name="top">
                 <div id="login">
                     <h:form>
-                              
-                     <h:commandButton value="Irten" action="#{user.logOut()}"/>
+
+                        <h:commandButton value="Irten" action="#{user.logOut()}"/>
                     </h:form>
-                 
+
                 </div>
             </ui:define>
-            
+
             <ui:define name="content">
                 <p:tabView orientation="right">  
                     <p:tab title="Bezeroak">  
@@ -43,11 +43,11 @@
                     <p:tab title="Tarifak">  
 
                     </p:tab> 
+                    <p:tab title="Espezialitateak">  
+                        <ui:include src="/elementuak/probaTaula.xhtml" />
+                    </p:tab> 
+
                 </p:tabView> 
-
-
-
-
 
             </ui:define>    
         </ui:composition>

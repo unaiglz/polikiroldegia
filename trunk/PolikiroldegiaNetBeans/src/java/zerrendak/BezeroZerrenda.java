@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import pojo.Bezeroa;
+import kudeatzaileak.ErabiltzaileKudeatzaile;
+
 
 /**
  *
@@ -15,28 +17,40 @@ import pojo.Bezeroa;
  */
 @ManagedBean
 @RequestScoped
-public class BezeroZerrenda {
+public class BezeroZerrenda{
 
-    ArrayList<Bezeroa> zerrenda;
+    ArrayList<Bezeroa> zerrenda = new ArrayList<Bezeroa>();
+    private Bezeroa selectedBezeroa;  
+   
     /**
      * Creates a new instance of BezeroZerrenda
      */
     public BezeroZerrenda() {
-        zerrenda = new ArrayList<Bezeroa>();
         
-    }
-    public BezeroZerrenda(ArrayList<Bezeroa> zerrenda) {
-        this.zerrenda = zerrenda;
+        ErabiltzaileKudeatzaile ek = new ErabiltzaileKudeatzaile();
+        zerrenda = ek.bezeroakLortu();
         
     }
     
-    public String getIzena(){
-        return "Iratxe" ;
+
+    public ArrayList<Bezeroa> getZerrenda() {
+        return zerrenda;
     }
 
-    @Override
-    public String toString() {
-        return "BezeroZerrenda{" + "zerrenda=" + zerrenda + '}';
+    public void setZerrenda(ArrayList<Bezeroa> zerrenda) {
+        this.zerrenda = zerrenda;
     }
+  
+   
+    public Bezeroa getSelectedBezeroa() {  
+        return selectedBezeroa;  
+    }  
+    public void setSelectedBezeroa(Bezeroa selectedBezeroa) {  
+        this.selectedBezeroa = selectedBezeroa;  
+    }  
+  
+    
+
+
     
 }
