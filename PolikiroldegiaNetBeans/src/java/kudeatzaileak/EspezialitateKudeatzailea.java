@@ -11,10 +11,6 @@ import javax.faces.bean.RequestScoped;
 import pojo.Espezialitatea;
 
 
-/**
- *
- * @author Iratxe
- */
 @ManagedBean
 @RequestScoped
 public class EspezialitateKudeatzailea {

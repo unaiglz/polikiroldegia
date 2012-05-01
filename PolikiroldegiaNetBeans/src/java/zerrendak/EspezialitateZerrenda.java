@@ -10,11 +10,6 @@ import javax.faces.bean.RequestScoped;
 import kudeatzaileak.EspezialitateKudeatzailea;
 import pojo.Espezialitatea;
 
-
-/**
- *
- * @author Iratxe
- */
 @ManagedBean
 @RequestScoped
 public class EspezialitateZerrenda{
@@ -48,9 +43,5 @@ public class EspezialitateZerrenda{
     public void setSelectedEspezialitatea(Espezialitatea selectedEspezialitatea) {  
         this.selectedEspezialitatea = selectedEspezialitatea;  
     }  
-  
-    
-
-
     
 }

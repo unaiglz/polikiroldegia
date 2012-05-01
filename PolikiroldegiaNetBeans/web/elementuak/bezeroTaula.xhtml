@@ -8,9 +8,11 @@
         <title>Bezero taula</title>
     </h:head>
     <h:body>
-        <h:form id="form">  
+        <h:form id="bezForm">  
+            
             <p:growl id="growl" showDetail="true"/>  
-            <p:dataTable id="basic" var="bezeroa" value="#{bezeroZerrenda.zerrenda}" emptyMessage="Ez da bezerorik aurkitu" paginator="true" rows="10" >  
+            
+            <p:dataTable id="bezTaula" var="bezeroa" value="#{bezeroZerrenda.zerrenda}" emptyMessage="Ez da bezerorik aurkitu" paginator="true" rows="10" >  
 
                 <f:facet name="header">  
                     BEZEROAK 
@@ -34,7 +36,7 @@
 
                 <p:column style="width:40px">  
                     <h:panelGrid columns="3" styleClass="actions" cellpadding="2">  
-                        <p:commandButton id="selectButton" update=":form:display" oncomplete="bezeroDialog.show()" icon="ui-icon-search" title="View">  
+                        <p:commandButton id="selectButton" update=":tabView:bezForm:bezDisplay" oncomplete="bezeroDialog.show()" icon="ui-icon-search" title="View">  
                             <f:setPropertyActionListener value="#{bezeroa}" target="#{bezeroZerrenda.selectedBezeroa}" />  
                         </p:commandButton>  
                     </h:panelGrid>  
@@ -48,7 +50,7 @@
             <p:dialog header="Bezeroari buruzko informazioa" widgetVar="bezeroDialog" resizable="false" id="carDlg"  
                       showEffect="fade" hideEffect="explode" modal="true">  
 
-                <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto;">  
+                <h:panelGrid id="bezDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
 
                     <h:outputText value="Izena:" />  
                     <h:outputText value="#{bezeroZerrenda.selectedBezeroa.izena}" style="font-weight:bold"/>  

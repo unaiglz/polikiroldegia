@@ -21,9 +21,10 @@
             </ui:define>
 
             <ui:define name="content">
-                <p:tabView orientation="right">  
+                <p:tabView id="tabView" orientation="right">  
                     <p:tab title="Bezeroak">  
-                        
+
+<ui:include src="/elementuak/bezeroTaula.xhtml" />
                     </p:tab>  
                     <p:tab title="Monitoreak">  
 
@@ -44,7 +45,7 @@
 
                     </p:tab> 
                     <p:tab title="Espezialitateak">  
-                        <ui:include src="/elementuak/probaTaula.xhtml" />
+                        <ui:include src="/elementuak/espezialitateTaula.xhtml" />
                     </p:tab> 
 
                 </p:tabView> 
