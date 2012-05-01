@@ -116,4 +116,18 @@ public class HibernateKud {
     public Session getSession() {
         return session;
     }
+    
+    public boolean ezabatu(Object o) {
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(o);
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+            return false;
+        }
+    }
 }
