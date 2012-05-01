@@ -14,15 +14,16 @@ import pojo.Espezialitatea;
 @RequestScoped
 public class EspezialitateZerrenda{
 
+    private Espezialitatea esp = new Espezialitatea();
     ArrayList<Espezialitatea> zerrenda = new ArrayList<Espezialitatea>();
-    private Espezialitatea selectedEspezialitatea;  
+    private Espezialitatea selectedEspezialitatea; 
+    EspezialitateKudeatzailea ek = new EspezialitateKudeatzailea();
    
     /**
      * Creates a new instance of BezeroZerrenda
      */
     public EspezialitateZerrenda() {
         
-        EspezialitateKudeatzailea ek = new EspezialitateKudeatzailea();
         zerrenda = ek.EspezialitateakLortu();
         
     }
@@ -35,6 +36,15 @@ public class EspezialitateZerrenda{
     public void setZerrenda(ArrayList<Espezialitatea> zerrenda) {
         this.zerrenda = zerrenda;
     }
+
+    public Espezialitatea getEsp() {
+        return esp;
+    }
+
+    public void setEsp(Espezialitatea esp) {
+        this.esp = esp;
+        
+    }
   
    
     public Espezialitatea getSelectedEspezialitatea() {  
@@ -42,6 +52,18 @@ public class EspezialitateZerrenda{
     }  
     public void setSelectedEspezialitatea(Espezialitatea selectedEspezialitatea) {  
         this.selectedEspezialitatea = selectedEspezialitatea;  
-    }  
+    }
+    
+    public void ezabatuEspezialitatea() {  
+        zerrenda.remove(selectedEspezialitatea);        
+    }
+    
+    public void reinit() {
+        
+        ek.espezialitateaGorde(esp);
+        esp = new Espezialitatea();  
+         
+    } 
+    
     
 }

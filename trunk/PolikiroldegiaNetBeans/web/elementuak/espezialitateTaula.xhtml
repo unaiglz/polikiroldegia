@@ -8,42 +8,64 @@
         <title>Espezialitate taula</title>
     </h:head>
     <h:body>
-        
+
         <h:form id="espForm">  
             <p:growl id="growl" showDetail="true"/>  
-            
-            <p:dataTable id="espTaula" var="esp" value="#{espezialitateZerrenda.zerrenda}" emptyMessage="Ez da espezialitaterik aurkitu" paginator="true" rows="10" >  
+
+            <p:dataTable id="espTaula" var="esp" value="#{espezialitateZerrenda.zerrenda}" emptyMessage="Ez da espezialitaterik aurkitu" paginator="true" rows="10" editable="true" >  
 
                 <f:facet name="header">  
                     ESPEZIALITATEAK 
                 </f:facet> 
 
                 <p:column id="idZutabea" filterBy="#{esp.id}" headerText="ID" >  
-                    <h:outputText value="#{esp.id}" />  
+                    <h:outputText value="#{esp.id}" /> 
                 </p:column> 
 
                 <p:column id="izenaZutabea" filterBy="#{esp.izena}" headerText="IZENA" > 
-                    <h:outputText value="#{esp.izena}" />  
+                    <p:cellEditor>
+                        <f:facet name="output">  
+                            <h:outputText value="#{esp.izena}" /> 
+                        </f:facet> 
+                        <f:facet name="input">
+                            <p:inputText value="#{esp.izena}" style="width:100%" label="izena"/>
+                        </f:facet> 
+                    </p:cellEditor> 
                 </p:column>  
 
                 <p:column id="deskZutabea" filterBy="#{esp.espezialitatea}" headerText="DESKRIBAPENA" >  
-                    <h:outputText value="#{esp.espezialitatea}" />  
+                    <p:cellEditor>
+                        <f:facet name="output">  
+                            <h:outputText value="#{esp.espezialitatea}" /> 
+                        </f:facet> 
+                        <f:facet name="input">
+                            <p:inputText value="#{esp.espezialitatea}" style="width:100%" label="id"/>
+                        </f:facet> 
+                    </p:cellEditor>
                 </p:column>  
 
-                <p:column style="width:40px">  
-                    <h:panelGrid columns="3" styleClass="actions" cellpadding="2">  
-                        
-                        <p:commandButton id="selectButton" update=":tabView:espForm:espDisplay" oncomplete="espDialog.show()" icon="ui-icon-search" title="View">  
-                            <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
-                        </p:commandButton>  
-                    </h:panelGrid>  
+                <p:column headerText="Aukerak">  
+
+
+                    <p:commandButton id="selectButton" update=":tabView:espForm:espDisplay" oncomplete="espDialog.show()" icon="ui-icon-search" title="Ikusi">  
+                        <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
+                    </p:commandButton>  
+
+                    <p:commandButton id="ezabatuButton" update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea}" icon="ui-icon-close" title="Ezabatu">  
+                        <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
+                    </p:commandButton> 
+
+                    <p:rowEditor />     
+
                 </p:column> 
+
+
             </p:dataTable> 
 
-            
-            
-            
-            
+
+
+
+
             <p:dialog header="Espezialitateari buruzko informazioa" widgetVar="espDialog" resizable="false" id="espDlg"  
                       showEffect="fade" hideEffect="explode" modal="true">  
 
@@ -58,9 +80,33 @@
                     <h:outputText value="Deskribapena:" />  
                     <h:outputText value="#{espezialitateZerrenda.selectedEspezialitatea.espezialitatea}" style="font-weight:bold"/>  
 
-               </h:panelGrid>  
+                </h:panelGrid>  
 
-            </p:dialog>  
+            </p:dialog> 
+
+            <p:growl id="msgs" />  
+
+            <p:panel header="Espezialitate berri bat sartu">  
+                <h:panelGrid columns="2" id="grid">  
+
+                    <h:outputLabel value="ID: *" for="idEsp"></h:outputLabel> 
+                    <p:inputText id="idEsp" value="#{espezialitateZerrenda.esp.id}" required="true"/>  
+
+                    <h:outputLabel value="Izena : *" for="izEsp"></h:outputLabel>  
+                    <p:inputText id="izEsp" required="true" value="#{espezialitateZerrenda.esp.izena}" />  
+                    
+                    <h:outputLabel value="Deskribapena : *" for="deskEsp"></h:outputLabel>  
+                    <p:inputText id="deskEsp" required="true" value="#{espezialitateZerrenda.esp.espezialitatea}" /> 
+                    
+                    
+                    <p:commandButton value="Ezabatu" type="reset"/>  
+                    <p:commandButton id="gehitu" value="Espezialitatea gehitu" update="espTaula msgs @parent" action="#{espezialitateZerrenda.reinit()}" >  
+                        <p:collector value="#{espezialitateZerrenda.esp}" addTo="#{espezialitateZerrenda.zerrenda}" />  
+                    </p:commandButton>  
+                </h:panelGrid>  
+            </p:panel>
+
+
         </h:form>  
     </h:body>
 </html>
