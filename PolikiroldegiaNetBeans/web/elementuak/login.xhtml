@@ -1,30 +1,23 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Login</title>
-        <h:outputStylesheet name="./resources/css/default.css" />
-    </h:head>
-    <h:body>
-        <h:panelGroup rendered="#{user.isLoggedIn()}">
-            <p>Welcome, #{user.unekoa.izena}</p>
-        </h:panelGroup>
-        <h:panelGroup rendered="#{user.isNotLoggedIn()}">
-            <h:form>
-                <div id="login">
-                    Login:<br/>
-                    <h:inputText id="Login" size="30" required="true" requiredMessage="Proporcione su nombre" value="#{user.id}"/> 
-                    <br/>
-                    Contraseña:<br/>
-                    <h:inputSecret id="Contrasena" size="30" required="true" requiredMessage="Proporcione su contraseña" value="#{user.pasahitza}"/> 
-                    <br/>
-                    <h:commandButton value="Enviar" action="#{user.login()}"/>
-                </div>
-
-            </h:form>
-        </h:panelGroup>
-    </h:body>
-</html>
-
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:panelGroup rendered="#{user.isLoggedIn()}">
+        <p>Welcome, #{user.unekoa.izena}</p>
+    </h:panelGroup>
+    <h:panelGroup rendered="#{user.isNotLoggedIn()}"> 
+        <h:form>
+            <div styleClass="login" align="right">
+                <label> <span align="left"> <strong> Login: </strong></span></label> 
+                <h:inputText id="Login" size="30" required="true" requiredMessage="Proporcione su nombre" value="#{user.id}"/> 
+                <br/>
+                <label> <span align="left"> <strong> Pasahitza: </strong></span></label> 
+                <h:inputSecret id="Contrasena" size="30" required="true" requiredMessage="Proporcione su contraseña" value="#{user.pasahitza}"/> 
+                <br/>
+                <h:commandButton value="Kautotu" action="#{user.login()}"/>
+            </div>
+        </h:form>
+    </h:panelGroup> 
+</ui:composition> 

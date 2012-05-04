@@ -9,11 +9,10 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import org.hibernate.Criteria; 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import pojo.Bezeroa;
-
 
 /**
  *
@@ -48,11 +47,10 @@ public class ErabiltzaileKudeatzaile {
     }
 
     public String logOut() {
-        //Sesio aldagaia kentzeko: 
-        context.getExternalContext().invalidateSession();
+        //Sesio aldagaia kentzeko:
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "index";
     }
-
 
     public Bezeroa bilatuBezeroa() {
         org.hibernate.Transaction tx = null;
@@ -104,17 +102,10 @@ public class ErabiltzaileKudeatzaile {
     public Bezeroa getUnekoa() {
         return unekoa;
     }
-    
-    public ArrayList<Bezeroa> bezeroakLortu(){
-        
+
+    public ArrayList<Bezeroa> bezeroakLortu() {
+
         return (ArrayList<Bezeroa>) HibernateKud.getInstance().execHQL("from Bezeroa");
-        
+
     }
-    
-    
-          
-        
-        
-    
-    
 }
