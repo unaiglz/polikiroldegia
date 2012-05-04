@@ -29,5 +29,7 @@ a:link:hover, a:visited:hover  {
 }
 
 #login{
-    margin-left: 1100px;
+    /*margin-left: 1000px;*/
+    border: #000000;
+    background-color: #AFAFAF;
 }
