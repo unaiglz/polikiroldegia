@@ -26,7 +26,8 @@ public class EspezialitateKudeatzailea {
     }
     
     public void espezialitateaEzabatu(Espezialitatea esp){
-        HibernateKud.getInstance().ezabatu(esp);
+        
+        HibernateKud.getInstance().ezabatu2(esp);
     }
     
     public void espezialitateaGorde(Espezialitatea esp){

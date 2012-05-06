@@ -11,10 +11,10 @@
         <h:form>
             <div styleClass="login" align="right">
                 <label> <span align="left"> <strong> Login: </strong></span></label> 
-                <h:inputText id="Login" size="30" required="true" requiredMessage="Proporcione su nombre" value="#{user.id}"/> 
+                <h:inputText id="Login" size="30" required="true" requiredMessage="Izena sartu" value="#{user.id}"/> 
                 <br/>
                 <label> <span align="left"> <strong> Pasahitza: </strong></span></label> 
-                <h:inputSecret id="Contrasena" size="30" required="true" requiredMessage="Proporcione su contraseña" value="#{user.pasahitza}"/> 
+                <h:inputSecret id="Contrasena" size="30" required="true" requiredMessage="Pasahitza sartu                         " value="#{user.pasahitza}"/> 
                 <br/>
                 <h:commandButton value="Kautotu" action="#{user.login()}"/>
             </div>

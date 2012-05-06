@@ -22,39 +22,7 @@
         <div>
             <div id="left">
                 <ui:insert name="left">
-                    <h3>MENU NAGUSIA</h3>  
-                    
-                    <h:form>
-                    <p:growl id="messages"/>  <!-- Menuarekin joan behar da-->
-                    
-                    <p:menu type="tiered">  
-                        
-                        <p:submenu label="Sarrera" >  
-                            <p:menuitem value="Informazio orokorra" url="administratzailea.xhtml"  />  
-                            <p:menuitem value="Kokapena" actionListener="#{buttonBean.update}" update="messages"  />  
-                        </p:submenu>  
-                        
-                        <p:submenu label="Instalazioak">  
-                            <p:menuitem value="Alokatu" actionListener="#{buttonBean.delete}" update="messages" ajax="false" />  
-                        </p:submenu>  
-               
-                        <p:submenu label="Kurtsoak" >  
-                            <p:submenu label="Gimnasioan">  
-                                <p:menuitem value="Spinning" url="http://www.prime.com.tr" />  
-                                <p:menuitem value="Aerobic" url="http://www.primefaces.org" />  
-                            </p:submenu>  
-                            <p:menuitem value="Igerilekuan" url="#{request.contextPath}/touch" />  
-                        </p:submenu>  
-                        
-                        <p:submenu label="Tarifak" url="tarifak.xhtml">  
-                            
-                        </p:submenu>  
-                    </p:menu>  
-                    </h:form>
-                    
-                    <h3>EGUTEGIA</h3>  
-                    
-                    <p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/>
+                    <ui:include src="/elementuak/ezkerrekoZutabea.xhtml" />
                 </ui:insert>
             </div>
             

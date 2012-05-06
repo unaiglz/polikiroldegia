@@ -11,7 +11,9 @@ import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 
 /**
- * Tengo que mirar para que sirve el saverorupdate y los demas metodos que tiene session
+ * Tengo que mirar para que sirve el saverorupdate y los demas metodos que tiene
+ * session
+ *
  * @author Unai
  */
 public class HibernateKud {
@@ -29,7 +31,9 @@ public class HibernateKud {
 
     private void conOpen() {
         this.session = HibernateUtil.getSessionFactory().openSession();
-        /*.getCurrentSession();*/
+        /*
+         * .getCurrentSession();
+         */
     }
 
     public void conClose() {
@@ -80,7 +84,7 @@ public class HibernateKud {
 
     /**
      * Metodo honi objektu baten instantzia pasatzean, datu basean gordetzen du.
-     * 
+     *
      * @param o Gorde nahi duzun objektuaren instantzia
      * @return true: Dena ondo joan bada || false: errorerik egon bada
      */
@@ -99,24 +103,20 @@ public class HibernateKud {
     }
 
 
-    /*public void inprimatu() {
-    org.hibernate.Transaction tx = null;
-    try {
-    tx = session.beginTransaction();
-    Query q = session.createQuery("from Bezeroa"); // Esto devuelve una lista de todos los bezero
-    session.save(b); // Esto guarda la tarifa en la base de datos
-    a = q.list();
-    tx.commit();
-    } catch (Exception e) {
-    e.printStackTrace();
-    tx.rollback();
-    }
-    
-    }*/
+    /*
+     * public void inprimatu() { org.hibernate.Transaction tx = null; try { tx =
+     * session.beginTransaction(); Query q = session.createQuery("from
+     * Bezeroa"); // Esto devuelve una lista de todos los bezero
+     * session.save(b); // Esto guarda la tarifa en la base de datos a =
+     * q.list(); tx.commit(); } catch (Exception e) { e.printStackTrace();
+     * tx.rollback(); }
+     *
+     * }
+     */
     public Session getSession() {
         return session;
     }
-    
+
     public boolean ezabatu(Object o) {
         org.hibernate.Transaction tx = null;
         try {
@@ -129,5 +129,12 @@ public class HibernateKud {
             tx.rollback();
             return false;
         }
+    }
+
+    public void ezabatu2(Object o) {
+        
+        Query query = session.createQuery("delete Erabiltzailea where izena = :izena");
+        query.setString("izena", "fg");
+        int result = query.executeUpdate();
     }
 }

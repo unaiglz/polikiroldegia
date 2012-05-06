@@ -33,7 +33,13 @@ public class Bezeroa  implements java.io.Serializable {
     public Bezeroa() {
     }
 
-	
+    public Bezeroa(String id, String izena, String pasahitza) {
+        this.id = id;
+        this.izena = izena;
+        this.pasahitza = pasahitza;
+
+    }
+    
     public Bezeroa(String id, Tarifa tarifa, String izena, String emaila, String pasahitza, Date jaioData, boolean aktibo, int alokairuKop, int kurtsoKop, Date iraungitzeData) {
         this.id = id;
         this.tarifa = tarifa;
