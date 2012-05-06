@@ -11,23 +11,23 @@ import pojo.Bezeroa;
 import kudeatzaileak.ErabiltzaileKudeatzaile;
 
 
-/**
- *
- * @author Iratxe
- */
 @ManagedBean
 @RequestScoped
 public class BezeroZerrenda{
 
     ArrayList<Bezeroa> zerrenda = new ArrayList<Bezeroa>();
-    private Bezeroa selectedBezeroa;  
+    private Bezeroa selectedBezeroa; 
+    
+    private Bezeroa bez;
+    ErabiltzaileKudeatzaile ek;
    
     /**
      * Creates a new instance of BezeroZerrenda
      */
     public BezeroZerrenda() {
         
-        ErabiltzaileKudeatzaile ek = new ErabiltzaileKudeatzaile();
+        bez = new Bezeroa();
+        ek = new ErabiltzaileKudeatzaile();
         zerrenda = ek.bezeroakLortu();
         
     }
@@ -48,7 +48,22 @@ public class BezeroZerrenda{
     
     public void setSelectedBezeroa(Bezeroa selectedBezeroa) {  
         this.selectedBezeroa = selectedBezeroa;  
-    }  
+    }
+
+    public Bezeroa getBez() {
+        return bez;
+    }
+
+    public void setBez(Bezeroa bez) {
+        this.bez = bez;
+    }
+    
+     public void bezeroaGorde() {
+        
+        ek.bezeroaGorde(new Bezeroa( bez.getId(),bez.getIzena(),bez.getPasahitza()));
+        bez = new Bezeroa();
+         
+    } 
   
     
 

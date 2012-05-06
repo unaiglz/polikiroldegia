@@ -35,7 +35,7 @@ public class HibernateTest {
     }
 
     public String test2() {
-        Espezialitatea inst = new Espezialitatea("Guapa!");
+        Espezialitatea inst = new Espezialitatea("Esp10");
         if (HibernateKud.getInstance().gorde(inst) == true) {
             return "Test honetan honakoa probatu da: Espezialitate berri bat sortzea, eta hau datu basean sartzea";
         } else {
@@ -58,6 +58,16 @@ public class HibernateTest {
         } else {
         return "Errorea exekuzioan";
         }*/
+
+    }
+    
+     public String test4() {
+        Espezialitatea inst = new Espezialitatea("Esp10");
+        if (HibernateKud.getInstance().ezabatu(inst) == true) {
+            return "Test honetan honakoa probatu da: Ezabatu";
+        } else {
+            return "Errorea exekuzioan";
+        }
 
     }
 }

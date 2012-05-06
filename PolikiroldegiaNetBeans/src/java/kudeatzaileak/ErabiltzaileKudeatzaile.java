@@ -108,4 +108,8 @@ public class ErabiltzaileKudeatzaile {
         return (ArrayList<Bezeroa>) HibernateKud.getInstance().execHQL("from Bezeroa");
 
     }
+    
+    public void bezeroaGorde(Bezeroa bez){
+        HibernateKud.getInstance().gorde(bez);
+    }
 }

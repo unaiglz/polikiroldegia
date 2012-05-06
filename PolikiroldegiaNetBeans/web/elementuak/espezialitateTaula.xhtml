@@ -10,19 +10,28 @@
     <h:body>
 
         <h:form id="espForm">  
-            <p:growl id="growl" showDetail="true"/>  
+
+            <p:growl id="msgs" showDetail="true"/>  
 
             <p:dataTable id="espTaula" var="esp" value="#{espezialitateZerrenda.zerrenda}" emptyMessage="Ez da espezialitaterik aurkitu" paginator="true" rows="10" editable="true" >  
 
+                <!-- DATU BASEAN DAUDEN ESPEZIALITATE GUZTIAK BISTARATZEN DITUEN TAULA-->
+
+
+                <!-- TAULAREN IZENA -->
                 <f:facet name="header">  
                     ESPEZIALITATEAK 
                 </f:facet> 
 
+                <!-- 1.ZUTABEA: Espezialitate ID erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
                 <p:column id="idZutabea" filterBy="#{esp.id}" headerText="ID" >  
                     <h:outputText value="#{esp.id}" /> 
                 </p:column> 
 
+                <!-- 2.ZUTABEA: Espezialitate IZENA erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
                 <p:column id="izenaZutabea" filterBy="#{esp.izena}" headerText="IZENA" > 
+
+                    <!-- Lerroa editatzeko aukera ematen da honen bidez, honez gain, geroago dagoen rowEditor beharrezkoa da-->
                     <p:cellEditor>
                         <f:facet name="output">  
                             <h:outputText value="#{esp.izena}" /> 
@@ -33,6 +42,7 @@
                     </p:cellEditor> 
                 </p:column>  
 
+                <!-- 3.ZUTABEA: Espezialitate DESKRIBAPENA erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
                 <p:column id="deskZutabea" filterBy="#{esp.espezialitatea}" headerText="DESKRIBAPENA" >  
                     <p:cellEditor>
                         <f:facet name="output">  
@@ -44,18 +54,23 @@
                     </p:cellEditor>
                 </p:column>  
 
-                <p:column headerText="Aukerak">  
+                <!-- 4.ZUTABEA: Lerroa aukeratuta eragiketak egiteko botoia erakusten duen zutabea.-->
+                <p:column>  
 
-
+                    <!-- Aukeratutako espezialitatearen ezaugarriak ikusteko botoia-->
                     <p:commandButton id="selectButton" update=":tabView:espForm:espDisplay" oncomplete="espDialog.show()" icon="ui-icon-search" title="Ikusi">  
                         <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
                     </p:commandButton>  
 
-                    <p:commandButton id="ezabatuButton" update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea}" icon="ui-icon-close" title="Ezabatu">  
+
+                    <!-- Aukeratutako espezialitatea ezabatzen duen botoia-->
+                    <!-- EZ DU FUNTZIONATZEN!!!!!!!!!-->
+                    <p:commandButton id="ezabatuButton" update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea()}" icon="ui-icon-close" title="Ezabatu">  
                         <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
                     </p:commandButton> 
 
-                    <p:rowEditor />     
+                    <!-- Aurretik definitutako cellEditor elementuak aldatu ahal izatea ahalbidetzen duen botoia.--> 
+                    <p:rowEditor />    
 
                 </p:column> 
 
@@ -63,11 +78,9 @@
             </p:dataTable> 
 
 
+            <!-- AUKERATUTAKO ESPEZIALITATEAREN EZAUGARRIAK BISTARATZEKO DIALOG-A -->
 
-
-
-            <p:dialog header="Espezialitateari buruzko informazioa" widgetVar="espDialog" resizable="false" id="espDlg"  
-                      showEffect="fade" hideEffect="explode" modal="true">  
+            <p:dialog header="Espezialitateari buruzko informazioa" widgetVar="espDialog" resizable="false" id="espDlg" showEffect="fade" hideEffect="explode" modal="true">  
 
                 <h:panelGrid id="espDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
 
@@ -84,30 +97,36 @@
 
             </p:dialog> 
 
-            <p:growl id="msgs" />  
 
+
+            <!-- ESPEZIALITATE BERRIAK SARTZEKO PANELA-->
+            <!-- required true inputText barruan jartzen bada, gero espezialitateak dialog bidez ikusterakoan, ez dira agertzen, hori gabe arazo gabe funtzionatzen du-->
+            <!-- update "espTaula msgs @parent" beharrezkoa da, behin espezialitate bat gordeta, taula eguneratzeko-->
+            <!-- action: botoiari sakatuta aurrera eramango den metodoari deia-->
             <p:panel header="Espezialitate berri bat sartu">  
                 <h:panelGrid columns="2" id="grid">  
 
-                    <h:outputLabel value="ID: *" for="idEsp"></h:outputLabel> 
-                    <p:inputText id="idEsp" value="#{espezialitateZerrenda.esp.id}" required="true"/>  
-
                     <h:outputLabel value="Izena : *" for="izEsp"></h:outputLabel>  
-                    <p:inputText id="izEsp" required="true" value="#{espezialitateZerrenda.esp.izena}" />  
-                    
+                    <p:inputText id="izEsp" value="#{espezialitateZerrenda.esp.izena}"  /> 
+
                     <h:outputLabel value="Deskribapena : *" for="deskEsp"></h:outputLabel>  
-                    <p:inputText id="deskEsp" required="true" value="#{espezialitateZerrenda.esp.espezialitatea}" /> 
-                    
-                    
-                    <p:commandButton value="Ezabatu" type="reset"/>  
-                    <p:commandButton id="gehitu" value="Espezialitatea gehitu" update="espTaula msgs @parent" action="#{espezialitateZerrenda.reinit()}" >  
+                    <p:inputText id="deskEsp" value="#{espezialitateZerrenda.esp.espezialitatea}" /> 
+
+
+                    <p:commandButton value="Ezabatu" type="reset"/> 
+
+
+                    <p:commandButton id="gehitu" value="Espezialitatea gehitu" update="espTaula msgs @parent" action="#{espezialitateZerrenda.gorde()}" >  
+                        <!-- Espezialitate berria, espezialitate zerrendan sartzeko-->
                         <p:collector value="#{espezialitateZerrenda.esp}" addTo="#{espezialitateZerrenda.zerrenda}" />  
-                    </p:commandButton>  
+                    </p:commandButton> 
+
+
+
                 </h:panelGrid>  
             </p:panel>
-
-
         </h:form>  
+
     </h:body>
 </html>
 

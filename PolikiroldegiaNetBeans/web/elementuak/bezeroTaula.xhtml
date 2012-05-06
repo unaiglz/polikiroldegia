@@ -10,9 +10,9 @@
     <h:body>
         <h:form id="bezForm">  
             
-            <p:growl id="growl" showDetail="true"/>  
+            <p:growl id="msgs" showDetail="true"/>  
             
-            <p:dataTable id="bezTaula" var="bezeroa" value="#{bezeroZerrenda.zerrenda}" emptyMessage="Ez da bezerorik aurkitu" paginator="true" rows="10" >  
+            <p:dataTable id="bezTaula" var="bezeroa" value="#{bezeroZerrenda.zerrenda}" emptyMessage="Ez da bezerorik aurkitu" paginator="true" rows="10" editable="true" >  
 
                 <f:facet name="header">  
                     BEZEROAK 
@@ -23,7 +23,15 @@
                 </p:column> 
 
                 <p:column id="izenaZutabea" filterBy="#{bezeroa.izena}" headerText="IZENA" > 
-                    <h:outputText value="#{bezeroa.izena}" />  
+                    <p:cellEditor>
+                        <f:facet name="output">  
+                            <h:outputText value="#{bezeroa.izena}" />  
+                        </f:facet> 
+                        <f:facet name="input">
+                            <p:inputText value="#{bezeroa.izena}" style="width:100%" label="izena"/>
+                        </f:facet> 
+                    </p:cellEditor> 
+                    
                 </p:column>  
 
                 <p:column id="abizenaZutabea" filterBy="#{bezeroa.abizena}" headerText="ABIZENAK" >  
@@ -34,12 +42,14 @@
                     <h:outputText value="#{bezeroa.emaila}" />  
                 </p:column>  
 
-                <p:column style="width:40px">  
-                    <h:panelGrid columns="3" styleClass="actions" cellpadding="2">  
+                <p:column>  
+                      
                         <p:commandButton id="selectButton" update=":tabView:bezForm:bezDisplay" oncomplete="bezeroDialog.show()" icon="ui-icon-search" title="Ikusi">  
                             <f:setPropertyActionListener value="#{bezeroa}" target="#{bezeroZerrenda.selectedBezeroa}" />  
                         </p:commandButton>  
-                    </h:panelGrid>  
+                          
+                   
+                    <p:rowEditor /> 
                 </p:column> 
             </p:dataTable> 
 
@@ -47,7 +57,7 @@
             
             
             
-            <p:dialog header="Bezeroari buruzko informazioa" widgetVar="bezeroDialog" resizable="false" id="carDlg"  
+            <p:dialog header="Bezeroari buruzko informazioa" widgetVar="bezeroDialog" resizable="false" id="bezDlg"  
                       showEffect="fade" hideEffect="explode" modal="true">  
 
                 <h:panelGrid id="bezDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
@@ -79,7 +89,41 @@
 
                 </h:panelGrid>  
 
-            </p:dialog>  
+            </p:dialog> 
+            
+             
+            
+            <!--EZ DABIL, behin gordetzera emanez gero, berriz kautotzerakoan ez du erabiltzailea aurkitzen -->
+            
+            <!--
+            <p:panel header="Bezero bat gehitu">  
+                <h:panelGrid>  
+
+                    <h:outputLabel value="ID : *" for="idBez"></h:outputLabel>  
+                    <p:inputText id="idBez" value="#{bezeroZerrenda.bez.id}" /> 
+                    
+                    
+                    <h:outputLabel value="Izena : *" for="izBez"></h:outputLabel>  
+                    <p:inputText id="izBez" value="#{bezeroZerrenda.bez.izena}" /> 
+                    
+                    <h:outputLabel value="Pasahitza : *" for="pasBez"></h:outputLabel>  
+                    <p:inputText id="pasBez" value="#{bezeroZerrenda.bez.pasahitza}" /> 
+                    
+                    
+                    <p:commandButton value="Ezabatu" type="reset"/> 
+                    
+                    <p:commandButton id="gehitu" value="Bezeroa gehitu" update="bezTaula msgs @parent" action="#{bezeroZerrenda.bezeroaGorde()}" >  
+                        <p:collector value="#{bezeroZerrenda.bez}" addTo="#{bezeroZerrenda.zerrenda}" />  
+                    </p:commandButton> 
+                    
+                    
+              
+                </h:panelGrid>  
+            </p:panel>
+            -->
+            
+            
+            
         </h:form>  
     </h:body>
 </html>

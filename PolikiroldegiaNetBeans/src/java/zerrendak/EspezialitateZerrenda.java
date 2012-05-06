@@ -14,18 +14,20 @@ import pojo.Espezialitatea;
 @RequestScoped
 public class EspezialitateZerrenda{
 
-    private Espezialitatea esp = new Espezialitatea();
-    ArrayList<Espezialitatea> zerrenda = new ArrayList<Espezialitatea>();
-    private Espezialitatea selectedEspezialitatea; 
-    EspezialitateKudeatzailea ek = new EspezialitateKudeatzailea();
-   
+    ArrayList<Espezialitatea> zerrenda = new ArrayList<Espezialitatea>(); // Datu basean dauden espezialitateak gordeko dituen zerrenda
+    private Espezialitatea selectedEspezialitatea; // tau erabiltzen dugunean, aukeratutako espezialitatearen instantzia gordeko duen atributua
+    
+    EspezialitateKudeatzailea ek;
+    private Espezialitatea esp ; //Espezialitate berria sortzeko erabiliko den aldagaia
+    
     /**
      * Creates a new instance of BezeroZerrenda
      */
+    
     public EspezialitateZerrenda() {
-        
-        zerrenda = ek.EspezialitateakLortu();
-        
+        esp = new Espezialitatea();
+        ek = new EspezialitateKudeatzailea();
+        zerrenda = ek.EspezialitateakLortu(); 
     }
     
 
@@ -36,7 +38,14 @@ public class EspezialitateZerrenda{
     public void setZerrenda(ArrayList<Espezialitatea> zerrenda) {
         this.zerrenda = zerrenda;
     }
-
+  
+    public Espezialitatea getSelectedEspezialitatea() {  
+        return selectedEspezialitatea;  
+    }  
+    public void setSelectedEspezialitatea(Espezialitatea selectedEspezialitatea) {  
+        this.selectedEspezialitatea = selectedEspezialitatea;  
+    }
+    
     public Espezialitatea getEsp() {
         return esp;
     }
@@ -45,25 +54,20 @@ public class EspezialitateZerrenda{
         this.esp = esp;
         
     }
-  
-   
-    public Espezialitatea getSelectedEspezialitatea() {  
-        return selectedEspezialitatea;  
-    }  
-    public void setSelectedEspezialitatea(Espezialitatea selectedEspezialitatea) {  
-        this.selectedEspezialitatea = selectedEspezialitatea;  
-    }
     
-    public void ezabatuEspezialitatea() {  
-        zerrenda.remove(selectedEspezialitatea);        
-    }
-    
-    public void reinit() {
+    /*Ez dabil*/
+    public void ezabatuEspezialitatea() { 
         
-        ek.espezialitateaGorde(esp);
-        esp = new Espezialitatea();  
+        zerrenda.remove(selectedEspezialitatea); 
+        ek.espezialitateaEzabatu(selectedEspezialitatea);
+    }
+   
+    // Espezialitate berri bat datu basean gordetzen du.
+    public void gorde() {
+        
+        ek.espezialitateaGorde(new Espezialitatea(esp.getIzena(), esp.getEspezialitatea()));
+        esp = new Espezialitatea();
          
     } 
-    
     
 }
