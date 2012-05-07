@@ -133,8 +133,13 @@ public class HibernateKud {
 
     public void ezabatu2(Object o) {
         
-        Query query = session.createQuery("delete Erabiltzailea where izena = :izena");
-        query.setString("izena", "fg");
-        int result = query.executeUpdate();
+        String hql = "delete Erabiltzailea where izena = kshadsafd";
+        execHQL(hql);
+        
+//        Query query = session.createQuery("delete Erabiltzailea where izena = :izena");
+//        query.setString("izena", "fg");
+//        int result = query.executeUpdate();
+        
+        
     }
 }

@@ -1,5 +1,5 @@
 body {
-    background-color: #abe2f2;
+    background-image: url(http://www.cucaluna.com/wp-content/uploads/2010/11/Water.jpg);
     font-size: 12px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;  
@@ -33,8 +33,8 @@ a:link:hover, a:visited:hover  {
 }
 
 #login{
-    
+
     border: #000000;
     background-color: #045491;
-       
+
 }
