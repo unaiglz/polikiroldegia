@@ -9,7 +9,7 @@
             <generator class="assigned" />
         </id>
         <many-to-one name="tarifa" class="pojo.Tarifa" fetch="select">
-            <column name="tarifa" not-null="true" unique="true" />
+            <column name="tarifa" not-null="true" unique="false" />
         </many-to-one>
         <property name="izena" type="string">
             <column name="izena" length="20" not-null="true" />
