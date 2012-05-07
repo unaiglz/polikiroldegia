@@ -1,5 +1,5 @@
 body {
-    background-color: #ffffff;
+    background-color: #abe2f2;
     font-size: 12px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;  
@@ -16,21 +16,25 @@ h1 {
     color: #D20005;
 }
 
+h3 {
+    font: italic bold medium;
+    word-spacing: 1px;   
+}
 a:link, a:visited {
-  color: #045491;
-  font-weight : bold;
-  text-decoration: none;
+    color: #045491;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 a:link:hover, a:visited:hover  {
-  color: #045491;
-  font-weight : bold;
-  text-decoration : underline;
+    color: #045491;
+    font-weight : bold;
+    text-decoration : underline;
 }
 
 #login{
     
     border: #000000;
-    background-color: #AFAFAF;
+    background-color: #045491;
        
 }

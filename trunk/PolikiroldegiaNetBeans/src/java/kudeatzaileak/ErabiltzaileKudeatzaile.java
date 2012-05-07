@@ -38,7 +38,16 @@ public class ErabiltzaileKudeatzaile {
         if (unekoa != null) {
             // Ondo eginda
             // Devuelve una redirección
-            return "administratzailea";
+            if (isAdmin()) {
+                //Esta tuneado para que entre siempre por aqui
+                return "administratzailea";
+            } else if (unekoa.isAktibo()) {
+                return "bezeroa";
+            } else {
+                id = pasahitza = null;
+                return "errorea";
+            }
+
         } else {
             //context.addMessage(null, new FacesMessage("Unknown login, try again"));
             id = pasahitza = null;
@@ -108,8 +117,15 @@ public class ErabiltzaileKudeatzaile {
         return (ArrayList<Bezeroa>) HibernateKud.getInstance().execHQL("from Bezeroa");
 
     }
+
+
+    private boolean isAdmin() {
+        return true;
+    }
+
     
     public void bezeroaGorde(Bezeroa bez){
         HibernateKud.getInstance().gorde(bez);
     }
+
 }
