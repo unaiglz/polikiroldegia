@@ -5,7 +5,7 @@
     color: white;
     padding: 5px;
     margin: 0px 0px 10px 0px;
-   
+
 }
 
 #bottom {
@@ -17,46 +17,44 @@
 
 #left {
     float: left;
-    background-color: #8498d6;
+    background-color: #036fab;
     padding: 5px;
     width: 240px;
 }
 
 #right {
     float: right;
-    background-color: #8498d6;
+    background-color: #036fabf;
     padding: 5px;
     width: 150px;
 }
 
 .center_content {
     position: relative;
-    background-color: #dddddd;
+    background-color: #528a88;
     padding: 5px;
 }
 
 .left_content {
-    background-color: #dddddd;
+    background-color: #c2dfef;
     padding: 5px;
     margin-left: 250px;
 }
 
 .right_content {
-    background-color: #dddddd;
+    background-color: #c2dfef;
     padding: 5px;
     margin: 0px 170px 0px 250px;
 }
 
 #top a:link, #top a:visited {
-  color: white;
-  font-weight : bold;
-  text-decoration: none;
+    color: white;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
-  font-weight : bold;
-  text-decoration : underline;
+    color: black;
+    font-weight : bold;
+    text-decoration : underline;
 }
-
-

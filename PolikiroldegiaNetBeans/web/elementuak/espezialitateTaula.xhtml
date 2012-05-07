@@ -1,132 +1,126 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Espezialitate taula</title>
-    </h:head>
-    <h:body>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:form id="espForm">  
 
-        <h:form id="espForm">  
+        <p:growl id="msgs" showDetail="true"/>  
 
-            <p:growl id="msgs" showDetail="true"/>  
+        <p:dataTable id="espTaula" var="esp" value="#{espezialitateZerrenda.zerrenda}" emptyMessage="Ez da espezialitaterik aurkitu" paginator="true" rows="10" editable="true" >  
 
-            <p:dataTable id="espTaula" var="esp" value="#{espezialitateZerrenda.zerrenda}" emptyMessage="Ez da espezialitaterik aurkitu" paginator="true" rows="10" editable="true" >  
-
-                <!-- DATU BASEAN DAUDEN ESPEZIALITATE GUZTIAK BISTARATZEN DITUEN TAULA-->
+            <!-- DATU BASEAN DAUDEN ESPEZIALITATE GUZTIAK BISTARATZEN DITUEN TAULA-->
 
 
-                <!-- TAULAREN IZENA -->
-                <f:facet name="header">  
-                    ESPEZIALITATEAK 
-                </f:facet> 
+            <!-- TAULAREN IZENA -->
+            <f:facet name="header">  
+                ESPEZIALITATEAK 
+            </f:facet> 
 
-                <!-- 1.ZUTABEA: Espezialitate ID erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
-                <p:column id="idZutabea" filterBy="#{esp.id}" headerText="ID" >  
-                    <h:outputText value="#{esp.id}" /> 
-                </p:column> 
+            <!-- 1.ZUTABEA: Espezialitate ID erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
+            <p:column id="idZutabea" filterBy="#{esp.id}" headerText="ID" >  
+                <h:outputText value="#{esp.id}" /> 
+            </p:column> 
 
-                <!-- 2.ZUTABEA: Espezialitate IZENA erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
-                <p:column id="izenaZutabea" filterBy="#{esp.izena}" headerText="IZENA" > 
+            <!-- 2.ZUTABEA: Espezialitate IZENA erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
+            <p:column id="izenaZutabea" filterBy="#{esp.izena}" headerText="IZENA" > 
 
-                    <!-- Lerroa editatzeko aukera ematen da honen bidez, honez gain, geroago dagoen rowEditor beharrezkoa da-->
-                    <p:cellEditor>
-                        <f:facet name="output">  
-                            <h:outputText value="#{esp.izena}" /> 
-                        </f:facet> 
-                        <f:facet name="input">
-                            <p:inputText value="#{esp.izena}" style="width:100%" label="izena"/>
-                        </f:facet> 
-                    </p:cellEditor> 
-                </p:column>  
+                <!-- Lerroa editatzeko aukera ematen da honen bidez, honez gain, geroago dagoen rowEditor beharrezkoa da-->
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{esp.izena}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{esp.izena}" style="width:100%" label="izena"/>
+                    </f:facet> 
+                </p:cellEditor> 
+            </p:column>  
 
-                <!-- 3.ZUTABEA: Espezialitate DESKRIBAPENA erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
-                <p:column id="deskZutabea" filterBy="#{esp.espezialitatea}" headerText="DESKRIBAPENA" >  
-                    <p:cellEditor>
-                        <f:facet name="output">  
-                            <h:outputText value="#{esp.espezialitatea}" /> 
-                        </f:facet> 
-                        <f:facet name="input">
-                            <p:inputText value="#{esp.espezialitatea}" style="width:100%" label="id"/>
-                        </f:facet> 
-                    </p:cellEditor>
-                </p:column>  
+            <!-- 3.ZUTABEA: Espezialitate DESKRIBAPENA erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
+            <p:column id="deskZutabea" filterBy="#{esp.espezialitatea}" headerText="DESKRIBAPENA" >  
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{esp.espezialitatea}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{esp.espezialitatea}" style="width:100%" label="id"/>
+                    </f:facet> 
+                </p:cellEditor>
+            </p:column>  
 
-                <!-- 4.ZUTABEA: Lerroa aukeratuta eragiketak egiteko botoia erakusten duen zutabea.-->
-                <p:column>  
+            <!-- 4.ZUTABEA: Lerroa aukeratuta eragiketak egiteko botoia erakusten duen zutabea.-->
+            <p:column>  
 
-                    <!-- Aukeratutako espezialitatearen ezaugarriak ikusteko botoia-->
-                    <p:commandButton id="selectButton" update=":tabView:espForm:espDisplay" oncomplete="espDialog.show()" icon="ui-icon-search" title="Ikusi">  
-                        <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
-                    </p:commandButton>  
-
-
-                    <!-- Aukeratutako espezialitatea ezabatzen duen botoia-->
-                    <!-- EZ DU FUNTZIONATZEN!!!!!!!!!-->
-                    <p:commandButton id="ezabatuButton" update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea()}" icon="ui-icon-close" title="Ezabatu">  
-                        <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
-                    </p:commandButton> 
-
-                    <!-- Aurretik definitutako cellEditor elementuak aldatu ahal izatea ahalbidetzen duen botoia.--> 
-                    <p:rowEditor />    
-
-                </p:column> 
+                <!-- Aukeratutako espezialitatearen ezaugarriak ikusteko botoia-->
+                <p:commandButton id="selectButton" update=":tabView:espForm:espDisplay" oncomplete="espDialog.show()" icon="ui-icon-search" title="Ikusi">  
+                    <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
+                </p:commandButton>  
 
 
-            </p:dataTable> 
+                <!-- Aukeratutako espezialitatea ezabatzen duen botoia-->
+                <!-- EZ DU FUNTZIONATZEN!!!!!!!!!-->
+                <p:commandButton id="ezabatuButton" update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea()}" icon="ui-icon-close" title="Ezabatu">  
+                    <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
+                </p:commandButton> 
+
+                <!-- Aurretik definitutako cellEditor elementuak aldatu ahal izatea ahalbidetzen duen botoia.--> 
+                <p:rowEditor />    
+
+            </p:column> 
 
 
-            <!-- AUKERATUTAKO ESPEZIALITATEAREN EZAUGARRIAK BISTARATZEKO DIALOG-A -->
+        </p:dataTable> 
 
-            <p:dialog header="Espezialitateari buruzko informazioa" widgetVar="espDialog" resizable="false" id="espDlg" showEffect="fade" hideEffect="explode" modal="true">  
 
-                <h:panelGrid id="espDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
+        <!-- AUKERATUTAKO ESPEZIALITATEAREN EZAUGARRIAK BISTARATZEKO DIALOG-A -->
 
-                    <h:outputText value="ID:" />  
-                    <h:outputText value="#{espezialitateZerrenda.selectedEspezialitatea.id}" style="font-weight:bold"/>  
+        <p:dialog header="Espezialitateari buruzko informazioa" widgetVar="espDialog" resizable="false" id="espDlg" showEffect="fade" hideEffect="explode" modal="true">  
 
-                    <h:outputText value="Izena:" />  
-                    <h:outputText value="#{espezialitateZerrenda.selectedEspezialitatea.izena}" style="font-weight:bold"/>  
+            <h:panelGrid id="espDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
 
-                    <h:outputText value="Deskribapena:" />  
-                    <h:outputText value="#{espezialitateZerrenda.selectedEspezialitatea.espezialitatea}" style="font-weight:bold"/>  
+                <h:outputText value="ID:" />  
+                <h:outputText value="#{espezialitateZerrenda.selectedEspezialitatea.id}" style="font-weight:bold"/>  
 
-                </h:panelGrid>  
+                <h:outputText value="Izena:" />  
+                <h:outputText value="#{espezialitateZerrenda.selectedEspezialitatea.izena}" style="font-weight:bold"/>  
 
-            </p:dialog> 
+                <h:outputText value="Deskribapena:" />  
+                <h:outputText value="#{espezialitateZerrenda.selectedEspezialitatea.espezialitatea}" style="font-weight:bold"/>  
+
+            </h:panelGrid>  
+
+        </p:dialog> 
 
 
 
-            <!-- ESPEZIALITATE BERRIAK SARTZEKO PANELA-->
-            <!-- required true inputText barruan jartzen bada, gero espezialitateak dialog bidez ikusterakoan, ez dira agertzen, hori gabe arazo gabe funtzionatzen du-->
-            <!-- update "espTaula msgs @parent" beharrezkoa da, behin espezialitate bat gordeta, taula eguneratzeko-->
-            <!-- action: botoiari sakatuta aurrera eramango den metodoari deia-->
-            <p:panel header="Espezialitate berri bat sartu">  
-                <h:panelGrid columns="2" id="grid">  
+        <!-- ESPEZIALITATE BERRIAK SARTZEKO PANELA-->
+        <!-- required true inputText barruan jartzen bada, gero espezialitateak dialog bidez ikusterakoan, ez dira agertzen, hori gabe arazo gabe funtzionatzen du-->
+        <!-- update "espTaula msgs @parent" beharrezkoa da, behin espezialitate bat gordeta, taula eguneratzeko-->
+        <!-- action: botoiari sakatuta aurrera eramango den metodoari deia-->
+        <p:panel header="Espezialitate berri bat sartu">  
+            <h:panelGrid columns="2" id="grid">  
 
-                    <h:outputLabel value="Izena : *" for="izEsp"></h:outputLabel>  
-                    <p:inputText id="izEsp" value="#{espezialitateZerrenda.esp.izena}"  /> 
+                <h:outputLabel value="Izena : *" for="izEsp"></h:outputLabel>  
+                <p:inputText id="izEsp" value="#{espezialitateZerrenda.esp.izena}"  /> 
 
-                    <h:outputLabel value="Deskribapena : *" for="deskEsp"></h:outputLabel>  
-                    <p:inputText id="deskEsp" value="#{espezialitateZerrenda.esp.espezialitatea}" /> 
-
-
-                    <p:commandButton value="Ezabatu" type="reset"/> 
+                <h:outputLabel value="Deskribapena : *" for="deskEsp"></h:outputLabel>  
+                <p:inputText id="deskEsp" value="#{espezialitateZerrenda.esp.espezialitatea}" /> 
 
 
-                    <p:commandButton id="gehitu" value="Espezialitatea gehitu" update="espTaula msgs @parent" action="#{espezialitateZerrenda.gorde()}" >  
-                        <!-- Espezialitate berria, espezialitate zerrendan sartzeko-->
-                        <p:collector value="#{espezialitateZerrenda.esp}" addTo="#{espezialitateZerrenda.zerrenda}" />  
-                    </p:commandButton> 
+                <p:commandButton value="Ezabatu" type="reset"/> 
+
+
+                <p:commandButton id="gehitu" value="Espezialitatea gehitu" update="espTaula msgs @parent" action="#{espezialitateZerrenda.gorde()}" >  
+                    <!-- Espezialitate berria, espezialitate zerrendan sartzeko-->
+                    <p:collector value="#{espezialitateZerrenda.esp}" addTo="#{espezialitateZerrenda.zerrenda}" />  
+                </p:commandButton> 
 
 
 
-                </h:panelGrid>  
-            </p:panel>
-        </h:form>  
+            </h:panelGrid>  
+        </p:panel>
+    </h:form>  
 
-    </h:body>
-</html>
+</ui:composition>
 
