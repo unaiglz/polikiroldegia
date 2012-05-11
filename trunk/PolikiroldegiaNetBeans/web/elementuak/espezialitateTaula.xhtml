@@ -4,6 +4,7 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://java.sun.com/jsf/facelets">
+    
     <h:form id="espForm">  
 
         <p:growl id="msgs" showDetail="true"/>  
@@ -32,7 +33,7 @@
                         <h:outputText value="#{esp.izena}" /> 
                     </f:facet> 
                     <f:facet name="input">
-                        <p:inputText value="#{esp.izena}" style="width:100%" label="izena"/>
+                        <p:inputText value="#{esp.izena}" style="width:100%"/>
                     </f:facet> 
                 </p:cellEditor> 
             </p:column>  
@@ -44,7 +45,7 @@
                         <h:outputText value="#{esp.espezialitatea}" /> 
                     </f:facet> 
                     <f:facet name="input">
-                        <p:inputText value="#{esp.espezialitatea}" style="width:100%" label="id"/>
+                        <p:inputText value="#{esp.espezialitatea}" style="width:100%"/>
                     </f:facet> 
                 </p:cellEditor>
             </p:column>  
@@ -60,8 +61,8 @@
 
                 <!-- Aukeratutako espezialitatea ezabatzen duen botoia-->
                 <!-- EZ DU FUNTZIONATZEN!!!!!!!!!-->
-                <p:commandButton id="ezabatuButton" update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea()}" icon="ui-icon-close" title="Ezabatu">  
-                    <f:setPropertyActionListener value="#{esp}" target="#{espezialitateZerrenda.selectedEspezialitatea}" />  
+                <p:commandButton process="@this" id="ezabatuButton" update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea(esp)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" >  
+                    
                 </p:commandButton> 
 
                 <!-- Aurretik definitutako cellEditor elementuak aldatu ahal izatea ahalbidetzen duen botoia.--> 
@@ -101,11 +102,11 @@
         <p:panel header="Espezialitate berri bat sartu">  
             <h:panelGrid columns="2" id="grid">  
 
-                <h:outputLabel value="Izena : *" for="izEsp"></h:outputLabel>  
-                <p:inputText id="izEsp" value="#{espezialitateZerrenda.esp.izena}"  /> 
+                <h:outputLabel value="Izena : *" ></h:outputLabel>  
+                <p:inputText value="#{espezialitateZerrenda.esp.izena}"  /> 
 
-                <h:outputLabel value="Deskribapena : *" for="deskEsp"></h:outputLabel>  
-                <p:inputText id="deskEsp" value="#{espezialitateZerrenda.esp.espezialitatea}" /> 
+                <h:outputLabel value="Deskribapena : *" ></h:outputLabel>  
+                <p:inputText  value="#{espezialitateZerrenda.esp.espezialitatea}" /> 
 
 
                 <p:commandButton value="Ezabatu" type="reset"/> 

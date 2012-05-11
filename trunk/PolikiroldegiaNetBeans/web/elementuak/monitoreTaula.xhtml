@@ -1,0 +1,121 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:form id="moniForm">  
+
+        <p:growl id="msgs" showDetail="true"/>  
+
+        <p:dataTable id="moniTaula" var="moni" value="#{monitoreZerrenda.zerrenda}" emptyMessage="Ez da monitorerik aurkitu" paginator="true" rows="10" editable="true" >  
+
+            <!-- TAULAREN IZENA -->
+            <f:facet name="header">  
+                MONITOREAK 
+            </f:facet> 
+
+            <p:column filterBy="#{moni.id}" headerText="ID" >  
+                <h:outputText value="#{moni.id}" /> 
+            </p:column> 
+
+            <p:column filterBy="#{moni.izena}" headerText="IZENA" > 
+
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{moni.izena}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{moni.izena}" style="width:100%"/>
+                    </f:facet> 
+                </p:cellEditor> 
+            </p:column>  
+
+            <p:column filterBy="#{moni.abizena}" headerText="ABIZENA" >  
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{moni.abizena}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{moni.abizena}" style="width:100%"/>
+                    </f:facet> 
+                </p:cellEditor>
+            </p:column>  
+
+         
+            <p:column>  
+
+                <p:commandButton id="selectButton" update=":tabView:moniForm:moniDisplay" oncomplete="moniDialog.show()" icon="ui-icon-search" title="Ikusi">  
+                    <f:setPropertyActionListener value="#{moni}" target="#{monitoreZerrenda.selectedMonitorea}" />  
+                </p:commandButton>  
+
+
+               <p:commandButton process="@this" id="ezabatuButton" update=":tabView:moniForm:moniTaula" actionListener="#{monitoreZerrenda.ezabatuMonitorea(moni)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" > 
+               </p:commandButton> 
+
+                <!-- Aurretik definitutako cellEditor elementuak aldatu ahal izatea ahalbidetzen duen botoia.--> 
+                <p:rowEditor />    
+
+            </p:column> 
+
+
+        </p:dataTable> 
+
+
+        <!-- AUKERATUTAKO ESPEZIALITATEAREN EZAUGARRIAK BISTARATZEKO DIALOG-A -->
+
+        <p:dialog header="Monitoreari buruzko informazioa" widgetVar="moniDialog" resizable="false" id="moniDlg" showEffect="fade" hideEffect="explode" modal="true">  
+
+            <h:panelGrid id="moniDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
+
+                <h:outputText value="ID:" />  
+                <h:outputText value="#{monitoreZerrenda.selectedMonitorea.id}" style="font-weight:bold"/>  
+
+                <h:outputText value="Izena:" />  
+                <h:outputText value="#{monitoreZerrenda.selectedMonitorea.izena}" style="font-weight:bold"/>  
+
+                <h:outputText value="Abizena:" />  
+                <h:outputText value="#{monitoreZerrenda.selectedMonitorea.abizena}" style="font-weight:bold"/>  
+
+            </h:panelGrid>  
+
+        </p:dialog> 
+
+
+
+        <!-- ESPEZIALITATE BERRIAK SARTZEKO PANELA-->
+        <!-- required true inputText barruan jartzen bada, gero espezialitateak dialog bidez ikusterakoan, ez dira agertzen, hori gabe arazo gabe funtzionatzen du-->
+        <!-- update "espTaula msgs @parent" beharrezkoa da, behin espezialitate bat gordeta, taula eguneratzeko-->
+        <!-- action: botoiari sakatuta aurrera eramango den metodoari deia-->
+        <p:panel header="Monitore berri bat sartu">  
+            <h:panelGrid columns="2" id="grid">  
+
+                <h:outputLabel value="ID : *" ></h:outputLabel>  
+                <p:inputText value="#{monitoreZerrenda.moni.id}"  /> 
+                
+                <h:outputLabel value="Izena : *" ></h:outputLabel>  
+                <p:inputText value="#{monitoreZerrenda.moni.izena}"  /> 
+
+                <h:outputLabel value="Abizena : *" ></h:outputLabel>  
+                <p:inputText  value="#{monitoreZerrenda.moni.abizena}" /> 
+
+
+                <p:commandButton value="Ezabatu" type="reset"/> 
+
+
+                <p:commandButton id="gehitu" value="Monitorea gehitu" update="moniTaula msgs @parent" action="#{monitoreZerrenda.monitoreaGorde()}" >  
+                    
+                    <p:collector value="#{monitoreZerrenda.moni}" addTo="#{monitoreZerrenda.zerrenda}" />  
+                </p:commandButton> 
+
+
+
+            </h:panelGrid>  
+        </p:panel>
+    </h:form>  
+
+</ui:composition>
+
+
+
