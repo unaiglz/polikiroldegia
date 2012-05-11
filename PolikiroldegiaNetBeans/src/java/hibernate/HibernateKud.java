@@ -8,6 +8,7 @@ import hibernate.*;
 import pojo.*;
 import java.util.*;
 import org.hibernate.*;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -21,7 +22,7 @@ public class HibernateKud {
     Session session = null;
     private static HibernateKud instance = new HibernateKud();
 
-    private HibernateKud() {
+    private  HibernateKud() {
         this.conOpen();
     }
 
@@ -90,6 +91,7 @@ public class HibernateKud {
      */
     public boolean gorde(Object o) {
         org.hibernate.Transaction tx = null;
+        System.out.println(o);
         try {
             tx = session.beginTransaction();
             session.saveOrUpdate(o);
@@ -119,6 +121,7 @@ public class HibernateKud {
 
     public boolean ezabatu(Object o) {
         org.hibernate.Transaction tx = null;
+        
         try {
             tx = session.beginTransaction();
             session.delete(o);
@@ -130,16 +133,6 @@ public class HibernateKud {
             return false;
         }
     }
-
-    public void ezabatu2(Object o) {
-        
-        String hql = "delete Erabiltzailea where izena = kshadsafd";
-        execHQL(hql);
-        
-//        Query query = session.createQuery("delete Erabiltzailea where izena = :izena");
-//        query.setString("izena", "fg");
-//        int result = query.executeUpdate();
-        
-        
-    }
 }
+
+

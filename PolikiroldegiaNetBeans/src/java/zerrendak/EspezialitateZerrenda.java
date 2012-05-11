@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package zerrendak;
 
 import java.util.ArrayList;
@@ -17,17 +13,12 @@ public class EspezialitateZerrenda{
     ArrayList<Espezialitatea> zerrenda = new ArrayList<Espezialitatea>(); // Datu basean dauden espezialitateak gordeko dituen zerrenda
     private Espezialitatea selectedEspezialitatea; // tau erabiltzen dugunean, aukeratutako espezialitatearen instantzia gordeko duen atributua
     
-    EspezialitateKudeatzailea ek;
-    private Espezialitatea esp ; //Espezialitate berria sortzeko erabiliko den aldagaia
+    private Espezialitatea esp; //Espezialitate berria sortzeko erabiliko den aldagaia
     
-    /**
-     * Creates a new instance of BezeroZerrenda
-     */
-    
+
     public EspezialitateZerrenda() {
         esp = new Espezialitatea();
-        ek = new EspezialitateKudeatzailea();
-        zerrenda = ek.EspezialitateakLortu(); 
+        zerrenda = EspezialitateKudeatzailea.getInstantzia().EspezialitateakLortu();
     }
     
 
@@ -56,16 +47,15 @@ public class EspezialitateZerrenda{
     }
     
     /*Ez dabil*/
-    public void ezabatuEspezialitatea() { 
+    public void ezabatuEspezialitatea(Espezialitatea inst) { 
         
-        zerrenda.remove(selectedEspezialitatea); 
-        ek.espezialitateaEzabatu(selectedEspezialitatea);
+        zerrenda.remove(inst); 
+        EspezialitateKudeatzailea.getInstantzia().espezialitateaEzabatu(inst);
     }
    
     // Espezialitate berri bat datu basean gordetzen du.
     public void gorde() {
-        
-        ek.espezialitateaGorde(new Espezialitatea(esp.getIzena(), esp.getEspezialitatea()));
+        EspezialitateKudeatzailea.getInstantzia().espezialitateaGorde(new Espezialitatea(esp.getIzena(), esp.getEspezialitatea()));
         esp = new Espezialitatea();
          
     } 

@@ -124,8 +124,9 @@ public class ErabiltzaileKudeatzaile {
     }
 
     
-    public void bezeroaGorde(Bezeroa bez){
-        HibernateKud.getInstance().gorde(bez);
-    }
+//    public void bezeroaGorde(Bezeroa bez){
+//        System.out.println("ErabiltzaileKud"+ bez);
+//        HibernateKud.getInstance().gorde(bez);
+//    }
 
 }

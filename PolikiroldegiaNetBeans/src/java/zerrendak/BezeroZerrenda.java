@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package zerrendak;
 
 import java.util.ArrayList;
@@ -9,6 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import pojo.Bezeroa;
 import kudeatzaileak.ErabiltzaileKudeatzaile;
+import pojo.Tarifa;
 
 
 @ManagedBean
@@ -59,8 +56,10 @@ public class BezeroZerrenda{
     }
     
      public void bezeroaGorde() {
-        
-        ek.bezeroaGorde(new Bezeroa( bez.getId(),bez.getIzena(),bez.getPasahitza()));
+         
+        System.out.println("ErabiltzaileZerrenda");
+//        ek.bezeroaGorde(new Bezeroa( bez.getId(), bez.getTarifa(),bez.getIzena(), bez.getEmaila(),bez.getPasahitza(), bez.getJaioData(), bez.isAktibo(),bez.getAlokairuKop(),bez.getKurtsoKop(),bez.getIraungitzeData()));
+//        ek.bezeroaGorde(new Bezeroa( bez.getId(), tarifa,bez.getIzena(), bez.getEmaila(),"1111", bez.getJaioData(), bez.isAktibo(),bez.getAlokairuKop(),bez.getKurtsoKop(),bez.getIraungitzeData()));
         bez = new Bezeroa();
          
     } 
