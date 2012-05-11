@@ -44,9 +44,6 @@ public class MonitoreZerrenda {
         this.moni = moni;
     }
     
-    
-    
-    /*Ez dabil*/
     public void ezabatuMonitorea() { 
         
         zerrenda.remove(selectedMonitorea); 

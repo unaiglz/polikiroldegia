@@ -1,0 +1,147 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:form id="tarForm">  
+
+        <p:growl id="msgs" showDetail="true"/>  
+
+        <p:dataTable id="tarTaula" var="tar" value="#{tarifaZerrenda.zerrenda}" emptyMessage="Ez da tarifarik aurkitu" paginator="true" rows="10" editable="true" >  
+
+            <!-- TAULAREN IZENA -->
+            <f:facet name="header">  
+                TARIFAK
+            </f:facet> 
+
+            <p:column filterBy="#{tar.mota}" headerText="IZENA" >  
+                <h:outputText value="#{tar.mota}" /> 
+            </p:column> 
+
+            <p:column filterBy="#{tar.prezioa}" headerText="PREZIOA" > 
+
+               <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{tar.prezioa}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{tar.prezioa}" style="width:100%"/>
+                    </f:facet> 
+                </p:cellEditor> 
+            </p:column>  
+            
+            <p:column filterBy="#{tar.iraupena}" headerText="IRAUPENA" >  
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{tar.iraupena}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{tar.iraupena}" style="width:100%"/>
+                    </f:facet> 
+                </p:cellEditor>
+            </p:column>  
+
+            <p:column filterBy="#{tar.alokairuMax}" headerText="ALOKAIRU MAX" >  
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{tar.alokairuMax}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{tar.alokairuMax}" style="width:100%"/>
+                    </f:facet> 
+                </p:cellEditor>
+            </p:column>  
+            
+            <p:column filterBy="#{tar.kurtsoMax}" headerText="KURTSO MAX" >  
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{tar.kurtsoMax}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{tar.kurtsoMax}" style="width:100%"/>
+                    </f:facet> 
+                </p:cellEditor>
+            </p:column>  
+            
+           
+            <p:column>  
+                <p:commandButton id="selectButton" update=":tabView:tarForm:tarDisplay" oncomplete="tarDialog.show()" icon="ui-icon-search" title="Ikusi">  
+                    <f:setPropertyActionListener value="#{tar}" target="#{tarifaZerrenda.selectedTarifa}" />  
+                </p:commandButton>  
+
+
+                <p:commandButton process="@this" id="ezabatuButton" update=":tabView:tarForm:tarTaula" actionListener="#{tarifaZerrenda.ezabatuTarifa(tar)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" >  
+                    
+                </p:commandButton> 
+
+                <!-- Aurretik definitutako cellEditor elementuak aldatu ahal izatea ahalbidetzen duen botoia.--> 
+                <p:rowEditor />    
+
+            </p:column> 
+
+
+        </p:dataTable> 
+
+
+        <!-- AUKERATUTAKO ESPEZIALITATEAREN EZAUGARRIAK BISTARATZEKO DIALOG-A -->
+
+        <p:dialog header="Tarifari buruzko informazioa" widgetVar="tarDialog" resizable="false" id="tarDlg" showEffect="fade" hideEffect="explode" modal="true">  
+
+            <h:panelGrid id="tarDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
+
+                <h:outputText value="Izena:" />  
+                <h:outputText value="#{tarifaZerrenda.selectedTarifa.mota}" style="font-weight:bold"/>  
+
+                <h:outputText value="Prezioa:" />  
+                <h:outputText value="#{tarifaZerrenda.selectedTarifa.prezioa}" style="font-weight:bold"/>   
+
+                <h:outputText value="Iraupena:" />  
+                <h:outputText value="#{tarifaZerrenda.selectedTarifa.iraupena}" style="font-weight:bold"/>    
+
+                <h:outputText value="Alokairu kopuru maximoa:" />
+                <h:outputText value="#{tarifaZerrenda.selectedTarifa.alokairuMax}" style="font-weight:bold"/>  
+                
+                <h:outputText value="Kurtso kopuru maximoa:" />
+                <h:outputText value="#{tarifaZerrenda.selectedTarifa.kurtsoMax}" style="font-weight:bold"/>  
+            </h:panelGrid>  
+
+        </p:dialog> 
+
+
+        <p:panel header="Tarifa berri bat sartu">  
+            <h:panelGrid columns="2" id="grid">  
+
+                <h:outputLabel value="Izena : *" />
+                <p:inputText value="#{tarifaZerrenda.tar.mota}"  /> 
+
+                <h:outputLabel value="Prezioa : *" />
+                <p:inputText value="#{tarifaZerrenda.tar.prezioa}"  /> 
+                
+                <h:outputLabel value="Iraupena : *" />
+                <p:inputText value="#{tarifaZerrenda.tar.iraupena}"  /> 
+                
+                <h:outputLabel value="Alokairu kopuru maximoa : *" />
+                <p:inputText value="#{tarifaZerrenda.tar.alokairuMax}"  /> 
+                
+                <h:outputLabel value="Kurtso kopuru maximoa: *" />
+                <p:inputText value="#{tarifaZerrenda.tar.kurtsoMax}"  /> 
+
+
+                <p:commandButton value="Ezabatu" type="reset"/> 
+
+
+                <p:commandButton id="gehitu" value="Tarifa gehitu" update="tarTaula msgs @parent" action="#{tarifaZerrenda.tarifaGorde()}" >  
+                    <p:collector value="#{tarifaZerrenda.tar}" addTo="#{tarifaZerrenda.zerrenda}" />  
+                </p:commandButton> 
+
+
+
+            </h:panelGrid>  
+        </p:panel>
+    </h:form>  
+
+</ui:composition>
+
+
