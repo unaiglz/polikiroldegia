@@ -13,11 +13,10 @@
                 <div align="center"><p:graphicImage alt="Irudia" url="irudiak/Kirolplus.png"></p:graphicImage></div>
             </td>
             <td>
-
-        <h:panelGroup rendered="#{user.isLoggedIn()}">
-            <p>Welcome, #{user.unekoa.izena}</p>
+        <h:panelGroup rendered="#{user.loggedIn}"> 
+            <h:outputText value="Ongi etorri, #{user.unekoIzena}"> </h:outputText>
         </h:panelGroup>
-        <h:panelGroup rendered="#{user.isNotLoggedIn()}"> 
+        <h:panelGroup rendered="#{user.notLoggedIn}"> 
             <h:form>
                 <div styleClass="login" align="right">
                     <label> <span align="left"> <strong> Login: </strong></span></label> 
@@ -26,11 +25,10 @@
                     <label> <span align="left"> <strong> Pasahitza: </strong></span></label> 
                     <h:inputSecret id="Contrasena" size="30" required="true" requiredMessage="Proporcione su contraseña" value="#{user.pasahitza}"/> 
                     <br/>
-                    <h:commandButton value="Kautotu" action="#{user.login()}"/>
+                    <h:commandButton value="Kautotu" action="#{user.login()}" />
                 </div>
             </h:form>
         </h:panelGroup>
-
         </td>
         </tr>
     </table>

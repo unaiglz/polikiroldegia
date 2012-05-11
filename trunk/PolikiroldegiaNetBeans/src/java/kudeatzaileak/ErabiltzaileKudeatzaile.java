@@ -12,7 +12,9 @@ import javax.faces.context.FacesContext;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import pojo.Administratzailea;
 import pojo.Bezeroa;
+import pojo.Pertsona;
 
 /**
  *
@@ -53,6 +55,20 @@ public class ErabiltzaileKudeatzaile {
             id = pasahitza = null;
             return "errorea";
         }
+//        unekoa = isAdmin();
+//        if (unekoa != null) {
+//            return "adminstratzailea";
+//        } else {
+//            Bezeroa inst = bilatuBezeroa();
+//            if (inst != null) {
+//                if (inst.isAktibo()) {
+//                    unekoa = inst;
+//                    return "bezeroa";
+//                }
+//            }
+//            id = pasahitza = null;
+//            return "errorea";
+//        }
     }
 
     public String logOut() {
@@ -61,6 +77,28 @@ public class ErabiltzaileKudeatzaile {
         return "index";
     }
 
+    private Boolean isAdmin() {
+//        org.hibernate.Transaction tx = null;
+//        ArrayList lista = new ArrayList();
+//        try {
+//            tx = sesioa.beginTransaction();
+//            Criteria crit = sesioa.createCriteria(Administratzailea.class).add(Restrictions.and(Restrictions.eq("izena", id), Restrictions.eq("pasahitza", pasahitza)));
+//            tx.commit();
+//            lista = (ArrayList) crit.list();
+//            if (lista.size() == 1) {
+//                return (Administratzailea) lista.get(0);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            tx.rollback();
+//        }
+//        return null;
+        return true;
+    }
+
+    /*
+     *  Esto no es correcto: Proyecto fututo, moverlo a HibernateKud, que es el que se deberia de encargar de las conexiones
+     */
     public Bezeroa bilatuBezeroa() {
         org.hibernate.Transaction tx = null;
         ArrayList lista = new ArrayList();
@@ -108,8 +146,12 @@ public class ErabiltzaileKudeatzaile {
         this.pasahitza = pasahitza;
     }
 
-    public Bezeroa getUnekoa() {
+    public Pertsona getUnekoa() {
         return unekoa;
+    }
+    
+    public String getUnekoIzena(){
+        return unekoa.getIzena();
     }
 
     public ArrayList<Bezeroa> bezeroakLortu() {
@@ -119,9 +161,11 @@ public class ErabiltzaileKudeatzaile {
     }
 
 
-    private boolean isAdmin() {
-        return true;
+    public void bezeroaGorde(Bezeroa bez) {
+        HibernateKud.getInstance().gorde(bez);
     }
+
+
 
     
 //    public void bezeroaGorde(Bezeroa bez){

@@ -3,22 +3,16 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 08-may-2012 17:22:32 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="pojo.Instalazioa" table="Instalazioa" catalog="Kirolplus">
+    <class name="pojo.Administratzailea" table="Administratzailea" catalog="Kirolplus">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="identity" />
         </id>
         <property name="izena" type="string">
-            <column name="izena" length="20" not-null="true" />
+            <column name="Izena" length="25" not-null="true" />
         </property>
-        <property name="deskribapena" type="string">
-            <column name="deskribapena" length="200" />
+        <property name="pasahitza" type="string">
+            <column name="Pasahitza" length="30" not-null="true" />
         </property>
-        <set name="alokairuas" inverse="true">
-            <key>
-                <column name="instalazioID" not-null="true" unique="true" />
-            </key>
-            <one-to-many class="pojo.Alokairua" />
-        </set>
     </class>
 </hibernate-mapping>

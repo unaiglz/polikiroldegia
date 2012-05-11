@@ -94,7 +94,7 @@ public class HibernateKud {
         System.out.println(o);
         try {
             tx = session.beginTransaction();
-            session.saveOrUpdate(o);
+            session.save(o);
             tx.commit();
             return true;
         } catch (Exception e) {
@@ -104,6 +104,19 @@ public class HibernateKud {
         }
     }
 
+    public boolean eguneratu(Object o) {
+        org.hibernate.Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(o);
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+            return false;
+        }
+    }
 
     /*
      * public void inprimatu() { org.hibernate.Transaction tx = null; try { tx =
@@ -121,7 +134,7 @@ public class HibernateKud {
 
     public boolean ezabatu(Object o) {
         org.hibernate.Transaction tx = null;
-        
+        System.out.println("Ezabaturi pasatutako objektua:" + o);
         try {
             tx = session.beginTransaction();
             session.delete(o);
