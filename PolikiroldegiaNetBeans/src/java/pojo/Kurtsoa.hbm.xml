@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 24-abr-2012 12:01:44 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 08-may-2012 17:22:32 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="pojo.Kurtsoa" table="Kurtsoa" catalog="Kirolplus">
         <id name="id" type="java.lang.Integer">

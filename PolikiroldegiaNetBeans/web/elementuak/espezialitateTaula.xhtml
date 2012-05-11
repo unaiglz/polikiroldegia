@@ -4,7 +4,7 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://java.sun.com/jsf/facelets">
-    
+
     <h:form id="espForm">  
 
         <p:growl id="msgs" showDetail="true"/>  
@@ -21,7 +21,7 @@
 
             <!-- 1.ZUTABEA: Espezialitate ID erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
             <p:column id="idZutabea" filterBy="#{esp.id}" headerText="ID" >  
-                <h:outputText value="#{esp.id}" /> 
+                <div align="center">  <h:outputText value="#{esp.id}" /> </div>
             </p:column> 
 
             <!-- 2.ZUTABEA: Espezialitate IZENA erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
@@ -59,10 +59,11 @@
                 </p:commandButton>  
 
 
-                <!-- Aukeratutako espezialitatea ezabatzen duen botoia-->
-                <!-- EZ DU FUNTZIONATZEN!!!!!!!!!-->
-                <p:commandButton process="@this" id="ezabatuButton" update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea(esp)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" >  
-                    
+
+                <!-- Aukeratutako espezialitatea ezabatzen duen botoia -->
+                <!-- EZ DU FUNTZIONATZEN!!!!!!!!!  -->
+                <p:commandButton  process="@this" id="ezabatuButton"  update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea(esp)}" oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu">  
+
                 </p:commandButton> 
 
                 <!-- Aurretik definitutako cellEditor elementuak aldatu ahal izatea ahalbidetzen duen botoia.--> 
@@ -122,6 +123,5 @@
             </h:panelGrid>  
         </p:panel>
     </h:form>  
-
 </ui:composition>
 

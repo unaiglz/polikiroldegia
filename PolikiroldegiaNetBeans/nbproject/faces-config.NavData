@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="All Faces Configurations" version="2">
+    <Scope Scope="Faces Configuration Only">
+        <Node id="errorea.xhtml" x="2977" y="32" zoom="true"/>
+        <Node id="index.html" x="547" y="279" zoom="true"/>
+        <Node id="index.xhtml" x="34" y="32" zoom="true"/>
+        <Node id="administratzailea.xhtml" x="756" y="32" zoom="true"/>
+    </Scope>
+    <Scope Scope="Project">
+        <Node id="errorea.xhtml" x="2977" y="32" zoom="true"/>
+        <Node id="index.html" x="547" y="279" zoom="false"/>
+        <Node id="elementuak/espezialitateTaula.xhtml" x="1814" y="32" zoom="true"/>
+        <Node id="elementuak/login.xhtml" x="2640" y="32" zoom="true"/>
+        <Node id="index.xhtml" x="34" y="32" zoom="true"/>
+        <Node id="elementuak/bezeroTaula.xhtml" x="2249" y="32" zoom="true"/>
+        <Node id="elementuak/galeria.xhtml" x="3245" y="32" zoom="true"/>
+        <Node id="elementuak/ezkerrekoZutabea.xhtml" x="1095" y="32" zoom="true"/>
+        <Node id="administratzailea.xhtml" x="756" y="32" zoom="false"/>
+        <Node id="kokapena.xhtml" x="1530" y="32" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations">
+        <Node id="errorea.xhtml" x="2977" y="32" zoom="true"/>
+        <Node id="index.html" x="547" y="279" zoom="true"/>
+        <Node id="index.xhtml" x="34" y="32" zoom="true"/>
+        <Node id="administratzailea.xhtml" x="756" y="32" zoom="true"/>
+    </Scope>
+</Scene>

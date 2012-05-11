@@ -4,7 +4,6 @@ import hibernate.HibernateKud;
 import java.util.ArrayList;
 import pojo.Espezialitatea;
 
-
 public class EspezialitateKudeatzailea {
 
     private static EspezialitateKudeatzailea instantzia = new EspezialitateKudeatzailea();
@@ -21,13 +20,14 @@ public class EspezialitateKudeatzailea {
     public ArrayList<Espezialitatea> EspezialitateakLortu() {
         return (ArrayList<Espezialitatea>) HibernateKud.getInstance().execHQL("from Espezialitatea");
     }
-    
-    public void espezialitateaEzabatu(Espezialitatea esp){
-        
+
+    public void espezialitateaEzabatu(Espezialitatea esp) {
+
         HibernateKud.getInstance().ezabatu(esp);
     }
-    
-    public void espezialitateaGorde(Espezialitatea esp){
+
+    public void espezialitateaGorde(Espezialitatea esp) {
         HibernateKud.getInstance().gorde(esp);
+        HibernateKud.getInstance().eguneratu(esp);
     }
 }
