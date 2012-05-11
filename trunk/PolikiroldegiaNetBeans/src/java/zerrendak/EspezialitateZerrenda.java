@@ -50,7 +50,6 @@ public class EspezialitateZerrenda {
 
     }
 
-    /*Ez dabil*/
     public void ezabatuEspezialitatea(Espezialitatea inst) {
 
         zerrenda.remove(inst);

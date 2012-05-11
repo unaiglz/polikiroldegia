@@ -60,10 +60,8 @@
 
 
 
-                <!-- Aukeratutako espezialitatea ezabatzen duen botoia -->
-                <!-- EZ DU FUNTZIONATZEN!!!!!!!!!  -->
-                <p:commandButton  process="@this" id="ezabatuButton"  update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea(esp)}" oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu">  
-
+                <p:commandButton process="@this" id="ezabatuButton" update=":tabView:espForm:espTaula" actionListener="#{espezialitateZerrenda.ezabatuEspezialitatea(esp)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" >  
+                    
                 </p:commandButton> 
 
                 <!-- Aurretik definitutako cellEditor elementuak aldatu ahal izatea ahalbidetzen duen botoia.--> 
