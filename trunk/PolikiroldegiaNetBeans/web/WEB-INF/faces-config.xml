@@ -22,4 +22,9 @@
             <to-view-id>/errorea.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <converter>
+        <converter-id> tarifaConv</converter-id>
+        <converter-class>TarifaConverter</converter-class>
+    </converter>    
 </faces-config>

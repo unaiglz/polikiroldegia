@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 08-may-2012 17:22:32 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 12-may-2012 18:09:53 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="pojo.Bezeroa" table="Bezeroa" catalog="Kirolplus">
         <id name="id" type="string">
@@ -23,7 +23,7 @@
         <property name="pasahitza" type="string">
             <column name="pasahitza" length="250" not-null="true" />
         </property>
-        <property name="jaioData" type="date">
+        <property name="jaioData" type="string">
             <column name="jaioData" length="10" not-null="true" />
         </property>
         <property name="aktibo" type="boolean">
