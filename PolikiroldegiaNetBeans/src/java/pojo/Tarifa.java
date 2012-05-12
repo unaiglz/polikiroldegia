@@ -1,5 +1,5 @@
 package pojo;
-// Generated 08-may-2012 17:22:28 by Hibernate Tools 3.2.1.GA
+// Generated 12-may-2012 18:09:50 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -87,6 +87,11 @@ public class Tarifa  implements java.io.Serializable {
     
     public void setBezeroas(Set<Bezeroa> bezeroas) {
         this.bezeroas = bezeroas;
+    }
+
+    @Override
+    public String toString() {
+        return mota;
     }
 
 

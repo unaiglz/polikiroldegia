@@ -1,5 +1,5 @@
 package pojo;
-// Generated 08-may-2012 17:22:28 by Hibernate Tools 3.2.1.GA
+// Generated 12-may-2012 18:09:50 by Hibernate Tools 3.2.1.GA
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,9 +22,11 @@ public class Espezialitatea implements java.io.Serializable {
         this.izena = izena;
     }
 
-    public Espezialitatea(String izena, String desk) {
+    public Espezialitatea(String izena, String espezialitatea) {
         this.izena = izena;
-        this.espezialitatea = desk;
+        this.espezialitatea = espezialitatea;
+        this.kurtsoas = null;
+        this.monitoreas = null;
     }
 
     public Espezialitatea(String izena, String espezialitatea, Set<Kurtsoa> kurtsoas, Set<Monitorea> monitoreas) {
