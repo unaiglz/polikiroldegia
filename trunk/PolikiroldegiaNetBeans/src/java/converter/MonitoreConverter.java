@@ -1,3 +1,5 @@
+package converter;
+
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -8,15 +10,7 @@ import java.util.*;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author unai
- */
-public class TarifaConverter implements Converter {
+public class MonitoreConverter implements Converter {
 
     Session sesioa = HibernateKud.getInstance().getSession();
     
@@ -27,11 +21,11 @@ public class TarifaConverter implements Converter {
         ArrayList lista = new ArrayList();
         try {
             tx = sesioa.beginTransaction();
-            Criteria add = HibernateKud.getInstance().getSession().createCriteria(Tarifa.class).add(Restrictions.eq("mota",value));
+            Criteria add = HibernateKud.getInstance().getSession().createCriteria(Monitorea.class).add(Restrictions.eq("izena",value));
             tx.commit();
             lista = (ArrayList) add.list();
             if (lista.size() == 1) {
-                return (Tarifa) lista.get(0);
+                return (Monitorea) lista.get(0);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,5 +1,7 @@
 body {
-    background-image: url(http://www.cucaluna.com/wp-content/uploads/2010/11/Water.jpg);
+    /*background-image: url(http://www.cucaluna.com/wp-content/uploads/2010/11/Water.jpg);*/
+    /*background-image: url(http://us.123rf.com/400wm/400/400/hospitalera/hospitalera1001/hospitalera100100203/6343379-ladrillos-de-metales-azules-que-azulejos-sin-problemas-en-todas-las-direcciones.jpg);*/
+    background-image: url(http://us.cdn2.123rf.com/168nwm/svlumagraphica/svlumagraphica0905/svlumagraphica090500098/4884484-fondo-de-pared-de-ladrillo-gris-tenida-de-resistido.jpg);    
     font-size: 12px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;  
@@ -9,16 +11,27 @@ body {
 h1 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     border-bottom: 1px solid #AFAFAF; 
-    font-size:  16px;
+    font-size:  26px;
     font-weight: bold;
     margin: 0px;
     padding: 0px;
-    color: #D20005;
+    color: #000000;
+    text-align: center;
 }
 
 h3 {
-    font: italic bold medium;
+    font-size: 16px;
     word-spacing: 1px;   
+    margin: 30px;
+    text-align: center;
+}
+
+h4 {
+    font-weight: normal;
+    font-size: 16px;
+    word-spacing: 1px;   
+    margin: 30px;
+    text-align: justify;
 }
 a:link, a:visited {
     color: #045491;
@@ -37,4 +50,10 @@ a:link:hover, a:visited:hover  {
     border: #000000;
     background-color: #045491;
 
+}
+
+#testua{
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  16px;
+    font-weight: bold;
 }

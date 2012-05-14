@@ -23,6 +23,14 @@ public class Kurtsoa  implements java.io.Serializable {
      private Set<Bezeroa> bezeroas = new HashSet<Bezeroa>(0);
 
     public Kurtsoa() {
+       this.monitorea = null;
+       this.espezialitatea = null;
+       this.izena = " ";
+       this.deskribapena = " ";
+       this.bezMax = 0;
+       this.data = null;
+       this.ordutegias = null;
+       this.bezeroas = null;
     }
 
 	
@@ -50,6 +58,7 @@ public class Kurtsoa  implements java.io.Serializable {
     }
     
     public void setId(Integer id) {
+        System.out.println(">>>>>>>>>>> Kurtso id=" + id);
         this.id = id;
     }
     public Monitorea getMonitorea() {
@@ -57,6 +66,7 @@ public class Kurtsoa  implements java.io.Serializable {
     }
     
     public void setMonitorea(Monitorea monitorea) {
+        System.out.println(">>>>>>>>>>> Kurtso Monitorea=" + monitorea);
         this.monitorea = monitorea;
     }
     public Espezialitatea getEspezialitatea() {
@@ -64,6 +74,7 @@ public class Kurtsoa  implements java.io.Serializable {
     }
     
     public void setEspezialitatea(Espezialitatea espezialitatea) {
+        System.out.println(">>>>>>>>>>> Kurtso Espezialitatea=" + espezialitatea);
         this.espezialitatea = espezialitatea;
     }
     public String getIzena() {
@@ -71,6 +82,7 @@ public class Kurtsoa  implements java.io.Serializable {
     }
     
     public void setIzena(String izena) {
+        System.out.println(">>>>>>>>>>> Kurtso izena=" + izena);
         this.izena = izena;
     }
     public String getDeskribapena() {
@@ -78,6 +90,7 @@ public class Kurtsoa  implements java.io.Serializable {
     }
     
     public void setDeskribapena(String deskribapena) {
+        System.out.println(">>>>>>>>>>> Kurtso deskribapena=" + deskribapena);
         this.deskribapena = deskribapena;
     }
     public int getBezMax() {
@@ -85,6 +98,7 @@ public class Kurtsoa  implements java.io.Serializable {
     }
     
     public void setBezMax(int bezMax) {
+        System.out.println(">>>>>>>>>>> Kurtso bezMax=" + bezMax);
         this.bezMax = bezMax;
     }
     public Date getData() {
@@ -92,6 +106,7 @@ public class Kurtsoa  implements java.io.Serializable {
     }
     
     public void setData(Date data) {
+        System.out.println(">>>>>>>>>>> Kurtso data=" + data);
         this.data = data;
     }
     public Set<Ordutegia> getOrdutegias() {

@@ -25,6 +25,21 @@
     
     <converter>
         <converter-id> tarifaConv</converter-id>
-        <converter-class>TarifaConverter</converter-class>
-    </converter>    
+        <converter-class>converter.TarifaConverter</converter-class>
+    </converter> 
+    
+    <converter>
+        <converter-id>monitoreConv</converter-id>
+        <converter-class>converter.MonitoreConverter</converter-class>
+    </converter> 
+    
+    <converter>
+        <converter-id>espConv</converter-id>
+        <converter-class>converter.EspezialitateConverter</converter-class>
+    </converter> 
+        
+    <converter>
+        <converter-id>instConv</converter-id>
+        <converter-class>converter.InstalazioConverter</converter-class>
+    </converter> 
 </faces-config>

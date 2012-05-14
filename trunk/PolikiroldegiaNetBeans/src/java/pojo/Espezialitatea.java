@@ -75,4 +75,11 @@ public class Espezialitatea implements java.io.Serializable {
     public void setMonitoreas(Set<Monitorea> monitoreas) {
         this.monitoreas = monitoreas;
     }
+
+    @Override
+    public String toString() {
+        return izena;
+    }
+    
+    
 }
