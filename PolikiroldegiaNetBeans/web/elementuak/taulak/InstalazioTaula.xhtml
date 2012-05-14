@@ -1,0 +1,114 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:form id="instaForm">  
+
+        <p:growl id="msgs" showDetail="true"/>  
+
+        <p:dataTable id="instaTaula" var="insta" value="#{instalazioZerrenda.zerrenda}" emptyMessage="Ez da Instalaziorik aurkitu" paginator="true" rows="10" editable="true" >  
+
+            <!-- TAULAREN IZENA -->
+            <f:facet name="header">  
+                INSTALAZIOAK
+            </f:facet> 
+
+            <p:column filterBy="#{insta.id}" headerText="ID" >  
+                <h:outputText value="#{insta.id}" /> 
+            </p:column> 
+
+            <p:column filterBy="#{insta.izena}" headerText="IZENA" > 
+
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{insta.izena}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{insta.izena}" style="width:100%"/>
+                    </f:facet> 
+                </p:cellEditor> 
+            </p:column>  
+
+            <p:column filterBy="#{insta.deskribapena}" headerText="DESKRIBAPENA" >  
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{insta.deskribapena}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{insta.deskribapena}" style="width:100%"/>
+                    </f:facet> 
+                </p:cellEditor>
+            </p:column>  
+
+         
+            <p:column>  
+
+                <p:commandButton id="selectButton" update=":tabView:instaForm:instaDisplay" oncomplete="instaDialog.show()" icon="ui-icon-search" title="Ikusi">  
+                    <f:setPropertyActionListener value="#{insta}" target="#{instalazioZerrenda.selectedInstalazioa}" />  
+                </p:commandButton>  
+
+
+               <p:commandButton process="@this" id="ezabatuButton" update=":tabView:instaForm:instaTaula" actionListener="#{instalazioZerrenda.ezabatuInstalazioa(insta)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" > 
+               </p:commandButton> 
+
+                <p:rowEditor />    
+
+            </p:column> 
+
+
+        </p:dataTable> 
+
+
+       
+
+        <p:dialog header="Instalazioari buruzko informazioa" widgetVar="instaDialog" resizable="false" id="instaDlg" showEffect="fade" hideEffect="explode" modal="true">  
+
+            <h:panelGrid id="instaDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
+
+                <h:outputText value="ID:" />  
+                <h:outputText value="#{instalazioZerrenda.selectedInstalazioa.id}" style="font-weight:bold"/>  
+
+                <h:outputText value="Izena:" />  
+                <h:outputText value="#{instalazioZerrenda.selectedInstalazioa.izena}" style="font-weight:bold"/>  
+
+                <h:outputText value="Abizena:" />  
+                <h:outputText value="#{instalazioZerrenda.selectedInstalazioa.deskribapena}" style="font-weight:bold"/>  
+
+            </h:panelGrid>  
+
+        </p:dialog> 
+
+
+
+        <p:panel header="Instalazio berri bat sartu">  
+            <h:panelGrid columns="2" id="grid">  
+               
+                <h:outputLabel value="Izena : *" ></h:outputLabel>  
+                <p:inputText value="#{instalazioZerrenda.insta.izena}"  /> 
+
+                <h:outputLabel value="Deskribapena : *" ></h:outputLabel>  
+                <p:inputText  value="#{instalazioZerrenda.insta.deskribapena}" /> 
+
+
+                <p:commandButton value="Ezabatu" type="reset"/> 
+
+
+                <p:commandButton id="gehitu" value="Instalazioa gehitu" update="instaTaula msgs @parent" action="#{instalazioZerrenda.instalazioaGorde()}" >  
+                    
+                    <p:collector value="#{instalazioZerrenda.insta}" addTo="#{instalazioZerrenda.zerrenda}" />  
+                </p:commandButton> 
+
+
+
+            </h:panelGrid>  
+        </p:panel>
+    </h:form>  
+
+</ui:composition>
+
+
+
+

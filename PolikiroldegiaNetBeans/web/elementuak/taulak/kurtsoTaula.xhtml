@@ -1,0 +1,147 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:form id="kurForm">  
+
+        <p:growl id="msgs" showDetail="true"/>  
+
+        <p:dataTable id="kurTaula" var="kur" value="#{kurtsoZerrenda.zerrenda}" emptyMessage="Ez da kurtsorik aurkitu" paginator="true" rows="10" editable="true" >  
+
+            <!-- TAULAREN IZENA -->
+            <f:facet name="header">  
+                KURTSOAK 
+            </f:facet> 
+
+            <p:column filterBy="#{kur.id}" headerText="ID" >  
+                <h:outputText value="#{kur.id}" /> 
+            </p:column> 
+
+            <p:column filterBy="#{kur.izena}" headerText="IZENA" > 
+
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{kur.izena}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{kur.izena}" style="width:100%"/>
+                    </f:facet> 
+                </p:cellEditor> 
+            </p:column>  
+
+            <p:column filterBy="#{kur.deskribapena}" headerText="DESKRIBAPENA" >  
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{kur.deskribapena}" /> 
+                    </f:facet> 
+                    <f:facet name="input">
+                        <p:inputText value="#{kur.deskribapena}" style="width:100%"/>
+                    </f:facet> 
+                </p:cellEditor>
+            </p:column>  
+
+
+            <p:column>  
+
+                <p:commandButton id="selectButton" update=":tabView:kurForm:kurDisplay" oncomplete="kurDialog.show()" icon="ui-icon-search" title="Ikusi">  
+                    <f:setPropertyActionListener value="#{kur}" target="#{kurtsoZerrenda.selectedKurtsoa}" />  
+                </p:commandButton>  
+
+
+                <p:commandButton process="@this" id="ezabatuButton" update=":tabView:kurForm:kurTaula" actionListener="#{kurtsoZerrenda.ezabatuKurtsoa(kur)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" > 
+                </p:commandButton> 
+
+                <p:rowEditor />    
+
+            </p:column> 
+
+
+        </p:dataTable> 
+
+
+
+
+        <p:dialog header="Kurtsoari buruzko informazioa" widgetVar="kurDialog" resizable="false" id="kurDlg" showEffect="fade" hideEffect="explode" modal="true">  
+
+            <h:panelGrid id="kurDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
+
+                <h:outputText value="ID:" />  
+                <h:outputText value="#{kurtsoZerrenda.selectedKurtsoa.id}" style="font-weight:bold"/>  
+
+                <h:outputText value="Izena:" />  
+                <h:outputText value="#{kurtsoZerrenda.selectedKurtsoa.izena}" style="font-weight:bold"/>  
+
+                <h:outputText value="Deskribapena:" />  
+                <h:outputText value="#{kurtsoZerrenda.selectedKurtsoa.deskribapena}" style="font-weight:bold"/> 
+
+                <h:outputText value="Espezialitatea:" />  
+                <h:outputText value="#{kurtsoZerrenda.selectedKurtsoa.espezialitatea}" style="font-weight:bold"/> 
+
+                <h:outputText value="Bezero maximoak:" />  
+                <h:outputText value="#{kurtsoZerrenda.selectedKurtsoa.bezMax}" style="font-weight:bold"/> 
+
+                <h:outputText value="Data:" />  
+                <h:outputText value="#{kurtsoZerrenda.selectedKurtsoa.data}" style="font-weight:bold"/> 
+
+                <h:outputText value="Monitorea:" />  
+                <h:outputText value="#{kurtsoZerrenda.selectedKurtsoa.monitorea}" style="font-weight:bold"/> 
+
+
+
+            </h:panelGrid>  
+
+        </p:dialog> 
+
+
+       <p:panel header="Kurtso berri bat sartu">  
+            <h:panelGrid columns="2" id="grid">  
+
+
+                <h:outputLabel value="Izena : *" ></h:outputLabel>  
+                <p:inputText value="#{kurtsoZerrenda.kur.izena}"  /> 
+
+                <h:outputLabel value="Deskribapena : *" ></h:outputLabel>  
+                <p:inputText  value="#{kurtsoZerrenda.kur.deskribapena}" /> 
+
+                <h:outputText value="Monitorea: " />  
+                <p:selectOneMenu value="#{kurtsoZerrenda.kur.monitorea}" converter="monitoreConv" effect="fade" >  
+                    <f:selectItem itemLabel="Monitorea" />  
+                    <f:selectItems value="#{monitoreZerrenda.zerrenda}"/>  
+                </p:selectOneMenu> 
+
+                <h:outputText value="Espezialitatea: " />  
+                <p:selectOneMenu value="#{kurtsoZerrenda.kur.espezialitatea}" converter="espConv" effect="fade" >  
+                    <f:selectItem itemLabel="Espezialitatea" />  
+                    <f:selectItems value="#{espezialitateZerrenda.zerrenda}"/>  
+                </p:selectOneMenu> 
+                
+                <h:outputLabel value="Bezero kopuru maximoa : *" ></h:outputLabel>  
+                <p:inputText value="#{kurtsoZerrenda.kur.bezMax}"  /> 
+
+
+                <h:outputLabel value="Data : *" ></h:outputLabel>  
+                <p:inputText value="#{kurtsoZerrenda.kur.data}"  /> 
+
+
+                <p:commandButton value="Ezabatu" type="reset"/> 
+
+
+                <p:commandButton id="gehitu" value="Kurtsoa gehitu" update="kurTaula msgs @parent" action="#{kurtsoZerrenda.kurtsoaGorde()}" >  
+                    <p:collector value="#{kurtsoZerrenda.kur}" addTo="#{kurtsoZerrenda.zerrenda}" /> 
+                </p:commandButton> 
+
+
+
+            </h:panelGrid>  
+        </p:panel>
+    </h:form>  
+
+</ui:composition>
+
+
+
+
+

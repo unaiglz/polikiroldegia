@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package kontrola;
 
 import javax.faces.bean.ManagedBean;
@@ -22,8 +18,8 @@ public class irudiBean {
     public irudiBean() {
         irudiak = new ArrayList<String>();  
   
-        for(int i=1;i<=3;i++) {  
-            irudiak.add("irudia" + i + ".jpg");  
+        for(int i=1;i<=6;i++) {  
+            irudiak.add("aur" + i + ".jpg");  
         } 
     }
   

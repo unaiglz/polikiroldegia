@@ -54,7 +54,6 @@
                <p:commandButton process="@this" id="ezabatuButton" update=":tabView:moniForm:moniTaula" actionListener="#{monitoreZerrenda.ezabatuMonitorea(moni)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" > 
                </p:commandButton> 
 
-                <!-- Aurretik definitutako cellEditor elementuak aldatu ahal izatea ahalbidetzen duen botoia.--> 
                 <p:rowEditor />    
 
             </p:column> 
@@ -63,7 +62,7 @@
         </p:dataTable> 
 
 
-        <!-- AUKERATUTAKO ESPEZIALITATEAREN EZAUGARRIAK BISTARATZEKO DIALOG-A -->
+      
 
         <p:dialog header="Monitoreari buruzko informazioa" widgetVar="moniDialog" resizable="false" id="moniDlg" showEffect="fade" hideEffect="explode" modal="true">  
 
@@ -83,11 +82,6 @@
         </p:dialog> 
 
 
-
-        <!-- ESPEZIALITATE BERRIAK SARTZEKO PANELA-->
-        <!-- required true inputText barruan jartzen bada, gero espezialitateak dialog bidez ikusterakoan, ez dira agertzen, hori gabe arazo gabe funtzionatzen du-->
-        <!-- update "espTaula msgs @parent" beharrezkoa da, behin espezialitate bat gordeta, taula eguneratzeko-->
-        <!-- action: botoiari sakatuta aurrera eramango den metodoari deia-->
         <p:panel header="Monitore berri bat sartu">  
             <h:panelGrid columns="2" id="grid">  
 

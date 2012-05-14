@@ -23,6 +23,11 @@ public class Instalazioa  implements java.io.Serializable {
     public Instalazioa(String izena) {
         this.izena = izena;
     }
+    
+    public Instalazioa(String izena, String deskribapena) {
+        this.izena = izena;
+        this.deskribapena = deskribapena;
+    }
     public Instalazioa(String izena, String deskribapena, Set<Alokairua> alokairuas) {
        this.izena = izena;
        this.deskribapena = deskribapena;
@@ -56,6 +61,11 @@ public class Instalazioa  implements java.io.Serializable {
     
     public void setAlokairuas(Set<Alokairua> alokairuas) {
         this.alokairuas = alokairuas;
+    }
+
+    @Override
+    public String toString() {
+        return izena ;
     }
 
 

@@ -181,7 +181,7 @@ public class Bezeroa  implements java.io.Serializable, Pertsona {
 
     @Override
     public String toString() {
-        return "Bezeroa{" + "id=" + id + ", tarifa=" + tarifa + ", izena=" + izena + ", abizena=" + abizena + ", emaila=" + emaila + ", pasahitza=" + pasahitza + ", jaioData=" + jaioData + ", aktibo=" + aktibo + ", alokairuKop=" + alokairuKop + ", kurtsoKop=" + kurtsoKop + ", iraungitzeData=" + iraungitzeData + ", alokairuas=" + alokairuas + ", kurtsoas=" + kurtsoas + '}';
+        return id ;
     }
 
     

@@ -1,0 +1,147 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:form id="bezForm">  
+
+        <p:growl id="msgs" showDetail="true"/>  
+
+        <p:dataTable id="bezTaula" var="bezeroa" value="#{bezeroZerrenda.zerrenda}" emptyMessage="Ez da bezerorik aurkitu" paginator="true" rows="10" editable="true" >  
+
+            <f:facet name="header">  
+                BEZEROAK 
+            </f:facet> 
+
+            <p:column id="idZutabea" filterBy="#{bezeroa.id}" headerText="ID" >  
+                <h:outputText value="#{bezeroa.id}" />  
+            </p:column> 
+
+            <p:column id="izenaZutabea" filterBy="#{bezeroa.izena}" headerText="IZENA" > 
+                <p:cellEditor>
+                    <f:facet name="output">  
+                        <h:outputText value="#{bezeroa.izena}" />  
+                    </f:facet> 
+                    <f:facet name="input">
+
+                        <p:inputText value="#{bezeroa.izena}" style="width:100%" label="izena"/>
+                    </f:facet> 
+                </p:cellEditor> 
+
+            </p:column>  
+
+            <p:column id="abizenaZutabea" filterBy="#{bezeroa.abizena}" headerText="ABIZENAK" >  
+                <h:outputText value="#{bezeroa.abizena}" />  
+            </p:column>  
+
+            <p:column id="emailaZutabea" filterBy="#{bezeroa.emaila}" headerText="E-POSTA" >  
+                <h:outputText value="#{bezeroa.emaila}" />  
+            </p:column>  
+
+            <p:column>  
+
+                <p:commandButton id="selectButton" update=":tabView:bezForm:bezDisplay" oncomplete="bezeroDialog.show()" icon="ui-icon-search" title="Ikusi">  
+                    <f:setPropertyActionListener value="#{bezeroa}" target="#{bezeroZerrenda.selectedBezeroa}" />  
+                </p:commandButton>  
+
+                <p:commandButton process="@this" id="ezabatuButton" update=":tabView:bezForm:bezDisplay" actionListener="#{bezeroZerrenda.ezabatuBezeroa(bezeroa)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" >                      
+                </p:commandButton> 
+
+                <p:rowEditor /> 
+            </p:column> 
+        </p:dataTable> 
+
+
+
+
+        <!-- Kode zati honen bidez lupatxoa ikusten da -->
+
+        <p:dialog header="Bezeroari buruzko informazioa" widgetVar="bezeroDialog" resizable="false" id="bezDlg"  
+                  showEffect="fade" hideEffect="explode" modal="true">  
+
+            <h:panelGrid id="bezDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
+
+                <h:outputText value="Izena:" />  
+                <h:outputText value="#{bezeroZerrenda.selectedBezeroa.izena}" style="font-weight:bold"/>  
+
+                <h:outputText value="Abizena:" />  
+                <h:outputText value="#{bezeroZerrenda.selectedBezeroa.abizena}" style="font-weight:bold"/>  
+
+
+                <h:outputText value="Jaiotze data:" />  
+                <h:outputText value="#{bezeroZerrenda.selectedBezeroa.jaioData}" style="font-weight:bold"/>  
+
+                <h:outputText value="Emaila:" />  
+                <h:outputText value="#{bezeroZerrenda.selectedBezeroa.emaila}" style="font-weight:bold"/>  
+
+                <h:outputText value="Tarifa:" />  
+                <h:outputText value="#{bezeroZerrenda.selectedBezeroa.tarifa}" style="font-weight:bold"/>  
+
+                <h:outputText value="Alokairu kopurua:" />  
+                <h:outputText value="#{bezeroZerrenda.selectedBezeroa.alokairuKop}" style="font-weight:bold"/> 
+
+                <h:outputText value="Kurtso kopurua:" />  
+                <h:outputText value="#{bezeroZerrenda.selectedBezeroa.kurtsoKop}" style="font-weight:bold"/> 
+
+                <h:outputText value="Iraungitze data:" />  
+                <h:outputText value="#{bezeroZerrenda.selectedBezeroa.iraungitzeData}" style="font-weight:bold"/> 
+
+            </h:panelGrid>  
+
+        </p:dialog> 
+
+
+
+        <!--EZ DABIL, behin gordetzera emanez gero, berriz kautotzerakoan ez du erabiltzailea aurkitzen -->
+
+        <p:panel header="Bezero bat gehitu">  
+            <h:panelGrid>  
+                <h:outputLabel value="NAN: *" for="idBez"></h:outputLabel>  
+                <p:inputText id="idBez" value="#{bezeroZerrenda.bez.id}" autocomplete="true" maxlength="9" /> <!--required="true" -->
+
+                <h:outputLabel value="Izena : *" for="izBez"></h:outputLabel>  
+                <p:inputText id="izBez" value="#{bezeroZerrenda.bez.izena}" maxlength="20" /> <!--required="true" -->      
+
+                <h:outputLabel value="Abizena : *" for="abBez"></h:outputLabel>  
+                <p:inputText id="abBez" value="#{bezeroZerrenda.bez.abizena}" maxlength="50" /> <!--required="false" -->
+
+                <h:outputLabel value="Emaila : *" for="emBez"></h:outputLabel>  
+                <p:inputText id="emBez" value="#{bezeroZerrenda.bez.emaila}" maxlength="50" /> <!--required="true" -->
+
+                <!-- Esto es para que aparezcan los mensajes  
+                <p:messages id="messages" showDetail="true" autoUpdate="true"/> --> <!--required="true" -->
+                <h:panelGrid columns="2" id="pasBez">                     
+                    <h:outputLabel for="pwd1" value="Pasahitza 1: *" />  
+                    <p:password id="pwd1" value="#{bezeroZerrenda.bez.pasahitza}" match="pwd2" label="Pasahitza 1"/>  
+
+                    <h:outputLabel for="pwd2" value="Pasahitza 2: *" />  
+                    <p:password id="pwd2" value="#{bezeroZerrenda.bez.pasahitza}" label="Pasahitza 2"/>  
+                </h:panelGrid>  
+
+                <!-- Muestra la lista de tarifas del sistema -->
+                <h:outputText value="Tarifa: *" /> 
+                <p:selectOneMenu id="tarBez" value="#{bezeroZerrenda.bez.tarifa}" converter="tarifaConv">                      
+                    <f:selectItem itemLabel="Tarifa"/>  
+                    <f:selectItems value="#{tarifaZerrenda.zerrenda}" />  
+                </p:selectOneMenu>
+
+
+                <!-- Coloca una mascara que indica la forma de escribirlo-->
+                <h:outputLabel value="Jaiotze Data : *" for="jdBez"></h:outputLabel> 
+                <p:inputMask id="jdBez" value="#{bezeroZerrenda.bez.jaioData}" mask="9999-99-99" /> <!--required="true" --> 
+                <small> <h:outputLabel value="(UUUU-HH-EE)" for="jdBez"></h:outputLabel> </small>
+
+                <p:commandButton value="Ezabatu" type="reset"/> 
+                <!-- Hacer algo que resetee automaticamente todos los inputText despues de añadir un bezero-->
+                <p:commandButton id="gehitu" value="Bezeroa gehitu" update="bezTaula msgs @parent"  action="#{bezeroZerrenda.bezeroaGorde()}">  
+                    <p:collector value="#{bezeroZerrenda.bez}" addTo="#{bezeroZerrenda.zerrenda}"/>
+
+                </p:commandButton>
+
+            </h:panelGrid>  
+        </p:panel>
+
+
+    </h:form>  
+</ui:composition> 
