@@ -24,10 +24,12 @@
                 <h:outputText value="#{alo.bezeroId}" /> 
             </p:column>  
 
-            <p:column filterBy="#{alo.dataOrdua}" headerText="DATA ETA ORDUA" >  
+            <p:column filterBy="#{alo.data}" headerText="DATA" >  
+                <h:outputText value="#{alo.data}" /> 
+            </p:column>  
 
-                <h:outputText value="#{alo.dataOrdua}" /> 
-
+            <p:column filterBy="#{alo.ordua}" headerText="ORDUA" >  
+                <h:outputText value="#{alo.ordua}" /> 
             </p:column>  
 
 
@@ -41,7 +43,7 @@
                 <p:commandButton process="@this" id="ezabatuButton" update=":tabView:aloForm:aloTaula" actionListener="#{alokairuZerrenda.ezabatuAlokairua(alo)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" > 
                 </p:commandButton> 
 
-               
+
 
             </p:column> 
 
@@ -61,9 +63,12 @@
                 <h:outputText value="BEZERO ID" />  
                 <h:outputText value="#{alokairuZerrenda.selectedAlokairua.bezeroId}" style="font-weight:bold"/>  
 
-                <h:outputText value="DATA ETA ORDUA:" />  
-                <h:outputText value="#{alokairuZerrenda.selectedAlokairua.dataOrdua}" style="font-weight:bold"/>  
-                
+                <h:outputText value="DATA:" />  
+                <h:outputText value="#{alokairuZerrenda.selectedAlokairua.data}" style="font-weight:bold"/>  
+
+                <h:outputText value="ORDUA:" />  
+                <h:outputText value="#{alokairuZerrenda.selectedAlokairua.ordua}" style="font-weight:bold"/>  
+
                 <h:outputText value="OHARRA:" />  
                 <h:outputText value="#{alokairuZerrenda.selectedAlokairua.oharra}" style="font-weight:bold"/> 
             </h:panelGrid>  
@@ -73,37 +78,45 @@
 
         <p:panel header="Alokairu berri bat sartu">  
             <h:panelGrid columns="2" id="grid">  
-
                 <h:outputLabel value="Instalazioa: *" ></h:outputLabel>  
                 <p:selectOneMenu id="aloInstId" value="#{alokairuZerrenda.alo.instalazioa}" converter="instConv">                      
                     <f:selectItem itemLabel="Instalazioa"/>  
                     <f:selectItems value="#{instalazioZerrenda.zerrenda}" var="inst" itemLabel="#{inst.izena}"/>  
                 </p:selectOneMenu>
 
-                
+
                 <h:outputLabel value="Bezeroa: *" ></h:outputLabel>  
                 <p:selectOneMenu id="aloBezId" value="#{alokairuZerrenda.alo.bezeroId}">                      
                     <f:selectItem itemLabel="Bezeroa"/>  
                     <f:selectItems value="#{bezeroZerrenda.zerrenda}" var="bez" itemLabel="#{bez.izena}"/>  
                 </p:selectOneMenu>
+
+
+                <h:outputLabel value="Data: *" ></h:outputLabel>  
+                <p:inputMask id="aloData" value="#{alokairuZerrenda.alo.data}"  mask="9999-99-99" /> 
                 
-                              
-                <h:outputLabel value="DataOrdua : *" ></h:outputLabel>  
-                <p:inputText value="#{alokairuZerrenda.alo.dataOrdua}"  /> 
+                
+
+                <h:outputLabel value="Ordua: *" ></h:outputLabel>
+                <p:inputMask id="aloOrdua" value="#{alokairuZerrenda.alo.ordua}" mask="99:99 - 99:99" />
+
+
+                <h:outputLabel value="Oharra *" ></h:outputLabel>
+                <p:inputTextarea id="inputarea" rows="7" cols="20" value="#{alokairuZerrenda.alo.oharra}"/>  
 
                 <p:commandButton value="Ezabatu" type="reset"/> 
 
 
                 <p:commandButton id="gehitu" value="Alokairua gehitu" update="aloTaula msgs @parent" action="#{alokairuZerrenda.alokairuaGorde()}" >  
 
-                    <p:collector value="#{alokairuZerrenda.alo}" addTo="#{alokairuZerrenda.zerrenda}" />  
+                <p:collector value="#{alokairuZerrenda.alo}" addTo="#{alokairuZerrenda.zerrenda}" />  
                 </p:commandButton> 
 
 
 
             </h:panelGrid>  
         </p:panel>
-       
+
     </h:form>  
 
 </ui:composition>

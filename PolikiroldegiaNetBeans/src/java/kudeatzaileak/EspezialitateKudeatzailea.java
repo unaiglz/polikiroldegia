@@ -17,7 +17,7 @@ public class EspezialitateKudeatzailea {
     
    
 
-    public ArrayList<Espezialitatea> EspezialitateakLortu() {
+    public ArrayList<Espezialitatea> espezialitateakLortu() {
         return (ArrayList<Espezialitatea>) HibernateKud.getInstance().execHQL("from Espezialitatea");
     }
 

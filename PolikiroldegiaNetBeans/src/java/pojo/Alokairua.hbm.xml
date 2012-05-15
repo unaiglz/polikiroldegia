@@ -11,8 +11,11 @@
         <many-to-one name="instalazioa" class="pojo.Instalazioa" fetch="select">
             <column name="instalazioID" not-null="true" unique="true" />
         </many-to-one>
-        <property name="dataOrdua" type="string">
-            <column name="dataOrdua" length="25" not-null="true" />
+        <property name="data" type="string">
+            <column name="data" length="25" not-null="true" />
+        </property>
+        <property name="ordua" type="string">
+            <column name="ordua" length="20" not-null="true" />
         </property>
         <property name="oharra" type="string">
             <column name="oharra" length="250" />

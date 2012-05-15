@@ -1,6 +1,7 @@
 package zerrendak;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -11,7 +12,7 @@ import pojo.Tarifa;
 @ManagedBean
 @RequestScoped
 public class BezeroZerrenda {
-
+    
     ArrayList<Bezeroa> zerrenda = new ArrayList<Bezeroa>();
     private Bezeroa selectedBezeroa;
     private Bezeroa bez;
@@ -21,47 +22,58 @@ public class BezeroZerrenda {
      * Creates a new instance of BezeroZerrenda
      */
     public BezeroZerrenda() {
-
+        
         bez = new Bezeroa();
         ek = new ErabiltzaileKudeatzaile();
         zerrenda = ek.bezeroakLortu();
-
+        
     }
-
+    
     public ArrayList<Bezeroa> getZerrenda() {
         return zerrenda;
     }
-
+    
     public void setZerrenda(ArrayList<Bezeroa> zerrenda) {
         this.zerrenda = zerrenda;
     }
-
+    
     public Bezeroa getSelectedBezeroa() {
         return selectedBezeroa;
     }
-
+    
     public void setSelectedBezeroa(Bezeroa selectedBezeroa) {
         this.selectedBezeroa = selectedBezeroa;
     }
-
+    
     public Bezeroa getBez() {
         return bez;
     }
-
+    
     public void setBez(Bezeroa bez) {
         this.bez = bez;
     }
-
+    
     public void bezeroaGorde() {
-
-        System.out.println("ErabiltzaileZerrenda");
-        System.out.println("Bezeroa : " + bez);
-//        ek.bezeroaGorde(new Bezeroa(bez.getId(), bez.getIzena(), bez.getPasahitza(), bez.getEmaila()));
-        //ek.bezeroaGorde(new Bezeroa(bez.getId(), bez.getTarifa(), bez.getIzena(), bez.getAbizena(), bez.getEmaila(), bez.getPasahitza(), new Date(1990, 8, 17), true, new Date(2018, 8, 17)));
-        ek.bezeroaGorde(new Bezeroa(bez.getId(),bez.getTarifa(),bez.getIzena(),bez.getAbizena(),bez.getEmaila(),bez.getPasahitza(),bez.getJaioData(), new Date(2018, 8, 17)));
-//        ek.bezeroaGorde(new Bezeroa( bez.getId(), bez.getTarifa(),bez.getIzena(), bez.getEmaila(),bez.getPasahitza(), bez.getJaioData(), bez.isAktibo(),bez.getAlokairuKop(),bez.getKurtsoKop(),bez.getIraungitzeData()));
-//        ek.bezeroaGorde(new Bezeroa( bez.getId(), tarifa,bez.getIzena(), bez.getEmaila(),"1111", bez.getJaioData(), bez.isAktibo(),bez.getAlokairuKop(),bez.getKurtsoKop(),bez.getIraungitzeData()));
+        System.out.println("BezeroZerrenda > Bezeroa : " + bez);
+        ek.bezeroaGorde(new Bezeroa(bez.getId(), bez.getTarifa(), bez.getIzena(), bez.getAbizena(), bez.getEmaila(), bez.getPasahitza(), bez.getJaioData(), "2025-12-31"));
         bez = new Bezeroa();
+    }
+    
+    public void ezabatuBezeroa(Bezeroa inst){
+        zerrenda.remove(inst);
+        ek.ezabatuBezeroa(inst);
+    }
 
+    /*
+     * Metodo para calcular la iraungitze data partiendo del dia de hoy
+     */
+    public String lortuIraungitzea(String data, Tarifa tar) {
+        System.out.println("Sortutako data :" + data);
+        String urte = data.substring(0, 3);
+        int urtea = Integer.parseInt(urte) + tar.getIraupena();
+        urte = urtea + data.substring(4);
+        System.out.println("Iraungitzea:" + urte);
+        return urtea + data.substring(4);
+        
     }
 }
