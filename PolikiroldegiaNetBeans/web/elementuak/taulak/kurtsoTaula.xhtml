@@ -16,10 +16,6 @@
                 KURTSOAK 
             </f:facet> 
 
-            <p:column filterBy="#{kur.id}" headerText="ID" >  
-                <h:outputText value="#{kur.id}" /> 
-            </p:column> 
-
             <p:column filterBy="#{kur.izena}" headerText="IZENA" > 
 
                 <p:cellEditor>
@@ -44,7 +40,7 @@
             </p:column>  
 
 
-            <p:column>  
+            <p:column style="width: 90px">  
 
                 <p:commandButton id="selectButton" update=":tabView:kurForm:kurDisplay" oncomplete="kurDialog.show()" icon="ui-icon-search" title="Ikusi">  
                     <f:setPropertyActionListener value="#{kur}" target="#{kurtsoZerrenda.selectedKurtsoa}" />  

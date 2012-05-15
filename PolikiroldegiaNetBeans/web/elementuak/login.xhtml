@@ -13,23 +13,29 @@
                 <div align="center"><p:graphicImage alt="Irudia" url="irudiak/Kirolplus.png"></p:graphicImage></div>
             </td>
             <td>
-        <h:panelGroup rendered="#{user.loggedIn}"> 
-            <h:outputText value="Ongi etorri, #{user.unekoIzena}"> </h:outputText>
-        </h:panelGroup>
-        <h:panelGroup rendered="#{user.notLoggedIn}"> 
-            <h:form>
-                <div styleClass="login" align="right">
-                    <label> <span align="left"> <strong> Login: </strong></span></label> 
-                    <h:inputText id="Login" size="30" required="true" requiredMessage="Proporcione su nombre" value="#{user.id}"/> 
-                    <br/>
-                    <label> <span align="left"> <strong> Pasahitza: </strong></span></label> 
-                    <h:inputSecret id="Contrasena" size="30" required="true" requiredMessage="Proporcione su contraseña" value="#{user.pasahitza}"/> 
-                    <br/>
-                    <h:commandButton value="Kautotu" action="#{user.login()}" />
-                </div>
-            </h:form>
-        </h:panelGroup>
-        </td>
+                <h:panelGroup rendered="#{user.loggedIn}"> 
+                    <h:outputText value="Ongi etorri, #{user.unekoIzena}"> </h:outputText>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{user.notLoggedIn}"> 
+                    <div styleClass="login" align="right">
+                        <h:form>
+
+                            <label> <span align="left"> <strong> Login: </strong></span></label> 
+                            <h:inputText id="Login" size="30" required="true" requiredMessage="Proporcione su nombre" value="#{user.id}"/> 
+                            <br/>
+                            <label> <span align="left"> <strong> Pasahitza: </strong></span></label> 
+                            <h:inputSecret id="Contrasena" size="30" required="true" requiredMessage="Proporcione su contraseña" value="#{user.pasahitza}"/> 
+                            <br/>
+                            <h:commandButton value="Kautotu" action="#{user.login()}" />
+
+                        </h:form>
+                        <h:form>
+                            <h:commandButton value="Izena eman" action="#{user.izenaEman()}" />
+                        </h:form>
+                    </div>
+
+                </h:panelGroup>
+            </td>
         </tr>
     </table>
 </ui:composition> 

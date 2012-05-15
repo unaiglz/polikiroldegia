@@ -16,7 +16,7 @@
                 MONITOREAK 
             </f:facet> 
 
-            <p:column filterBy="#{moni.id}" headerText="ID" >  
+            <p:column filterBy="#{moni.id}" headerText="NAN ZENBAKIA" >  
                 <h:outputText value="#{moni.id}" /> 
             </p:column> 
 
@@ -44,7 +44,7 @@
             </p:column>  
 
          
-            <p:column>  
+            <p:column style="width: 90px">  
 
                 <p:commandButton id="selectButton" update=":tabView:moniForm:moniDisplay" oncomplete="moniDialog.show()" icon="ui-icon-search" title="Ikusi">  
                     <f:setPropertyActionListener value="#{moni}" target="#{monitoreZerrenda.selectedMonitorea}" />  

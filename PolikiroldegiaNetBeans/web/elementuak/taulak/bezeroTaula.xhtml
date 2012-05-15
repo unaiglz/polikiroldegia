@@ -14,7 +14,7 @@
                 BEZEROAK 
             </f:facet> 
 
-            <p:column id="idZutabea" filterBy="#{bezeroa.id}" headerText="ID" >  
+            <p:column id="idZutabea" filterBy="#{bezeroa.id}" headerText="NAN ZENBAKIA" >  
                 <h:outputText value="#{bezeroa.id}" />  
             </p:column> 
 
@@ -39,7 +39,7 @@
                 <h:outputText value="#{bezeroa.emaila}" />  
             </p:column>  
 
-            <p:column>  
+            <p:column style="width: 90px">  
 
                 <p:commandButton id="selectButton" update=":tabView:bezForm:bezDisplay" oncomplete="bezeroDialog.show()" icon="ui-icon-search" title="Ikusi">  
                     <f:setPropertyActionListener value="#{bezeroa}" target="#{bezeroZerrenda.selectedBezeroa}" />  

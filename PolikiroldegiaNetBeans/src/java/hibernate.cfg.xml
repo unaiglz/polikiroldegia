@@ -18,5 +18,6 @@
     <mapping resource="pojo/Tarifa.hbm.xml"/>
     <mapping resource="pojo/Monitorea.hbm.xml"/>
     <mapping resource="pojo/Instalazioa.hbm.xml"/>
+    <mapping resource="pojo/Administratzailea.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
