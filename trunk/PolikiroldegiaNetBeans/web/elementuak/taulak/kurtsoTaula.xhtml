@@ -13,7 +13,7 @@
 
             <!-- TAULAREN IZENA -->
             <f:facet name="header">  
-                KURTSOAK 
+                <span style="font-size: 18px; text-align: center">KURTSOAK </span>
             </f:facet> 
 
             <p:column filterBy="#{kur.izena}" headerText="IZENA" > 
@@ -62,7 +62,7 @@
 
         <p:dialog header="Kurtsoari buruzko informazioa" widgetVar="kurDialog" resizable="false" id="kurDlg" showEffect="fade" hideEffect="explode" modal="true">  
 
-            <h:panelGrid id="kurDisplay" columns="2" cellpadding="4" style="margin:0 auto;">  
+            <h:panelGrid id="kurDisplay" columns="2" cellpadding="4" style="margin:0 auto">  
 
                 <h:outputText value="ID:" />  
                 <h:outputText value="#{kurtsoZerrenda.selectedKurtsoa.id}" style="font-weight:bold"/>  
@@ -91,11 +91,15 @@
 
         </p:dialog> 
 
+        <br/>
+        <br/>
+        <br/>
+        
+        <p:panel header="Kurtso berri bat sartu" style="font-size: 16px; text-align: center">  
+           <center>
+           <h:panelGrid columns="2" id="grid" cellspacing="20px">  
 
-       <p:panel header="Kurtso berri bat sartu">  
-            <h:panelGrid columns="2" id="grid">  
-
-
+               
                 <h:outputLabel value="Izena : *" ></h:outputLabel>  
                 <p:inputText value="#{kurtsoZerrenda.kur.izena}"  /> 
 
@@ -132,6 +136,7 @@
 
 
             </h:panelGrid>  
+           </center>
         </p:panel>
     </h:form>  
 

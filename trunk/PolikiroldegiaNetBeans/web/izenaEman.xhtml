@@ -13,7 +13,7 @@
 
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="KirolPlus polikiroldegian izena eman">  
+                    <p:panel header="KirolPlus polikiroldegian izena eman" style="font-size: 16px; text-align: center">  
                         <center>
 
                             <h:panelGrid columns="4" cellspacing="20px">  
@@ -51,12 +51,12 @@
                                     <p:inputMask id="jdBez" value="#{bezeroZerrenda.bez.jaioData}" mask="9999-99-99" /> 
                                     <small> <h:outputLabel value="(UUUU-HH-EE)" for="jdBez"></h:outputLabel> </small>
                                 </h:panelGrid>
-                                
+
                             </h:panelGrid>
                             <h:panelGrid columns="2">
                                 <p:commandButton value="Ezabatu" type="reset"/> 
 
-                                <p:commandButton id="gehitu" value="Bezeroa gehitu" action="#{bezeroZerrenda.bezeroaGorde()}">  
+                                <p:commandButton id="gehitu" value="Izena eman" action="#{bezeroZerrenda.bezeroaGorde()}" onclick="dialog.show()">  
                                     <p:collector value="#{bezeroZerrenda.bez}" addTo="#{bezeroZerrenda.zerrenda}"/>
 
                                 </p:commandButton>
@@ -64,6 +64,18 @@
                             </h:panelGrid> 
                         </center>
                     </p:panel>
+
+                    <p:dialog widgetVar="dialog" resizable="false" id="espDlg" showEffect="fade" hideEffect="explode" modal="true">  
+
+                        <h:panelGrid id="espDisplay" cellpadding="4" style="margin:0 auto;">  
+
+                            <h:outputText value="ONGI ETORRI KIROLPLUS POLIKIROLDEGIRA!" /> 
+                            <h:outputText value="Izena ematea ondo burutu da." /> 
+                              
+
+                        </h:panelGrid>  
+
+                    </p:dialog> 
                 </h:form>
 
             </ui:define>    

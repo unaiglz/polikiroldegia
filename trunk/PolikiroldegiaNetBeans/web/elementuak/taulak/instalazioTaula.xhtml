@@ -13,7 +13,7 @@
 
             <!-- TAULAREN IZENA -->
             <f:facet name="header">  
-                INSTALAZIOAK
+                <span style="font-size: 18px; text-align: center">INSTALAZIOAK</span>
             </f:facet> 
 
             <p:column filterBy="#{insta.izena}" headerText="IZENA" > 
@@ -77,10 +77,14 @@
 
         </p:dialog> 
 
+ <br/>
+        <br/>
+        <br/>
 
+        <p:panel header="Instalazio berri bat sartu" style="font-size: 16px; text-align: center"> 
+                        <center>
 
-        <p:panel header="Instalazio berri bat sartu">  
-            <h:panelGrid columns="2" id="grid">  
+            <h:panelGrid columns="2" id="grid" cellspacing="20px">  
                
                 <h:outputLabel value="Izena : *" ></h:outputLabel>  
                 <p:inputText value="#{instalazioZerrenda.insta.izena}"  /> 
@@ -100,6 +104,8 @@
 
 
             </h:panelGrid>  
+                                        </center>
+
         </p:panel>
     </h:form>  
 

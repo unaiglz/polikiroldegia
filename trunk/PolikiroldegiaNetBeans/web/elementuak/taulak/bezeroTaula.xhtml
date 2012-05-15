@@ -11,7 +11,7 @@
         <p:dataTable id="bezTaula" var="bezeroa" value="#{bezeroZerrenda.zerrenda}" emptyMessage="Ez da bezerorik aurkitu" paginator="true" rows="10" editable="true" >  
 
             <f:facet name="header">  
-                BEZEROAK 
+                <span style="font-size: 18px; text-align: center">BEZEROAK</span> 
             </f:facet> 
 
             <p:column id="idZutabea" filterBy="#{bezeroa.id}" headerText="NAN ZENBAKIA" >  
@@ -91,35 +91,36 @@
 
         </p:dialog> 
 
+ <br/>
+        <br/>
+        <br/>
+        
+        <p:panel header="Bezero bat gehitu" style="font-size: 16px; text-align: center"> 
+            <center> 
+            <h:panelGrid columns="4" cellspacing="20px"> 
 
-
-        <!--EZ DABIL, behin gordetzera emanez gero, berriz kautotzerakoan ez du erabiltzailea aurkitzen -->
-
-        <p:panel header="Bezero bat gehitu">  
-            <h:panelGrid>  
                 <h:outputLabel value="NAN: *" for="idBez"></h:outputLabel>  
-                <p:inputText id="idBez" value="#{bezeroZerrenda.bez.id}" autocomplete="true" maxlength="9" /> <!--required="true" -->
+                <p:inputText id="idBez" value="#{bezeroZerrenda.bez.id}" autocomplete="true" maxlength="9" /> 
 
                 <h:outputLabel value="Izena : *" for="izBez"></h:outputLabel>  
-                <p:inputText id="izBez" value="#{bezeroZerrenda.bez.izena}" maxlength="20" /> <!--required="true" -->      
+                <p:inputText id="izBez" value="#{bezeroZerrenda.bez.izena}" maxlength="20" />     
 
                 <h:outputLabel value="Abizena : *" for="abBez"></h:outputLabel>  
-                <p:inputText id="abBez" value="#{bezeroZerrenda.bez.abizena}" maxlength="50" /> <!--required="false" -->
+                <p:inputText id="abBez" value="#{bezeroZerrenda.bez.abizena}" maxlength="50" /> 
 
                 <h:outputLabel value="Emaila : *" for="emBez"></h:outputLabel>  
-                <p:inputText id="emBez" value="#{bezeroZerrenda.bez.emaila}" maxlength="50" /> <!--required="true" -->
+                <p:inputText id="emBez" value="#{bezeroZerrenda.bez.emaila}" maxlength="50" /> 
 
-                <!-- Esto es para que aparezcan los mensajes  
-                <p:messages id="messages" showDetail="true" autoUpdate="true"/> --> <!--required="true" -->
-                <h:panelGrid columns="2" id="pasBez">                     
-                    <h:outputLabel for="pwd1" value="Pasahitza 1: *" />  
-                    <p:password id="pwd1" value="#{bezeroZerrenda.bez.pasahitza}" match="pwd2" label="Pasahitza 1"/>  
 
-                    <h:outputLabel for="pwd2" value="Pasahitza 2: *" />  
-                    <p:password id="pwd2" value="#{bezeroZerrenda.bez.pasahitza}" label="Pasahitza 2"/>  
-                </h:panelGrid>  
 
-                <!-- Muestra la lista de tarifas del sistema -->
+                <h:outputLabel for="pwd1" value="Pasahitza 1: *" />  
+                <p:password id="pwd1" value="#{bezeroZerrenda.bez.pasahitza}" match="pwd2" label="Pasahitza 1"/>  
+
+                <h:outputLabel for="pwd2" value="Pasahitza 2: *" />  
+                <p:password id="pwd2" value="#{bezeroZerrenda.bez.pasahitza}" label="Pasahitza 2"/>  
+
+
+
                 <h:outputText value="Tarifa: *" /> 
                 <p:selectOneMenu id="tarBez" value="#{bezeroZerrenda.bez.tarifa}" converter="tarifaConv">                      
                     <f:selectItem itemLabel="Tarifa"/>  
@@ -127,19 +128,24 @@
                 </p:selectOneMenu>
 
 
-                <!-- Coloca una mascara que indica la forma de escribirlo-->
+
                 <h:outputLabel value="Jaiotze Data : *" for="jdBez"></h:outputLabel> 
-                <p:inputMask id="jdBez" value="#{bezeroZerrenda.bez.jaioData}" mask="9999-99-99" /> <!--required="true" --> 
-                <small> <h:outputLabel value="(UUUU-HH-EE)" for="jdBez"></h:outputLabel> </small>
+                <h:panelGrid columns="2">
+                    <p:inputMask id="jdBez" value="#{bezeroZerrenda.bez.jaioData}" mask="9999-99-99" />  
+                    <small> <h:outputLabel value="(UUUU-HH-EE)" for="jdBez"></h:outputLabel> </small>
+                </h:panelGrid>                                
+            </h:panelGrid>
+                
+                <h:panelGrid columns="2">
+                    <p:commandButton value="Ezabatu" type="reset"/> 
 
-                <p:commandButton value="Ezabatu" type="reset"/> 
-                <!-- Hacer algo que resetee automaticamente todos los inputText despues de añadir un bezero-->
-                <p:commandButton id="gehitu" value="Bezeroa gehitu" update="bezTaula msgs @parent"  action="#{bezeroZerrenda.bezeroaGorde()}">  
-                    <p:collector value="#{bezeroZerrenda.bez}" addTo="#{bezeroZerrenda.zerrenda}"/>
-
-                </p:commandButton>
-
-            </h:panelGrid>  
+                    <p:commandButton id="gehitu" value="Bezeroa gehitu" update="bezTaula msgs @parent"  action="#{bezeroZerrenda.bezeroaGorde()}">  
+                        <p:collector value="#{bezeroZerrenda.bez}" addTo="#{bezeroZerrenda.zerrenda}"/>
+                    </p:commandButton>
+                </h:panelGrid>
+            </center>
+                
+           
         </p:panel>
 
 
