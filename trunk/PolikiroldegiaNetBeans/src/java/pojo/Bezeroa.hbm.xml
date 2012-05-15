@@ -35,7 +35,7 @@
         <property name="kurtsoKop" type="int">
             <column name="kurtsoKop" not-null="false" />
         </property>
-        <property name="iraungitzeData" type="date">
+        <property name="iraungitzeData" type="string">
             <column name="iraungitzeData" length="10" not-null="true" />
         </property>
         <set name="alokairuas" inverse="true">

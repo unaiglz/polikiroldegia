@@ -1,7 +1,6 @@
 package zerrendak;
 
 import java.util.ArrayList;
-import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import kudeatzaileak.KurtsoKudeatzailea;
@@ -56,7 +55,7 @@ public class KurtsoZerrenda {
     
     public void kurtsoaGorde() {
         System.out.println("Kurtsoa gorden sartu da" + kur.toString());
-        KurtsoKudeatzailea.getInstantzia().kurtsoaGorde(new Kurtsoa(kur.getMonitorea(),kur.getEspezialitatea(),kur.getIzena(),kur.getDeskribapena(),kur.getBezMax(),new Date(2018, 8, 17)));
+        KurtsoKudeatzailea.getInstantzia().kurtsoaGorde(new Kurtsoa(kur.getMonitorea(),kur.getEspezialitatea(),kur.getIzena(),kur.getDeskribapena(),kur.getBezMax(),kur.getData()));
         kur = new Kurtsoa();     
     } 
     

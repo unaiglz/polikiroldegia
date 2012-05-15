@@ -22,7 +22,7 @@ public class Bezeroa  implements java.io.Serializable, Pertsona {
      private boolean aktibo;
      private int alokairuKop;
      private int kurtsoKop;
-     private Date iraungitzeData;
+     private String iraungitzeData;
      private Set<Alokairua> alokairuas = new HashSet<Alokairua>(0);
      private Set<Kurtsoa> kurtsoas = new HashSet<Kurtsoa>(0);
 
@@ -42,7 +42,7 @@ public class Bezeroa  implements java.io.Serializable, Pertsona {
        this.kurtsoas = null;
     }
     
-    public Bezeroa(String id, Tarifa tarifa, String izena, String abizena, String emaila, String pasahitza, String jaioData,Date iraungitzeData) {
+    public Bezeroa(String id, Tarifa tarifa, String izena, String abizena, String emaila, String pasahitza, String jaioData, String iraungitzeData) {
        this.id = id;
        this.tarifa = tarifa;
        this.izena = izena;
@@ -59,7 +59,7 @@ public class Bezeroa  implements java.io.Serializable, Pertsona {
     }
 
 	
-    public Bezeroa(String id, Tarifa tarifa, String izena, String emaila, String pasahitza, String jaioData, boolean aktibo, int alokairuKop, int kurtsoKop, Date iraungitzeData) {
+    public Bezeroa(String id, Tarifa tarifa, String izena, String emaila, String pasahitza, String jaioData, boolean aktibo, int alokairuKop, int kurtsoKop, String iraungitzeData) {
         this.id = id;
         this.tarifa = tarifa;
         this.izena = izena;
@@ -71,7 +71,7 @@ public class Bezeroa  implements java.io.Serializable, Pertsona {
         this.kurtsoKop = kurtsoKop;
         this.iraungitzeData = iraungitzeData;
     }
-    public Bezeroa(String id, Tarifa tarifa, String izena, String abizena, String emaila, String pasahitza, String jaioData, boolean aktibo, int alokairuKop, int kurtsoKop, Date iraungitzeData, Set<Alokairua> alokairuas, Set<Kurtsoa> kurtsoas) {
+    public Bezeroa(String id, Tarifa tarifa, String izena, String abizena, String emaila, String pasahitza, String jaioData, boolean aktibo, int alokairuKop, int kurtsoKop, String iraungitzeData, Set<Alokairua> alokairuas, Set<Kurtsoa> kurtsoas) {
        this.id = id;
        this.tarifa = tarifa;
        this.izena = izena;
@@ -157,11 +157,11 @@ public class Bezeroa  implements java.io.Serializable, Pertsona {
     public void setKurtsoKop(int kurtsoKop) {
         this.kurtsoKop = kurtsoKop;
     }
-    public Date getIraungitzeData() {
+    public String getIraungitzeData() {
         return this.iraungitzeData;
     }
     
-    public void setIraungitzeData(Date iraungitzeData) {
+    public void setIraungitzeData(String iraungitzeData) {
         this.iraungitzeData = iraungitzeData;
     }
     public Set<Alokairua> getAlokairuas() {

@@ -21,7 +21,7 @@ public class EspezialitateZerrenda {
      */
     public EspezialitateZerrenda() {
         esp = new Espezialitatea();
-        zerrenda = EspezialitateKudeatzailea.getInstantzia().EspezialitateakLortu();
+        zerrenda = EspezialitateKudeatzailea.getInstantzia().espezialitateakLortu();
 
     }
 
@@ -52,7 +52,6 @@ public class EspezialitateZerrenda {
 
     /*Ez dabil*/
     public void ezabatuEspezialitatea(Espezialitatea inst) {
-
         zerrenda.remove(inst);
         ek.espezialitateaEzabatu(inst);
     }

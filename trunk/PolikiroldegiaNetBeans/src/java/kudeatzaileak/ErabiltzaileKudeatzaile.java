@@ -149,8 +149,8 @@ public class ErabiltzaileKudeatzaile {
     public Pertsona getUnekoa() {
         return unekoa;
     }
-    
-    public String getUnekoIzena(){
+
+    public String getUnekoIzena() {
         return unekoa.getIzena();
     }
 
@@ -160,17 +160,12 @@ public class ErabiltzaileKudeatzaile {
 
     }
 
-
     public void bezeroaGorde(Bezeroa bez) {
         HibernateKud.getInstance().gorde(bez);
+        HibernateKud.getInstance().eguneratu(bez);
     }
 
-
-
-    
-//    public void bezeroaGorde(Bezeroa bez){
-//        System.out.println("ErabiltzaileKud"+ bez);
-//        HibernateKud.getInstance().gorde(bez);
-//    }
-
+    public void ezabatuBezeroa(Bezeroa inst) {
+        HibernateKud.getInstance().ezabatu(inst);
+    }
 }

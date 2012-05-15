@@ -23,8 +23,8 @@
         <property name="bezMax" type="int">
             <column name="bezMax" not-null="true" />
         </property>
-        <property name="data" type="date">
-            <column name="data" length="10" not-null="true" />
+        <property name="data" type="string">
+            <column name="data" length="25" not-null="true" />
         </property>
         <set name="ordutegias" inverse="false" table="Kurtso_Ordutegia">
             <key>

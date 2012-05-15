@@ -1,8 +1,6 @@
 package pojo;
 // Generated 12-may-2012 18:09:50 by Hibernate Tools 3.2.1.GA
 
-
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,7 +16,7 @@ public class Kurtsoa  implements java.io.Serializable {
      private String izena;
      private String deskribapena;
      private int bezMax;
-     private Date data;
+     private String data;
      private Set<Ordutegia> ordutegias = new HashSet<Ordutegia>(0);
      private Set<Bezeroa> bezeroas = new HashSet<Bezeroa>(0);
 
@@ -34,7 +32,7 @@ public class Kurtsoa  implements java.io.Serializable {
     }
 
 	
-    public Kurtsoa(Monitorea monitorea, Espezialitatea espezialitatea, String izena, String deskribapena, int bezMax, Date data) {
+    public Kurtsoa(Monitorea monitorea, Espezialitatea espezialitatea, String izena, String deskribapena, int bezMax, String data) {
         this.monitorea = monitorea;
         this.espezialitatea = espezialitatea;
         this.izena = izena;
@@ -42,7 +40,7 @@ public class Kurtsoa  implements java.io.Serializable {
         this.bezMax = bezMax;
         this.data = data;
     }
-    public Kurtsoa(Monitorea monitorea, Espezialitatea espezialitatea, String izena, String deskribapena, int bezMax, Date data, Set<Ordutegia> ordutegias, Set<Bezeroa> bezeroas) {
+    public Kurtsoa(Monitorea monitorea, Espezialitatea espezialitatea, String izena, String deskribapena, int bezMax, String data, Set<Ordutegia> ordutegias, Set<Bezeroa> bezeroas) {
        this.monitorea = monitorea;
        this.espezialitatea = espezialitatea;
        this.izena = izena;
@@ -101,11 +99,11 @@ public class Kurtsoa  implements java.io.Serializable {
         System.out.println(">>>>>>>>>>> Kurtso bezMax=" + bezMax);
         this.bezMax = bezMax;
     }
-    public Date getData() {
+    public String getData() {
         return this.data;
     }
     
-    public void setData(Date data) {
+    public void setData(String data) {
         System.out.println(">>>>>>>>>>> Kurtso data=" + data);
         this.data = data;
     }
