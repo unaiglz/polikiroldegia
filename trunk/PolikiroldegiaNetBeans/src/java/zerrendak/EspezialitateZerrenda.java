@@ -3,6 +3,7 @@ package zerrendak;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.event.ActionEvent;
 import kudeatzaileak.EspezialitateKudeatzailea;
 import pojo.Espezialitatea;
 
@@ -50,7 +51,9 @@ public class EspezialitateZerrenda {
 
     }
 
-    /*Ez dabil*/
+    /*
+     * Ez dabil
+     */
     public void ezabatuEspezialitatea(Espezialitatea inst) {
         zerrenda.remove(inst);
         ek.espezialitateaEzabatu(inst);
@@ -68,5 +71,9 @@ public class EspezialitateZerrenda {
 
     public void setBalioa(String balioa) {
         this.balioa = balioa;
+    }
+
+    public void eguneratu(ActionEvent actionEvent) {
+        
     }
 }

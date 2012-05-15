@@ -6,7 +6,7 @@ package hibernate;
 
 import java.util.*;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped; 
+import javax.faces.bean.RequestScoped;
 import pojo.Espezialitatea;
 
 /**
@@ -20,7 +20,9 @@ public class HibernateTest {
     ArrayList<Espezialitatea> a = new ArrayList<Espezialitatea>();
     public Espezialitatea balioa;
 
-    /** Creates a new instance of HibernateTest */
+    /**
+     * Creates a new instance of HibernateTest
+     */
     public HibernateTest() {
         test();
     }
@@ -53,21 +55,26 @@ public class HibernateTest {
             return i.toString();
         }
         return i;
-        /*if (HibernateKud.getInstance().gorde(inst) == true) {
-        return "Test honetan honakoa probatu da: Espezialitate berri bat sortzea, eta hau datu basean sartzea";
-        } else {
-        return "Errorea exekuzioan";
-        }*/
+        /*
+         * if (HibernateKud.getInstance().gorde(inst) == true) { return "Test
+         * honetan honakoa probatu da: Espezialitate berri bat sortzea, eta hau
+         * datu basean sartzea"; } else { return "Errorea exekuzioan"; }
+         */
 
     }
-    
-     public String test4() {
-        Espezialitatea inst = new Espezialitatea("Esp10");
-        if (HibernateKud.getInstance().ezabatu(inst) == true) {
-            return "Test honetan honakoa probatu da: Ezabatu";
-        } else {
-            return "Errorea exekuzioan";
-        }
 
+    public String test4() {
+//        Espezialitatea inst = new Espezialitatea("Esp10");
+        a = (ArrayList) HibernateKud.getInstance().execHQL("from Espezialitatea where izena= 'wer'");
+        Espezialitatea inst = a.get(0);
+//        if (HibernateKud.getInstance().gorde(inst) == true) {
+        if (HibernateKud.getInstance().ezabatu(inst) == true) {
+            return "Guarda y elimina.";
+        } else {
+            return "No elimina.";
+        }
+//        } else {
+//            return "No guarda.";
+//        }
     }
 }

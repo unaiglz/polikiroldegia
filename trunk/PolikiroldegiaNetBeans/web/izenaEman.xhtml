@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Izena eman</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./WEB-INF/Templates/hasierakoOrria.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <p:panel header="KirolPlus polikiroldegian izena eman">  
+                        <center>
+
+                            <h:panelGrid columns="4" cellspacing="20px">  
+                                <h:outputLabel value="NAN: *" for="idBez"></h:outputLabel>  
+                                <p:inputText id="idBez" value="#{bezeroZerrenda.bez.id}" autocomplete="true" maxlength="9" /> 
+
+                                <h:outputLabel value="Izena : *" for="izBez"></h:outputLabel>  
+                                <p:inputText id="izBez" value="#{bezeroZerrenda.bez.izena}" maxlength="20" />      
+
+                                <h:outputLabel value="Abizena : *" for="abBez"></h:outputLabel>  
+                                <p:inputText id="abBez" value="#{bezeroZerrenda.bez.abizena}" maxlength="50" /> 
+
+                                <h:outputLabel value="Emaila : *" for="emBez"></h:outputLabel>  
+                                <p:inputText id="emBez" value="#{bezeroZerrenda.bez.emaila}" maxlength="50" /> 
+
+
+                                <h:outputLabel for="pwd1" value="Pasahitza 1: *" />  
+                                <p:password id="pwd1" value="#{bezeroZerrenda.bez.pasahitza}" match="pwd2" label="Pasahitza 1"/>  
+
+                                <h:outputLabel for="pwd2" value="Pasahitza 2: *" />  
+                                <p:password id="pwd2" value="#{bezeroZerrenda.bez.pasahitza}" label="Pasahitza 2"/>  
+
+
+
+                                <h:outputText value="Tarifa: *" /> 
+                                <p:selectOneMenu id="tarBez" value="#{bezeroZerrenda.bez.tarifa}" converter="tarifaConv">                      
+                                    <f:selectItem itemLabel="Tarifa"/>  
+                                    <f:selectItems value="#{tarifaZerrenda.zerrenda}" />  
+                                </p:selectOneMenu>
+
+
+
+                                <h:outputLabel value="Jaiotze Data : *" for="jdBez"></h:outputLabel> 
+                                <h:panelGrid>
+                                    <p:inputMask id="jdBez" value="#{bezeroZerrenda.bez.jaioData}" mask="9999-99-99" /> 
+                                    <small> <h:outputLabel value="(UUUU-HH-EE)" for="jdBez"></h:outputLabel> </small>
+                                </h:panelGrid>
+                                
+                            </h:panelGrid>
+                            <h:panelGrid columns="2">
+                                <p:commandButton value="Ezabatu" type="reset"/> 
+
+                                <p:commandButton id="gehitu" value="Bezeroa gehitu" action="#{bezeroZerrenda.bezeroaGorde()}">  
+                                    <p:collector value="#{bezeroZerrenda.bez}" addTo="#{bezeroZerrenda.zerrenda}"/>
+
+                                </p:commandButton>
+
+                            </h:panelGrid> 
+                        </center>
+                    </p:panel>
+                </h:form>
+
+            </ui:define>    
+        </ui:composition>
+
+    </h:body>
+</html>
+

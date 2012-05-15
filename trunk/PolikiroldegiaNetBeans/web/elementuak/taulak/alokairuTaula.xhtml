@@ -33,15 +33,17 @@
             </p:column>  
 
 
-            <p:column>  
+            <p:column style="width: 90px">  
 
-                <p:commandButton id="selectButton" update=":tabView:aloForm:aloDisplay" oncomplete="aloDialog.show()" icon="ui-icon-search" title="Ikusi">  
-                    <f:setPropertyActionListener value="#{alo}" target="#{alokairuZerrenda.selectedAlokairua}" />  
-                </p:commandButton>  
+                <center>
+                    <p:commandButton id="selectButton" update=":tabView:aloForm:aloDisplay" oncomplete="aloDialog.show()" icon="ui-icon-search" title="Ikusi">  
+                        <f:setPropertyActionListener value="#{alo}" target="#{alokairuZerrenda.selectedAlokairua}" />  
+                    </p:commandButton>  
 
 
-                <p:commandButton process="@this" id="ezabatuButton" update=":tabView:aloForm:aloTaula" actionListener="#{alokairuZerrenda.ezabatuAlokairua(alo)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" > 
-                </p:commandButton> 
+                    <p:commandButton process="@this" id="ezabatuButton" update=":tabView:aloForm:aloTaula" actionListener="#{alokairuZerrenda.ezabatuAlokairua(alo)}"  oncomplete="javascript:location.reload(true)" icon="ui-icon-close" title="Ezabatu" > 
+                    </p:commandButton> 
+                </center>
 
 
 
@@ -94,8 +96,8 @@
 
                 <h:outputLabel value="Data: *" ></h:outputLabel>  
                 <p:inputMask id="aloData" value="#{alokairuZerrenda.alo.data}"  mask="9999-99-99" /> 
-                
-                
+
+
 
                 <h:outputLabel value="Ordua: *" ></h:outputLabel>
                 <p:inputMask id="aloOrdua" value="#{alokairuZerrenda.alo.ordua}" mask="99:99 - 99:99" />
@@ -107,9 +109,8 @@
                 <p:commandButton value="Ezabatu" type="reset"/> 
 
 
-                <p:commandButton id="gehitu" value="Alokairua gehitu" update="aloTaula msgs @parent" action="#{alokairuZerrenda.alokairuaGorde()}" >  
-
-                <p:collector value="#{alokairuZerrenda.alo}" addTo="#{alokairuZerrenda.zerrenda}" />  
+                <p:commandButton id="gehitu" value="Alokairua gehitu" update="aloTaula msgs @parent" action="#{alokairuZerrenda.alokairuaGorde()}" > 
+                    <p:collector value="#{alokairuZerrenda.alo}" addTo="#{alokairuZerrenda.zerrenda}" />  
                 </p:commandButton> 
 
 

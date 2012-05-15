@@ -71,6 +71,9 @@ public class ErabiltzaileKudeatzaile {
 //        }
     }
 
+    public String izenaEman() {
+        return "izenaEman";
+    }
     public String logOut() {
         //Sesio aldagaia kentzeko:
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();

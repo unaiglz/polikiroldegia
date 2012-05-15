@@ -16,10 +16,6 @@
                 INSTALAZIOAK
             </f:facet> 
 
-            <p:column filterBy="#{insta.id}" headerText="ID" >  
-                <h:outputText value="#{insta.id}" /> 
-            </p:column> 
-
             <p:column filterBy="#{insta.izena}" headerText="IZENA" > 
 
                 <p:cellEditor>
@@ -44,7 +40,7 @@
             </p:column>  
 
          
-            <p:column>  
+            <p:column style="width: 90px">  
 
                 <p:commandButton id="selectButton" update=":tabView:instaForm:instaDisplay" oncomplete="instaDialog.show()" icon="ui-icon-search" title="Ikusi">  
                     <f:setPropertyActionListener value="#{insta}" target="#{instalazioZerrenda.selectedInstalazioa}" />  
