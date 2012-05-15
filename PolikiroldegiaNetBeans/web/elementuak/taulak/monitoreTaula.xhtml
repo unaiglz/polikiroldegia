@@ -13,7 +13,7 @@
 
             <!-- TAULAREN IZENA -->
             <f:facet name="header">  
-                MONITOREAK 
+                <span style="font-size: 18px; text-align: center">MONITOREAK</span>
             </f:facet> 
 
             <p:column filterBy="#{moni.id}" headerText="NAN ZENBAKIA" >  
@@ -80,10 +80,14 @@
             </h:panelGrid>  
 
         </p:dialog> 
+ <br/>
+        <br/>
+        <br/>
 
+        <p:panel header="Monitore berri bat sartu" style="font-size: 16px; text-align: center">
+                        <center>
 
-        <p:panel header="Monitore berri bat sartu">  
-            <h:panelGrid columns="2" id="grid">  
+            <h:panelGrid columns="2" id="grid" cellspacing="20px">  
 
                 <h:outputLabel value="ID : *" ></h:outputLabel>  
                 <p:inputText value="#{monitoreZerrenda.moni.id}"  /> 
@@ -105,7 +109,9 @@
 
 
 
-            </h:panelGrid>  
+            </h:panelGrid> 
+                                        </center>
+
         </p:panel>
     </h:form>  
 

@@ -13,7 +13,7 @@
 
             <!-- TAULAREN IZENA -->
             <f:facet name="header">  
-                TARIFAK
+                <span style="font-size: 18px; text-align: center">TARIFAK</span>
             </f:facet> 
 
             <p:column filterBy="#{tar.mota}" headerText="IZENA" >  
@@ -109,9 +109,12 @@
 
         </p:dialog> 
 
-
-        <p:panel header="Tarifa berri bat sartu">  
-            <h:panelGrid columns="2" id="grid">  
+ <br/>
+        <br/>
+        <br/>
+        <p:panel header="Tarifa berri bat sartu" style="font-size: 16px; text-align: center"> 
+            <center> 
+            <h:panelGrid columns="2" id="grid" cellspacing="20px">  
 
                 <h:outputLabel value="Izena : *" />
                 <p:inputText value="#{tarifaZerrenda.tar.mota}"  /> 
@@ -139,6 +142,8 @@
 
 
             </h:panelGrid>  
+            </center>
+
         </p:panel>
     </h:form>  
 

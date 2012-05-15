@@ -16,7 +16,7 @@
 
             <!-- TAULAREN IZENA -->
             <f:facet name="header">  
-                ESPEZIALITATEAK 
+                <span style="font-size: 18px; text-align: center">ESPEZIALITATEAK</span> 
             </f:facet> 
 
             <!-- 2.ZUTABEA: Espezialitate IZENA erakusten du eta bilaketa egiteko aukera ematen du (filterBy).-->
@@ -25,7 +25,7 @@
                 <!-- Lerroa editatzeko aukera ematen da honen bidez, honez gain, geroago dagoen rowEditor beharrezkoa da-->
                 <p:cellEditor>
                     <f:facet name="output">  
-                        <center><h:outputText value="#{esp.izena}" /> </center>
+                        <h:outputText value="#{esp.izena}" /> 
                     </f:facet> 
                     <f:facet name="input">
                         <p:inputText value="#{esp.izena}" style="width:100%"/>
@@ -88,13 +88,17 @@
         </p:dialog> 
 
 
-
+ <br/>
+        <br/>
+        <br/>
         <!-- ESPEZIALITATE BERRIAK SARTZEKO PANELA-->
         <!-- required true inputText barruan jartzen bada, gero espezialitateak dialog bidez ikusterakoan, ez dira agertzen, hori gabe arazo gabe funtzionatzen du-->
         <!-- update "espTaula msgs @parent" beharrezkoa da, behin espezialitate bat gordeta, taula eguneratzeko-->
         <!-- action: botoiari sakatuta aurrera eramango den metodoari deia-->
-        <p:panel header="Espezialitate berri bat sartu">  
-            <h:panelGrid columns="2" id="grid">  
+        <p:panel header="Espezialitate berri bat sartu" style="font-size: 16px; text-align: center">
+                        <center>
+
+            <h:panelGrid columns="2" id="grid" cellspacing="20px">  
 
                 <h:outputLabel value="Izena : *" ></h:outputLabel>  
                 <p:inputText value="#{espezialitateZerrenda.esp.izena}"/> 
@@ -111,7 +115,9 @@
                     <p:collector value="#{espezialitateZerrenda.esp}" addTo="#{espezialitateZerrenda.zerrenda}" />  
                 </p:commandButton> 
 
-            </h:panelGrid>  
+            </h:panelGrid> 
+                                        </center>
+
         </p:panel>
     </h:form>  
 </ui:composition>

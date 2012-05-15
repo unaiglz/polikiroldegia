@@ -11,42 +11,48 @@
     </h:head>
     <h:body>
         <ui:composition template="./WEB-INF/Templates/hasierakoOrria.xhtml">
-            
+
             <ui:define name="left">
                 <ui:include src="/elementuak/ezkerrekoZutabea.xhtml" />
             </ui:define>
-            
+
             <ui:define name="content">
-                
+
                 <br/>
                 <h1>ONGI ETORRI KIROLPLUS 
                     <br/>
                     POLIKIROLDEGIRA!</h1> 
                 <br/>
-                    
+
                 <h4>
-                                 
+
                     <p ><span style=" font-weight: bold">ONGI ETORRI!</span> Webgune honetan KirolPlus polikiroldegiari buruzko informazio guztia aurkitu dezakezu.
-                    Gainera, bezeroa bazara, zure bazkide egoera kontsultatu dezakezu eta nahi izanez gero ditugun kurtsoetan 
-                    izena eman dezakezu edo zure kirol guztokoena praktikatzeko beharrezko instalazioa alokatu, beraz... Zeren
-                    zain zaude! Zure nahietara hobeto egokitzen den tarifa hartu, izena eman, eta hasi gure polikiroldegiak
-                    eskaintzen dituen baliabide guztietaz gozatzen!</p>
-                
-                
+                        Gainera, bezeroa bazara, zure bazkide egoera kontsultatu dezakezu eta nahi izanez gero ditugun kurtsoetan 
+                        izena eman dezakezu, edo zure kirol guztokoena praktikatzeko beharrezko instalazioa alokatu, beraz... Zeren
+                        zain zaude! Zure nahietara hobeto egokitzen den tarifa hartu, izena eman, eta hasi gure polikiroldegiak
+                        eskaintzen dituen baliabide guztietaz gozatzen!</p>
+
+
                 </h4>
-                <ui:include src="/elementuak/galeria.xhtml" />
-                
+                <h:form>  
+                    <center>
+                        <h:commandButton  image="/irudiak/izenaEman.jpg" action="#{user.izenaEman()}" />
+                    </center>
+                </h:form>
+
                 <h4>
-                                 
+
                     <p >Instalazioek aldagelak dauzkate eliteko lehiaketetarako, dimentsio handietako ikuskizunetarako, 
-                edo ohikoak diren beste ekintza batzuetarako, medikuntza lokala eta dopinaren kontrako kontrol zona, 
-                biltegiak, etab. Eraikitako azalerak, zonalde honetan, 25.985metro karratu dauzka.</p>
-                
+                        edo ohikoak diren beste ekintza batzuetarako, medikuntza lokala eta dopinaren kontrako kontrol zona, 
+                        biltegiak, etab. Eraikitako azalerak, zonalde honetan, 25.985metro karratu dauzka.</p>
+
+                    <ui:include src="/elementuak/galeria.xhtml" />
+
                     <p>Kiroldegiak, bere aldetik, 26metroko igerilekua dauka, sei kalerekin, eta beste bat txikiagoa, 
-                ume txikientzat, aldagela indibidualak edo taldeentzat, ezinduentzat, teknikoak, etab. 
-                Beste espazio batzuek 520metro karratuko diziplina anitzeko gimnasioa dute, hiru lokaletan bana daitekeena, 
-                administraziorako, monitoreentzat… Azalera osoa 4.823metro karratukoa da.</p>
-                
+                        ume txikientzat, aldagela indibidualak edo taldeentzat, ezinduentzat, teknikoak, etab. 
+                        Beste espazio batzuek 520metro karratuko diziplina anitzeko gimnasioa dute, hiru lokaletan bana daitekeena, 
+                        administraziorako, monitoreentzat… Azalera osoa 4.823metro karratukoa da.</p>
+
                 </h4>
             </ui:define>
 

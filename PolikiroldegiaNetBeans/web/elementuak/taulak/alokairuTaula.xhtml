@@ -13,7 +13,7 @@
 
             <!-- TAULAREN IZENA -->
             <f:facet name="header">  
-                ALOKAIRUAK 
+                <span style="font-size: 18px; text-align: center">ALOKAIRUAK</span> 
             </f:facet> 
 
             <p:column filterBy="#{alo.instalazioa}" headerText="INSTALAZIO ID" >  
@@ -77,45 +77,52 @@
 
         </p:dialog> 
 
+        <br/>
+        <br/>
+        <br/>
 
-        <p:panel header="Alokairu berri bat sartu">  
-            <h:panelGrid columns="2" id="grid">  
-                <h:outputLabel value="Instalazioa: *" ></h:outputLabel>  
-                <p:selectOneMenu id="aloInstId" value="#{alokairuZerrenda.alo.instalazioa}" converter="instConv">                      
-                    <f:selectItem itemLabel="Instalazioa"/>  
-                    <f:selectItems value="#{instalazioZerrenda.zerrenda}" var="inst" itemLabel="#{inst.izena}"/>  
-                </p:selectOneMenu>
+        <p:panel header="Alokairu berri bat sartu" style="font-size: 16px; text-align: center"> 
+            <center>
 
-
-                <h:outputLabel value="Bezeroa: *" ></h:outputLabel>  
-                <p:selectOneMenu id="aloBezId" value="#{alokairuZerrenda.alo.bezeroa}" converter="bezConv">                      
-                    <f:selectItem itemLabel="Bezeroa"/>  
-                    <f:selectItems value="#{bezeroZerrenda.zerrenda}" var="bez" itemLabel="#{bez.izena}"/>  
-                </p:selectOneMenu>
+                <h:panelGrid columns="2" id="grid" cellspacing="20px">  
+                    <h:outputLabel value="Instalazioa: *" ></h:outputLabel>  
+                    <p:selectOneMenu id="aloInstId" value="#{alokairuZerrenda.alo.instalazioa}" converter="instConv">                      
+                        <f:selectItem itemLabel="Instalazioa"/>  
+                        <f:selectItems value="#{instalazioZerrenda.zerrenda}" var="inst" itemLabel="#{inst.izena}"/>  
+                    </p:selectOneMenu>
 
 
-                <h:outputLabel value="Data: *" ></h:outputLabel>  
-                <p:inputMask id="aloData" value="#{alokairuZerrenda.alo.data}"  mask="9999-99-99" /> 
+                    <h:outputLabel value="Bezeroa: *" ></h:outputLabel>  
+                    <p:selectOneMenu id="aloBezId" value="#{alokairuZerrenda.alo.bezeroa}" converter="bezConv">                      
+                        <f:selectItem itemLabel="Bezeroa"/>  
+                        <f:selectItems value="#{bezeroZerrenda.zerrenda}" var="bez" itemLabel="#{bez.izena}"/>  
+                    </p:selectOneMenu>
 
 
-
-                <h:outputLabel value="Ordua: *" ></h:outputLabel>
-                <p:inputMask id="aloOrdua" value="#{alokairuZerrenda.alo.ordua}" mask="99:99 - 99:99" />
-
-
-                <h:outputLabel value="Oharra *" ></h:outputLabel>
-                <p:inputTextarea id="inputarea" rows="7" cols="20" value="#{alokairuZerrenda.alo.oharra}"/>  
-
-                <p:commandButton value="Ezabatu" type="reset"/> 
-
-
-                <p:commandButton id="gehitu" value="Alokairua gehitu" update="aloTaula msgs @parent" action="#{alokairuZerrenda.alokairuaGorde()}" > 
-                    <p:collector value="#{alokairuZerrenda.alo}" addTo="#{alokairuZerrenda.zerrenda}" />  
-                </p:commandButton> 
+                    <h:outputLabel value="Data: *" ></h:outputLabel>  
+                    <p:inputMask id="aloData" value="#{alokairuZerrenda.alo.data}"  mask="9999-99-99" /> 
 
 
 
-            </h:panelGrid>  
+                    <h:outputLabel value="Ordua: *" ></h:outputLabel>
+                    <p:inputMask id="aloOrdua" value="#{alokairuZerrenda.alo.ordua}" mask="99:99 - 99:99" />
+
+
+                    <h:outputLabel value="Oharra *" ></h:outputLabel>
+                    <p:inputTextarea id="inputarea" rows="7" cols="20" value="#{alokairuZerrenda.alo.oharra}"/>  
+
+                    <p:commandButton value="Ezabatu" type="reset"/> 
+
+
+                    <p:commandButton id="gehitu" value="Alokairua gehitu" update="aloTaula msgs @parent" action="#{alokairuZerrenda.alokairuaGorde()}" > 
+                        <p:collector value="#{alokairuZerrenda.alo}" addTo="#{alokairuZerrenda.zerrenda}" />  
+                    </p:commandButton> 
+
+
+
+                </h:panelGrid> 
+            </center>
+
         </p:panel>
 
     </h:form>  
