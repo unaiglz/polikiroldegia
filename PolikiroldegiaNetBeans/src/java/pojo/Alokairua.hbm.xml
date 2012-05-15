@@ -4,12 +4,15 @@
 <!-- Generated 12-may-2012 18:09:53 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="pojo.Alokairua" table="Alokairua" catalog="Kirolplus">
-        <id name="bezeroId" type="string">
-            <column name="bezeroID" length="9" />
-            <generator class="assigned" />
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
         </id>
+        <many-to-one name="bezeroa" class="pojo.Bezeroa" fetch="select">
+            <column name="bezeroID" length="9" not-null="true" />
+        </many-to-one>
         <many-to-one name="instalazioa" class="pojo.Instalazioa" fetch="select">
-            <column name="instalazioID" not-null="true" unique="true" />
+            <column name="instalazioID" not-null="true" />
         </many-to-one>
         <property name="data" type="string">
             <column name="data" length="25" not-null="true" />

@@ -6,7 +6,8 @@ package pojo;
  */
 public class Alokairua implements java.io.Serializable {
 
-    private String bezeroId;
+    private Integer id;
+    private Bezeroa bezeroa;
     private Instalazioa instalazioa;
     private String data;
     private String ordua;
@@ -15,35 +16,43 @@ public class Alokairua implements java.io.Serializable {
     public Alokairua() {
     }
 
-    public Alokairua(String bezeroId, Instalazioa instalazioa, String data, String ordua) {
-        this.bezeroId = bezeroId;
+    public Alokairua(Bezeroa bezeroa, Instalazioa instalazioa, String data, String ordua) {
+        this.bezeroa = bezeroa;
         this.instalazioa = instalazioa;
         this.data = data;
         this.ordua = ordua;
     }
 
-    public Alokairua(String bezeroId, Instalazioa instalazioa, String data, String ordua, String oharra) {
-        this.bezeroId = bezeroId;
+    public Alokairua(Bezeroa bezeroa, Instalazioa instalazioa, String data, String ordua, String oharra) {
+        this.bezeroa = bezeroa;
         this.instalazioa = instalazioa;
         this.data = data;
         this.ordua = ordua;
         this.oharra = oharra;
     }
 
-    public String getBezeroId() {
-        return this.bezeroId;
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setBezeroId(String bezeroId) {
-        this.bezeroId = bezeroId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Instalazioa getInstalazioa() {
-        return this.instalazioa;
+    public Bezeroa getBezeroa() {
+        return this.bezeroa;
     }
 
-    public void setInstalazioa(Instalazioa instalazioa) {
-        this.instalazioa = instalazioa;
+    public void setBezeroa(Bezeroa bezeroa) {
+        this.bezeroa = bezeroa;
+    }
+
+    public String getData() {
+        return this.data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 
     public String getOrdua() {
@@ -54,19 +63,19 @@ public class Alokairua implements java.io.Serializable {
         this.ordua = ordua;
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-    
-        public String getOharra() {
+    public String getOharra() {
         return this.oharra;
     }
 
     public void setOharra(String oharra) {
         this.oharra = oharra;
+    }
+
+    public Instalazioa getInstalazioa() {
+        return instalazioa;
+    }
+
+    public void setInstalazioa(Instalazioa instalazioa) {
+        this.instalazioa = instalazioa;
     }
 }

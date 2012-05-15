@@ -63,9 +63,7 @@ public class AlokairuZerrenda {
     }
 
     public void alokairuaGorde() {
-        ak.alokairuaGorde(new Alokairua(alo.getBezeroId(), alo.getInstalazioa(), alo.getData(), alo.getOrdua(), alo.getOharra()));
+        ak.alokairuaGorde(new Alokairua(alo.getBezeroa(), alo.getInstalazioa(), alo.getData(), alo.getOrdua(), alo.getOharra()));
         alo = new Alokairua();
     }
-
-    
 }
