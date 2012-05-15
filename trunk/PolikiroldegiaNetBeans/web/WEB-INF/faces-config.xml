@@ -29,6 +29,11 @@
     </converter> 
     
     <converter>
+        <converter-id> bezConv</converter-id>
+        <converter-class>converter.BezeroConverter</converter-class>
+    </converter> 
+    
+    <converter>
         <converter-id>monitoreConv</converter-id>
         <converter-class>converter.MonitoreConverter</converter-class>
     </converter> 
