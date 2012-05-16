@@ -12,19 +12,168 @@
         <ui:composition template="./WEB-INF/Templates/hasierakoOrria.xhtml">
 
             <ui:define name="content">
-                <br/>
+
                 <h1>KURTSOAK</h1>
                 <br/>
                 <h4>
-                    <p></p>
+                    <p>Gure polikiroldegian, kurtso ezberdinak aurkituko dituzu. Beheko aldean dauden laukitxoetan klikatuz, polikiroldegian dauden kurtso ezberdinei buruzko deskribapen txiki bat aurkituko duzu.</p>
 
                 </h4>
 
-                <br/>
-                <div align="center">
-                    <p:graphicImage alt="Irudia" url="irudiak/kur1.jpg"> </p:graphicImage> 
-                </div>
-              
+
+                <h:form>  
+                    <p:accordionPanel multiple="true">  
+                        <p:tab title="Aerobic" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/aerobic1" /> 
+                                <h:outputText  
+                                    value="Jarduera hau musikarekin egiten da. Kirol honek zure gorputza indartzen laguntzen du, sistema kardiobaskularra hobetzen duen bitartean. Gainera, pertsonaren erritmoa eta koordinazioa sustatzen ditu, hainbat koreografia lagun dituen ikuspuntu dinamiko bati esker."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab>  
+
+                        <p:tab title="Aquafitness" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/aquafitness" /> 
+                                <h:outputText  
+                                    value="Aerobic-aren uretako aldaera da. Jarduera-programa material espezifikoarekin eta material espezifikorik gabe garatzen da, eta sistema kardiobaskularra eta indarra hobetzera zuzenduta dago. Gainera, giharrak eta lotailuak sendotzen ditu, eta, beraz, egokia da lesioak saihesteko."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Aquawalking" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/aquawalking" /> 
+                                <h:outputText  
+                                    value="Musikaz lagunduriko entrenamendu aerobikoa da. Ariketa igerilekuan egiten da, uretarako egokitutako korrika egiteko zinta batean. Ariketa kardiobaskular biziko ikastaroa da, eta gorputz osoaren egoera fisiko ona eta tonifikazio muskularra mantentzea du xede. Aquawalkinga oso egokia da indarberritze fisikorako eta errehabilitaziorako, izan ere, artikulazioek ez dute presiorik jasaten, ariketak uretan egiten baitira. Adin eta egoera fisiko orotako pertsonei zuzenduta."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Batuka" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/batuka" /> 
+                                <h:outputText  
+                                    value="Aerobic-aren aldaera bat da. Ariketa eta mugimendu ezberdinak uztatzen ditu erritmo latinoetan oinarritutako musikaren erritmoan, koreografia ezberdinak egiten diren bitartean. Intentsitate ertaineko kirol ikastaroa, aerobic-eko eskolak ezberdinak izan daitezen nahi dutenentzat."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Borroka arteak" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/borrokaarteak" /> 
+                                <h:outputText  
+                                    value="Ikastaro honek borroka eta defentsarako zenbait teknika esploratzen ditu; besteak beste, karatea, taekwondoa eta judoa. Jarduera hau forma fisiko orokorra hobetzeko dago gomendatuta. Defentsa pertsonalaren gaitasunak norberaren kontrola eta autoestimua nabarmen hobetzeko aukera ere ematen du. Adin eta egoera guztietarako."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Borroka libre olinpikoa" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/borrokalibre" /> 
+                                <h:outputText  
+                                    value="Heziketa-balio handiko kirol ikastaroa, haur eta gazteentzat; izan ere, kolpeak erabili gabe aurkaria menperatzeko helburua duen kontaktuko kirola da. Teknika, ahalegin fisikoa, abilezia eta aurkariarekiko errespetua dira balioetako batzuk."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Emakumeentzako gimnasia artistikoa" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/emakumegimnasiaartistiko" /> 
+                                <h:outputText  
+                                    value="Emakumezkoen gimnasia artistikoa koordinazioa, oreka, indarra, erresistentzia eta elastikotasuna txikitatik landu gura duten neskato eta gazteei dago zuzenduta. Kirol modalitate honek lurreko lan gimnastikoa hartzen du barne, barra eta jauzi-zaldia bezalako gailu ezberdinekin. Jarduera honek sistema psikomotorra ezin hobe garatzen laguntzen du."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Erdiondoko igeriketa" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/erdiondoigeriketa" /> 
+                                <h:outputText  
+                                    value="Uretan ariketak egiteko programa, erditu ostean egoera fisikoa hobetzeko eta arinago berreskuratzeko. Ernaldian eta erditzean gehien sufritzen duten gihar taldeak berariaz lantzen dira ariketen bitartez."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Eskalada" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/eskalada" /> 
+                                <h:outputText  
+                                    value="Menditik eskalada-murru estali batera aldatu den jarduera. Horma batek dituen zailtasun bertikal eta horizontalak gainditzean datza, material eta teknika egokiez baliatuz. Eskalada egiteak indarra, erresistentzia eta malgutasuna garatzen laguntzen du. Ikastaro hau 15 pertsona edo gutxiagoko taldeetan egiten da."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Fitness" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/fitness" /> 
+                                <h:outputText  
+                                    value="Sistema kardiobaskularra hobetu eta gihar sistema bizkortzera zuzenduriko gimnasioko ariketa-programa. Fitnessak makina espezifikoak ditu ariketa eta gihar talde bakoitzerako. Jarduera begirale baten laguntzarekin egiten da, eta entrenamendu zirkuitu ezberdinak gomendatu ahal izango ditu gimnasioko makinetan. Edozein pertsonarentzat. Kirol entrenamendua, egoera fisikoa, oro har, eta sistema kardiobaskularra hobetzeko gomendatua."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab>
+
+                        <p:tab title="Igeriketa" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/igeriketa" /> 
+                                <h:outputText  
+                                    value="Igeri egiten ikasteko kirol ikastaroa, maila eta adin ezberdinetarako. Igeriketa uretatik mugitzen ikastean datza, elementu bakar baten laguntzarik gabe. Maila eta adin ezberdinetarako jarduera da."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Padela" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/padela" /> 
+                                <h:outputText  
+                                    value="Padelean jokatzen ikasteko eta gaitzeko ikastaroa. Padela tenisaren aldaera bat da, eta pista itxian jokatzen da. Padela bikoteka jokatzen den kirola da, bata bestearen aurrean, eta funtsezko hiru elementu ditu: pilota, tenisa baino txikiagoa den pista itxia eta pala. Adin eta praktika maila orotako pertsonei zuzenduta. Ikastaro hau 5 pertsona edo gutxiagoko taldeetan egiten da."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Pilates" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/pilates" /> 
+                                <h:outputText  
+                                    value="Pilates barruko giharrak indartzea xede duen entrenamendu sistema da. Gisa horretan, gorputz oreka mantentzen eta jarrera ez osasuntsuak zuzentzen laguntzen du. Pilatesek arreta berezia ematen dio adimenaren eta gorputzaren artean oreka egoteari. Horretarako, erlaxazio teknikak yoga, gimnasia, traumatologia eta ballet teknikekin batera erabiltzen ditu, besteak beste. Malgutasuna bultzatzen duen jarduera da, eta pertsona guztiek egin dezakete. Ikastaro hau 15 pertsona edo gutxiagoko taldeetan egiten da."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Spin Bike" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/spinbike" /> 
+                                <h:outputText  
+                                    value="Bizikleta estatiko batekin egiten den entrenamendu aerobikoa da. Musikaz lagundurik dago eta espezialista batek zuzentzen du. Sistema kardiobaskularra, egoera fisiko orokorra eta erresistentzia garatzeko da egokia. Oso erraza da praktikatzea, eta, beraz, aproposa da adin guztietarako."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Step" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/step" /> 
+                                <h:outputText  
+                                    value="Aerobic-aren modalitate bat da, eta stepaz lagundurik, modu espezifikoan lantzen da. Intentsitate altuko ikastaroak dira, ordu erdiko iraupena dutenak, eta musikaz lagundurik egiten dira. Kirol jarduera honek hanketan eta ipurmasailetan eragiten du bereziki."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Taekwondo" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/taekwondo" /> 
+                                <h:outputText  
+                                    value="Jatorri korearra duen borroka-arte honen hastapenei eta hobekuntzari buruzko kirol ikastaroa. Kontaktua duen kirola da, eta teknika ezberdinez baliatuz (batez ere, beheko gorputz adarretakoak), aurkaria garaitu behar da, ipon edo K.O. bat lortzeko. Txikitatik ikasteko jarduera egokia da, parte-hartzaileek lana eta diziplina baloratzen ikasten dutelako."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab>
+
+                        <p:tab title="Tenis" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/tenos" /> 
+                                <h:outputText  
+                                    value="Kirol honetan jokatzen ikasteko eta gaitzeko programa. Tenisean jokatuz, gaitasun aerobikoa eta kardiobaskularra hobetzen dira, bai eta indar muskularra, abiadura eta erreflexuak ere. Umeentzako nahiz nagusientzako taldeak daude, maila ezberdinekin. Ikastaro hau 5 pertsona edo gutxiagoko taldeetan egiten da."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                        <p:tab title="Yoga" titleStyle="font-size: 16px">  
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <p:graphicImage value="irudiak/yoga" /> 
+                                <h:outputText  
+                                    value="Erlaxazioa eta norberaren ongizatea lortzea xede duen ariketa, hainbat ariketaren bitartez. Yogak ekialdeko kulturan du jatorria. Yogak arnasketa eta erlaxazio teknikak uztartzen ditu jarrera ezberdinei esker, adimenaren eta gorputzaren arteko oreka bilatzeko. Jarduera lasaia da, koordinazioa eta malgutasuna sustatzeko egokia. Adin guztietako pertsonei zuzenduta."  style="font-size: 14px; text-align: justify"  />  
+                            </h:panelGrid>  
+                        </p:tab> 
+
+                    </p:accordionPanel>  
+
+
+
+
+                </h:form> 
+
 
             </ui:define>    
         </ui:composition>

@@ -59,9 +59,11 @@ public class BezeroZerrenda {
 
     public void bezeroaGorde() {
         System.out.println("BezeroZerrenda > Bezeroa : " + bez);
-        ek.bezeroaGorde(new Bezeroa(bez.getId(), bez.getTarifa(), bez.getIzena(), bez.getAbizena(), bez.getEmaila(), bez.getPasahitza(), bez.getJaioData(), "2025-12-31"));
+        ek.bezeroaGorde(new Bezeroa(bez.getId(), bez.getTarifa(), bez.getIzena(), bez.getAbizena(), bez.getEmaila(), bez.getPasahitza(), bez.getJaioData(), kalkulatuIraupena()));
         bez = new Bezeroa();
     }
+    
+    
 
     public void ezabatuBezeroa(Bezeroa inst) {
         zerrenda.remove(inst);
@@ -105,5 +107,10 @@ public class BezeroZerrenda {
 
     public void setErakutsi(boolean erakutsi) {
         this.erakutsi = erakutsi;
+    }
+
+    private String kalkulatuIraupena() {
+        //Hurrengo inplementazioetan modulu hau gehituko da
+        return "2015-12-31";
     }
 }
