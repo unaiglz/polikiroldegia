@@ -4,7 +4,7 @@
 <!-- Generated 12-may-2012 18:09:53 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="pojo.Administratzailea" table="Administratzailea" catalog="Kirolplus">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="string">
             <column name="ID" />
             <generator class="identity" />
         </id>

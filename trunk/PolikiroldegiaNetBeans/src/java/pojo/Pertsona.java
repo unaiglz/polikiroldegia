@@ -9,5 +9,7 @@ package pojo;
  * @author unai
  */
 public interface Pertsona {
+
+    public String getIzena();
     
 }

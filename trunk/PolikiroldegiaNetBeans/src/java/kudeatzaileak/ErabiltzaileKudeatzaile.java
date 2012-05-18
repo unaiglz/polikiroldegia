@@ -26,7 +26,7 @@ public class ErabiltzaileKudeatzaile {
 
     String id;
     String pasahitza;
-    Bezeroa unekoa;
+    Pertsona unekoa;
     Session sesioa;
     FacesContext context;
 
@@ -36,25 +36,41 @@ public class ErabiltzaileKudeatzaile {
     }
 
     public String login() {
-        unekoa = bilatuBezeroa();
-        if (unekoa != null) {
-            // Ondo eginda
-            // Devuelve una redirección
-            if (isAdmin()) {
-                //Esta tuneado para que entre siempre por aqui
-                return "administratzailea";
-            } else if (unekoa.isAktibo()) {
-                return "bezeroa";
-            } else {
-                id = pasahitza = null;
-                return "errorea";
-            }
-
+        unekoa = isAdmin();
+        if( unekoa != null) {
+            return "administratzailea";
         } else {
-            //context.addMessage(null, new FacesMessage("Unknown login, try again"));
             id = pasahitza = null;
             return "errorea";
         }
+        
+        
+        
+        
+// Bezeroa kautotzeko kode tuneatua
+// __________________________________________
+//        unekoa = bilatuBezeroa();
+//        if (unekoa != null) {
+//            // Ondo eginda
+//            // Devuelve una redirección
+//            if (isAdmin()) {
+//                //Esta tuneado para que entre siempre por aqui
+//                return "administratzailea";
+//            } else if (unekoa.isAktibo()) {
+//                return "bezeroa";
+//            } else {
+//                id = pasahitza = null;
+//                return "errorea";
+//            }
+//
+//        } else {
+//            //context.addMessage(null, new FacesMessage("Unknown login, try again"));
+//            id = pasahitza = null;
+//            return "errorea";
+//        }
+        
+        
+//  Administratzailea eta bezeroa ezberdintzen dituen kodea
 //        unekoa = isAdmin();
 //        if (unekoa != null) {
 //            return "adminstratzailea";
@@ -80,23 +96,23 @@ public class ErabiltzaileKudeatzaile {
         return "index";
     }
 
-    private Boolean isAdmin() {
-//        org.hibernate.Transaction tx = null;
-//        ArrayList lista = new ArrayList();
-//        try {
-//            tx = sesioa.beginTransaction();
-//            Criteria crit = sesioa.createCriteria(Administratzailea.class).add(Restrictions.and(Restrictions.eq("izena", id), Restrictions.eq("pasahitza", pasahitza)));
-//            tx.commit();
-//            lista = (ArrayList) crit.list();
-//            if (lista.size() == 1) {
-//                return (Administratzailea) lista.get(0);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            tx.rollback();
-//        }
-//        return null;
-        return true;
+    private Pertsona isAdmin() {
+        org.hibernate.Transaction tx = null;
+        ArrayList lista = new ArrayList();
+        try {
+            tx = sesioa.beginTransaction();
+            Criteria crit = sesioa.createCriteria(Administratzailea.class).add(Restrictions.and(Restrictions.eq("id", id), Restrictions.eq("pasahitza", pasahitza)));
+            tx.commit();
+            lista = (ArrayList) crit.list();
+            if (lista.size() == 1) {
+                return (Administratzailea) lista.get(0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+        }
+        return null;
+//        return true;
     }
 
     /*

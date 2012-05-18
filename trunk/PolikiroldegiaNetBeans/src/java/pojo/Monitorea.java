@@ -9,7 +9,7 @@ import javax.faces.bean.RequestScoped;
 
 @ManagedBean
 @RequestScoped
-public class Monitorea  implements java.io.Serializable {
+public class Monitorea  implements java.io.Serializable, Pertsona {
 
 
      private String id;
